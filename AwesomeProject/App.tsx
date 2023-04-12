@@ -11,6 +11,7 @@ import {styles} from './Styles';
 import * as utils from './GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup} from './Popups';
 import { findRoom } from './FindRoom';
+import useBLE from './useBLE';
 
 const App: React.FC = () => {
   const backgroundImage = 'AwesomeProject/images/Asset5.png';
@@ -27,6 +28,16 @@ const App: React.FC = () => {
   const [invalidDestinaitonPopup, setInvalidDestinaitonPopupVisible] = useState<boolean>(false);
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
+  const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
+
+  // I think this needs to be called once and continues to scan and update closestBeacon
+  const scanForDevices = () => {
+    requestPermissions(isGranted => {
+      if (isGranted) {
+        scanForPeripherals();
+      }
+    });
+  };
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -36,6 +47,7 @@ const App: React.FC = () => {
 
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
+    scanForDevices();
 
     if (!roomFound&& userDestination!='Bathroom') {
       utils.setDestination(userDestination);
