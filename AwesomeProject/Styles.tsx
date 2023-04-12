@@ -1,164 +1,169 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-    background: {
-      flex: 1,
-      resizeMode: 'cover'
-    },
-    text:{
-      fontSize: 45,
-      fontWeight: 'bold',
-      color: '#FFFFFF',
-      textAlign: 'center',
-      marginTop: '25%',
-      marginLeft: '5%',
-      marginRight: '5%'
-    },
-    image:{
-        height: 216,
-        width: 300,
-        marginTop: '20%',
-        marginLeft: '15%',
-        justifyContent: 'center',
-        
-    },
-    button:{
-      borderRadius: 5
-    },
-    navigation: {
-      backgroundColor: '#191919',
-      paddingHorizontal: 10,
-      paddingVertical: 20,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-    },
-    inputBox: {
-      backgroundColor: '#636363',
-      borderRadius: 5,
-      padding: 5,
-      margin: 10,
-      width: 200,
-      height: 70,
-    },
-    inputEnabled: {
-      paddingTop: 15,
-      fontSize: 22,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      color: '#FFFFFF',
-    },
-    inputDisabled: {
-      paddingTop: 15,
-      fontSize: 22,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      color: '#999999',
-    },
-    goButton: {
-      borderRadius: 5,
-      padding: "5%",
-      margin: 10,
-      width: 140,
-      height: 70,
-      
-    },
-    goButtonEnabled:{
-        backgroundColor: '#5B4379',
-    },
-    buttonDisabled:{
-        backgroundColor: '#999999',
-    },
-    goButtonText:{
-      paddingTop: 2,
-      fontSize: 35,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      color: '#fff'
-    },
-    startOverButtonText:{
-      paddingTop: 8,
-      fontSize: 25,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      color: '#fff'
-    },
-    accessibilityButton: {
-        borderRadius: 80,
-        marginBottom: 140,
-        marginLeft: 10,
-        position: 'absolute',
-        bottom: 0,left: 0,right: 0,
-        width: 80,height: 80,
-        justifyContent: 'center',
-        padding: 16
-    },
-    soundButton: {
-      borderRadius: 80,
-      marginBottom: 140,
-      alignSelf: 'flex-end',
-      marginLeft: '78%',
-      margin: 10,
-      position: 'absolute',
-      bottom: 0,left: 0,right: 0,
-      width: 80,height: 80,
-      justifyContent: 'center',
-    },
-    wheelchairImage: {
-        width: 42,
-        height: 52,
-        justifyContent: 'center'
-  
-    },
-    soundImageEnabled: {
-      width: 50,
-      height: 45,
-      margin: 16
-  
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  text: {
+    fontSize: 45,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginTop: '25%',
+    marginLeft: '5%',
+    marginRight: '5%',
+  },
+  image: {
+    height: 216,
+    width: 300,
+    marginTop: '20%',
+    marginLeft: '15%',
+    justifyContent: 'center',
+  },
+  button: {
+    borderRadius: 5,
+  },
+  navigation: {
+    backgroundColor: '#191919',
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  inputBox: {
+    backgroundColor: '#636363',
+    borderRadius: 5,
+    padding: 5,
+    margin: 10,
+    width: 200,
+    height: 70,
+  },
+  inputEnabled: {
+    paddingTop: 15,
+    fontSize: 22,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
+  inputDisabled: {
+    paddingTop: 15,
+    fontSize: 22,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#999999',
+  },
+  goButton: {
+    borderRadius: 5,
+    padding: '5%',
+    margin: 10,
+    width: 140,
+    height: 70,
+  },
+  goButtonEnabled: {
+    backgroundColor: '#5B4379',
+  },
+  buttonDisabled: {
+    backgroundColor: '#999999',
+  },
+  goButtonText: {
+    paddingTop: 2,
+    fontSize: 35,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  startOverButtonText: {
+    paddingTop: 8,
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  accessibilityButton: {
+    borderRadius: 80,
+    marginBottom: 140,
+    marginLeft: 10,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: 80,
+    height: 80,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  soundButton: {
+    borderRadius: 80,
+    marginBottom: 140,
+    alignSelf: 'flex-end',
+    marginLeft: '78%',
+    margin: 10,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: 80,
+    height: 80,
+    justifyContent: 'center',
+  },
+  wheelchairImage: {
+    width: 42,
+    height: 52,
+    justifyContent: 'center',
+  },
+  soundImageEnabled: {
+    width: 50,
+    height: 45,
+    margin: 16,
   },
   soundImageDisabled: {
     width: 65,
     height: 65,
-    margin: 8
+    margin: 8,
   },
-  circleButtonClicked:{
-    backgroundColor: '#FFF'
+  circleButtonClicked: {
+    backgroundColor: '#FFF',
   },
-  circleButtonUnclicked:{
-    backgroundColor: '#000'
+  circleButtonUnclicked: {
+    backgroundColor: '#000',
   },
-  modalBackground:{
+  modalBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.2)'
+    backgroundColor: 'rgba(0,0,0,0.2)',
   },
-  modalContainer:{
+  modalContainer: {
     width: '80%',
     borderRadius: 20,
     backgroundColor: '#FFFFFF',
     padding: 20,
     alignItems: 'center',
   },
-  modalText:{
+  modalText: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#000000',
-    textAlign: 'center'
+    textAlign: 'center',
   },
-  modalTextContainer:{
+  modalTextContainer: {
     backgroundColor: '#DDDDDD',
-      borderRadius: 5,
-      padding: 5,
-      marginTop: 20,
-      width: 200,
-      height: 50,
-      textAlign: 'center',
-  }, 
-  modalOkButton:{
+    borderRadius: 5,
+    padding: 5,
+    marginTop: 20,
+    width: 200,
+    height: 50,
+    textAlign: 'center',
+  },
+  modalOkButtonContainer: {
+    flexDirection: 'row',
+  },
+  modalOkButton: {
     marginTop: 20,
     backgroundColor: '#5B4379',
     borderRadius: 5,
@@ -166,26 +171,33 @@ export const styles = StyleSheet.create({
     width: 100,
     height: 40,
     justifyContent: 'center',
-
   },
-  modalOkButtonText:{
+  modalOkButtonEnabled: {
+    backgroundColor: '#5B4379',
+  },
+  modalOkButtonText: {
     fontSize: 15,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#fff',
   },
-  bathroomButtonContainer:{
+  bathroomButtonContainer: {
     flexDirection: 'row',
     marginTop: 15,
-    marginBottom: 5
+    marginBottom: 5,
   },
   bathroomButton: {
-    backgroundColor: '#5B4379',
     borderRadius: 70,
     margin: 5,
     width: 90,
     height: 40,
     justifyContent: 'center',
-    padding: 5
-  }
-  });
+    padding: 5,
+  },
+  bathroomButtonClicked: {
+    backgroundColor: '#000000',
+  },
+  bathroomButtonUnclicked: {
+    backgroundColor: '#5B4379',
+  },
+});

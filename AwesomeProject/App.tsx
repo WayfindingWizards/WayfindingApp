@@ -1,239 +1,205 @@
-import React, { useState } from 'react';
-import { View, TextInput,TouchableOpacity, Text, Image, ImageBackground, Modal, } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import {styles} from './Styles';
+import * as utils from './GlobalVariables';
+import {InvalidDestinationPopup, NoStartPopup, BathroomPopup} from './Popups';
+import { findRoom } from './FindRoom';
 
-  export let destination: string;
-  export let origin: string;
-  export let bathroom: string;
-  export let okButtonClick: boolean;
+const App: React.FC = () => {
+  const backgroundImage = 'AwesomeProject/images/Asset5.png';
+  const stomperImage = 'AwesomeProject/images/Asset7.png';
+  const soundImageDisabledImage = 'AwesomeProject/images/Asset8.png';
+  const soundImageEnabledImage = 'AwesomeProject/images/Asset10.png';
+  const accessibilityImageDisabledImage = 'AwesomeProject/images/Asset2.png';
+  const accessibilityImageEnabledImage = 'AwesomeProject/images/Asset9.png';
 
-export interface CustomModalProps {
-    modalVisible: boolean;
-    setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-}
+  const [userDestination, setUserDestination] = useState(''); {/*used to change input box as user types in destination*/}
+  const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
+  const [soundButtonClick, setSoundButtonClick] = useState(false);
+  const [noStartPopup, setNoStartPopupVisible] = useState<boolean>(false);
+  const [invalidDestinaitonPopup, setInvalidDestinaitonPopupVisible] = useState<boolean>(false);
+  const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
+  const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
 
-const NoStartPopup: React.FC<CustomModalProps> = ({ modalVisible, setModalVisible}) => {
-  const [userOrigin, setUserOrigin] = useState('');
-
-  const handleOkButtonClick = () => {
-    okButtonClick = true;
-    setModalVisible(!modalVisible)
-    origin = userOrigin;
-  }
-
-  return(
-      <Modal animationType="fade" transparent visible={modalVisible}>
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.modalText}>
-              We couldn't find you.
-            </Text>
-            <Text style={styles.modalText}>
-              Please enter the closest room.
-            </Text>
-            <TextInput
-              style={styles.modalTextContainer}
-              placeholder="Room"
-              placeholderTextColor="#BABABA"
-              onChangeText={setUserOrigin}
-              value={userOrigin}/>
-            <TouchableOpacity
-              style={styles.modalOkButton}
-              onPress={handleOkButtonClick}>
-              <Text style={styles.modalOkButtonText}>OK</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
-    )
-  }
-  
-const BathroomPopup: React.FC<CustomModalProps> = ({ modalVisible, setModalVisible}) => {
-  const [userBathroom, setUserBathroom] = useState('');
-
-  const handleOkButtonClick = () => {
-    okButtonClick = true;
-    setModalVisible(!modalVisible)
-    bathroom = userBathroom;
-  }
-
-    return (
-      <Modal animationType="fade" transparent visible={true}>
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.modalText}>
-              Please select what type of bathroom you want.
-            </Text>
-            <View style={styles.bathroomButtonContainer}>
-              <TouchableOpacity
-                style={styles.bathroomButton}
-                onPress={() => setUserBathroom('Mens Bathroom')}>
-                <Text style={styles.modalOkButtonText}>Men</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.bathroomButton}
-                onPress={() => setUserBathroom('Womens Bathroom')}>
-                <Text style={styles.modalOkButtonText}>Women</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.bathroomButton, styles.buttonDisabled]}
-                disabled={true}
-                onPress={() => setUserBathroom('All Gender')}>
-                <Text style={styles.modalOkButtonText}>All Gender</Text>
-              </TouchableOpacity>
-            </View>
-            
-            <TouchableOpacity
-              style={styles.modalOkButton}
-              onPress={handleOkButtonClick}>
-              <Text style={styles.modalOkButtonText}>OK</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
-    );
+  const isGoButtonEnabled = () => {
+    if (!userDestination) return false;
+    else if (utils.getMapVisible()) return false;
+    return true;
   };
 
+  const handleGoButtonPress = () => {
+    const roomFound: boolean = findRoom(userDestination);
 
-  const InvalidDestination: React.FC<CustomModalProps> = ({ modalVisible, setModalVisible}) => {
-    
-    const handleOkButtonClick = () => {
-      okButtonClick = true;
-      setModalVisible(!modalVisible)
+    if (!roomFound&& userDestination!='Bathroom') {
+      utils.setDestination(userDestination);
+      setInvalidDestinaitonPopupVisible(true);
+    } else if (!utils.getOrigin()) { //checks to see if beacons have found origin
+      utils.setDestination(userDestination);
+      setNoStartPopupVisible(true);
+    } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
+      setBathroomPopupVisible(true);
+    } else { {/*if destination is valid*/}
+      utils.setDestination(userDestination);
+      utils.setMapVisible(true);
+      setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
     }
+  };
 
-    return(
-      <Modal animationType="fade" transparent visible={modalVisible}>
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.modalText}>
-              Invalid Destination
-            </Text>
-            <Text style={styles.modalText}>
-              Please enter a valid destination.
-            </Text>
-            <TouchableOpacity
-              style={styles.modalOkButton}
-              onPress={handleOkButtonClick}>
-              <Text style={styles.modalOkButtonText}>OK</Text>
-            </TouchableOpacity>
-          </View>
+  const handleStartOverButtonPress = () => {
+    utils.reset();
+    setUserDestination('');
+  };
+
+  const handleButtonClickSound = () => {
+    setSoundButtonClick(!soundButtonClick);
+  };
+
+  const handleButtonClickAccessibility = () => {
+    setAccessibilityButtonClick(!accessibilityButtonClick);
+    utils.setAccessibleRoute(!utils.getAccessibleRoute());
+  };
+
+  return (
+    //background image
+    <ImageBackground
+      testID = 'backgroundImage'
+      source={require(backgroundImage)}
+      style={styles.background}>
+      {/* Determines if home screen or map screen is displayed*/}
+      {!utils.getMapVisible() && (
+        <View testID = 'homePage'>
+          <Text id = 'welcomeText' style={styles.text}>Welcome To MNSU Wayfinder!</Text>
+          <Image
+            id = 'stomperImage'
+            source={require(stomperImage)}
+            style={styles.image}
+          />
         </View>
-      </Modal>
-    )
-  }
-
-  const App: React.FC = () => {
-    var soundImageDisabled = "AwesomeProject/images/Asset8.png"
-    var soundImageEnabled = "AwesomeProject/images/Asset10.png"
-    var accessibilityImageDisabled = "AwesomeProject/images/Asset2.png"
-    var accessibilityImageEnabled = "AwesomeProject/images/Asset9.png"
-
-    const [userDestination, setUserDestination] = useState('');
-    const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
-    const [soundButtonClick, setSoundButtonClick] = useState(false);
-    const [noStartPopup, setNoStartPopupVisible] = useState<boolean>(false);
-    const [invalidDestinaitonPopup, setInvalidDestinaitonPopupVisible] = useState<boolean>(false);
-    const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
-    const [readyToRoute, setReadyToRoute] = useState<boolean>(false);
-    const [map, setMap] = useState<Boolean>(false);
-
-    const handleGoButtonPress = () => {
-
-      if (userDestination != destination) {
-        okButtonClick = false;
-      }
-      
-      if (userDestination === 'XXX') {
-        destination = userDestination
-        setInvalidDestinaitonPopupVisible(true);
-      }
-      else if(!okButtonClick && userDestination=== 'N245'){
-        destination = userDestination
-        setNoStartPopupVisible(true);
-      }
-      else if (!okButtonClick && userDestination === 'Bathroom') {
-        destination = userDestination
-        setBathroomPopupVisible(true);
-      }else{
-        setReadyToRoute(true);
-        setMap(true);
-      }
-    }
-
-    const handleButtonClickSound = () => {
-      setSoundButtonClick(!soundButtonClick);
-    };
-
-    const handleButtonClickAccessibility = () => {
-      setAccessibilityButtonClick(!accessibilityButtonClick);
-    };
-
-    const isGoButtonEnabled = () => {
-      if (!userDestination) return false;
-      else if (map) return false;
-      return true;
-    }
-
-
-    const handleStartOverButtonPress = () => {
-      setReadyToRoute(false);
-      setUserDestination('')
-      setMap(false);
-      destination = '';
-      origin = '';
-      bathroom = '';
-      okButtonClick = false;
-    }
-
-    
-    return (
-      //background image
-      <ImageBackground source={require('AwesomeProject/images/Asset5.png')} style={styles.background}>
-        {/* message and image */}
-         {!readyToRoute && <View>
-          <Text style={styles.text}>Welcome To MNSU Wayfinder!</Text>
-          <Image source={require('AwesomeProject/images/Asset7.png')} style={styles.image}/>
-        </View>}
-        {readyToRoute && <View>
+      )}
+      {utils.getMapVisible() && (
+        <View testID = 'mapVisiblePage'>
           <Text style={styles.text}>Map Visible</Text>
-        </View>}
-        {/* accessibility and sound buttons */}
-        <TouchableOpacity style={[styles.accessibilityButton,accessibilityButtonClick?styles.circleButtonClicked:styles.circleButtonUnclicked]} onPress={handleButtonClickAccessibility}>
-          <Image source={accessibilityButtonClick?require(accessibilityImageEnabled):require(accessibilityImageDisabled)} style={styles.wheelchairImage} />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.soundButton,soundButtonClick?styles.circleButtonClicked:styles.circleButtonUnclicked]} onPress= {handleButtonClickSound}>
-          <Image source={soundButtonClick?require(soundImageEnabled):require(soundImageDisabled)} style={soundButtonClick?styles.soundImageEnabled:styles.soundImageDisabled} />
-        </TouchableOpacity>
-        {/* destination input and go button */}
-        <View style={styles.navigation}>
-          <View style={styles.inputBox}>
-            <TextInput
-              style={isGoButtonEnabled()? styles.inputEnabled: styles.inputDisabled}
-              placeholder="Enter Destination"
-              placeholderTextColor="#CCCCCC"
-              onChangeText={setUserDestination}
-              value={userDestination}
-              editable = {!map}
-            />
-          </View>
-          <View>
-            {!map && <TouchableOpacity style={[styles.goButton, userDestination ? styles.goButtonEnabled : styles.buttonDisabled]} disabled={!userDestination} onPress={handleGoButtonPress}>
-              <Text style={styles.goButtonText}>GO</Text>
-            </TouchableOpacity>}
-            {map &&<TouchableOpacity style={[styles.goButton, userDestination ? styles.goButtonEnabled : styles.buttonDisabled]} disabled={!userDestination} onPress={handleStartOverButtonPress}>
-              <Text style={styles.startOverButtonText}>Start Over</Text>
-            </TouchableOpacity>}
-          </View>
         </View>
-        {/* displays popups if condition is true */}
-        {noStartPopup && <NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible} />}
-        {invalidDestinaitonPopup && <InvalidDestination modalVisible={invalidDestinaitonPopup} setModalVisible={setInvalidDestinaitonPopupVisible}/> }
-        {bathroomPopup && <BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible} />}
-      </ImageBackground>
-      
-    );
-  };
-  
+      )}
+      {/* accessibility and sound buttons */}
+      <TouchableOpacity
+        testID = 'accessibilityButton'
+        style={[
+          styles.accessibilityButton,
+          accessibilityButtonClick
+            ? styles.circleButtonClicked
+            : styles.circleButtonUnclicked,
+        ]}
+        onPress={handleButtonClickAccessibility}>
+        <Image
+          source={
+            accessibilityButtonClick
+              ? require(accessibilityImageEnabledImage)
+              : require(accessibilityImageDisabledImage)
+          }
+          style={styles.wheelchairImage}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        testID = 'soundButton'
+        style={[
+          styles.soundButton,
+          soundButtonClick
+            ? styles.circleButtonClicked
+            : styles.circleButtonUnclicked,
+        ]}
+        onPress={handleButtonClickSound}>
+        <Image
+          source={
+            soundButtonClick
+              ? require(soundImageEnabledImage)
+              : require(soundImageDisabledImage)
+          }
+          style={
+            soundButtonClick
+              ? styles.soundImageEnabled
+              : styles.soundImageDisabled
+          }
+        />
+      </TouchableOpacity>
+      {/* destination input and go button */}
+      <View style={styles.navigation} id = 'navigationContainer'>
+        <View style={styles.inputBox} id = 'destinationInputBox'>
+          <TextInput
+            testID = 'destinationInput'
+            style={
+              isGoButtonEnabled() ? styles.inputEnabled : styles.inputDisabled
+            }
+            placeholder="Enter Destination"
+            placeholderTextColor="#CCCCCC"
+            onChangeText={setUserDestination}
+            value={userDestination}
+            editable={!utils.getMapVisible()}
+          />
+        </View>
 
-  export default App;
+        {/*Determines if go button or start over button is displayed*/}
+        <View>
+          {!utils.getMapVisible() && (
+            <TouchableOpacity
+              testID = 'goButton'
+              style={[
+                styles.goButton,
+                userDestination
+                  ? styles.goButtonEnabled
+                  : styles.buttonDisabled,
+              ]}
+              disabled={!userDestination}
+              onPress={handleGoButtonPress}>
+              <Text style={styles.goButtonText}>GO</Text>
+            </TouchableOpacity>
+          )}
+          {utils.getMapVisible() && (
+            <TouchableOpacity
+              testID = 'startOverButton'
+              style={[
+                styles.goButton,
+                userDestination
+                  ? styles.goButtonEnabled
+                  : styles.buttonDisabled,
+              ]}
+              disabled={!userDestination}
+              onPress={handleStartOverButtonPress}>
+              <Text style={styles.startOverButtonText}>Start Over</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      </View>
+      {/* displays popups if condition is true */}
+      {noStartPopup && (
+        <NoStartPopup
+          testID = 'noStartPopup'
+          modalVisible={noStartPopup}
+          setModalVisible={setNoStartPopupVisible}
+        />
+      )}
+      {invalidDestinaitonPopup && (
+        <InvalidDestinationPopup
+          testID = 'invalidDestinationPopup'
+          modalVisible={invalidDestinaitonPopup}
+          setModalVisible={setInvalidDestinaitonPopupVisible}
+        />
+      )}
+      {bathroomPopup && (
+        <BathroomPopup
+          testID = 'bathroomPopup'
+          modalVisible={bathroomPopup}
+          setModalVisible={setBathroomPopupVisible}
+        />
+      )}
+    </ImageBackground>
+  );
+};
+export default App;
