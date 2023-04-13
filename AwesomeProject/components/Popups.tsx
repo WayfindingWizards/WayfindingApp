@@ -4,23 +4,23 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
-  StyleSheet,
   TextInput,
+  Image
 } from 'react-native';
-import {styles} from './Styles';
+import { popupStyles } from '../styles/PopupStyles';
+import { baseStyles } from '../styles/BaseStyles';
+import { helpStyles } from '../styles/HelpPopupStyles';
+import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
 
 export interface CustomModalProps {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  testID: string;
 }
 
 export const NoStartPopup: React.FC<CustomModalProps> = ({
   modalVisible,
-  setModalVisible,
-  testID,
+  setModalVisible
 }) => {
   const [originInput, setOriginInput] = useState('');
 
@@ -32,21 +32,21 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <View style={styles.modalBackground}>
-        <View style={styles.modalContainer}>
-          <Text style={styles.modalText}>We couldn't find you.</Text>
-          <Text style={styles.modalText}>Please enter the closest room.</Text>
+      <View style={popupStyles.modalBackground}>
+        <View style={popupStyles.modalContainer}>
+          <Text style={popupStyles.modalText}>We couldn't find you.</Text>
+          <Text style={popupStyles.modalText}>Please enter the closest room.</Text>
           <TextInput
-            style={styles.modalTextContainer}
+            style={popupStyles.modalTextContainer}
             placeholder="Room"
             placeholderTextColor="#BABABA"
             onChangeText={setOriginInput}
             value={originInput}
           />
           <TouchableOpacity
-            style={styles.modalOkButton}
+            style={popupStyles.modalOkButton}
             onPress={handleOkButtonClick}>
-            <Text style={styles.modalOkButtonText}>OK</Text>
+            <Text style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -98,55 +98,55 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={true}>
-      <View style={styles.modalBackground}>
-        <View style={styles.modalContainer}>
-          <Text style={styles.modalText}>
+      <View style={popupStyles.modalBackground}>
+        <View style={popupStyles.modalContainer}>
+          <Text style={popupStyles.modalText}>
             Please select what type of bathroom you want.
           </Text>
-          <View style={styles.bathroomButtonContainer}>
+          <View style={popupStyles.bathroomButtonContainer}>
             <TouchableOpacity
               style={[
-                styles.bathroomButton,
+                popupStyles.bathroomButton,
                 mensBathroomClick
-                  ? styles.bathroomButtonClicked
-                  : styles.bathroomButtonUnclicked,
+                  ? popupStyles.bathroomButtonClicked
+                  : popupStyles.bathroomButtonUnclicked,
               ]}
               onPress={() => handleBathroomButtonClick('Mens Bathroom')}>
-              <Text style={styles.modalOkButtonText}>Men</Text>
+              <Text style={popupStyles.modalOkButtonText}>Men</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
-                styles.bathroomButton,
+                popupStyles.bathroomButton,
                 womensBathroomClick
-                  ? styles.bathroomButtonClicked
-                  : styles.bathroomButtonUnclicked,
+                  ? popupStyles.bathroomButtonClicked
+                  : popupStyles.bathroomButtonUnclicked,
               ]}
               onPress={() => handleBathroomButtonClick('Womens Bathroom')}>
-              <Text style={styles.modalOkButtonText}>Women</Text>
+              <Text style={popupStyles.modalOkButtonText}>Women</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.bathroomButton, styles.buttonDisabled]}
+              style={[popupStyles.bathroomButton, baseStyles.buttonDisabled]}
               disabled={true}
               onPress={() => handleBathroomButtonClick('All Gender')}>
-              <Text style={styles.modalOkButtonText}>All Gender</Text>
+              <Text style={popupStyles.modalOkButtonText}>All Gender</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.modalOkButtonContainer}>
+          <View style={popupStyles.modalOkButtonContainer}>
             <TouchableOpacity
               style={[
-                styles.modalOkButton,
+                popupStyles.modalOkButton,
                 okButtonEnabled
-                  ? styles.modalOkButtonEnabled
-                  : styles.buttonDisabled,
+                  ? popupStyles.modalOkButtonEnabled
+                  : baseStyles.buttonDisabled,
               ]}
               disabled={!okButtonEnabled}
               onPress={handleOkButtonClick}>
-              <Text style={styles.modalOkButtonText}>OK</Text>
+              <Text style={popupStyles.modalOkButtonText}>OK</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.modalOkButton}
+              style={popupStyles.modalOkButton}
               onPress={handleCancelButtonClick}>
-              <Text style={styles.modalOkButtonText}>Cancel</Text>
+              <Text style={popupStyles.modalOkButtonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -168,20 +168,58 @@ export const InvalidDestinationPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <View style={styles.modalBackground}>
-        <View style={styles.modalContainer}>
-          <Text style={styles.modalText}>Invalid Destination</Text>
-          <Text style={styles.modalText}>
+      <View style={popupStyles.modalBackground}>
+        <View style={popupStyles.modalContainer}>
+          <Text style={popupStyles.modalText}>Invalid Destination</Text>
+          <Text style={popupStyles.modalText}>
             Please enter a valid destination.
           </Text>
           <TouchableOpacity
             testID = 'okButton'
-            style={styles.modalOkButton}
+            style={popupStyles.modalOkButton}
             onPress={handleOkButtonClick}>
-            <Text  style={styles.modalOkButtonText}>OK</Text>
+            <Text  style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
       </View>
     </Modal>
   );
 };
+
+export const HelpPopup: React.FC<CustomModalProps> = ({
+  modalVisible,
+  setModalVisible,
+}) => {
+  {
+    /* This doesn't change ready to route as the user needs to change the destination input */
+  }
+  const handleOkButtonClick = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  return (
+    <Modal animationType="fade" transparent visible={modalVisible}>
+      <View style={helpStyles.modalBackground}>
+        <View style={helpStyles.modalContainer}>
+          <View style={helpStyles.explanationContainers}>
+            <Text style = {helpStyles.text}>Accessible Route:</Text>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('AwesomeProject/images/access_ena_image.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
+            </View>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('AwesomeProject/images/access_dis_image.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            testID = 'okButton'
+            style={helpStyles.helpOkButton}
+            onPress={handleOkButtonClick}>
+            <Text  style={popupStyles.modalOkButtonText}>OK</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+}

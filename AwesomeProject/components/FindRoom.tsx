@@ -1,4 +1,4 @@
-import { traftonNorthRooms } from "./buildingRoomData/traftonNorthRooms";
+import { traftonNorthRooms } from "../buildingRoomData/traftonNorthRooms";
 
 const buildings = new Map<string, Map<string, string[]>>(); //map of building abbreviations to files with building room numbers
 buildings.set("TN", traftonNorthRooms);
