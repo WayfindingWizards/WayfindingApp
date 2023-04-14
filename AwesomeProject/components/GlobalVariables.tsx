@@ -4,6 +4,7 @@ let bathroom: string = '';
 let isBathroomSet: boolean = false;
 let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
+let closestBeacon: number;
 
 export function getDestination(): string{
   return destination;
@@ -29,6 +30,10 @@ export function getAccessibleRoute():boolean {
   return accessibleRoute;
 }
 
+export function getClosestBeacon(): number {
+  return closestBeacon;
+}
+
 export function setDestination(newDestination: string) {
   destination = newDestination;
 }
@@ -51,6 +56,11 @@ export function setMapVisible(newMapVisible: boolean) {
 
 export function setAccessibleRoute(newAccessibleRoute: boolean) {
   accessibleRoute = newAccessibleRoute;
+}
+
+export function setClosestBeacon(newClosestBeacon: number) {
+  closestBeacon = newClosestBeacon;
+  console.log(closestBeacon);
 }
 
 export function reset() {

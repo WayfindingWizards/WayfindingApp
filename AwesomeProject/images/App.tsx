@@ -5,6 +5,7 @@ import * as utils from '../components/GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from '../components/Popups';
 import { findRoom } from '../components/FindRoom';
 import Video from 'react-native-video';
+import useBLE from './useBLE';
 
 const App: React.FC = () => {
   const backgroundImage = 'AwesomeProject/images/Asset5.png';
@@ -25,6 +26,16 @@ const App: React.FC = () => {
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
   const [helpPopup, setHelpPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
+  const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
+
+  // I think this needs to be called once and continues to scan and update closestBeacon
+  const scanForDevices = () => {
+    requestPermissions(isGranted => {
+      if (isGranted) {
+        scanForPeripherals();
+      }
+    });
+  };
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -34,6 +45,7 @@ const App: React.FC = () => {
 
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination); // calls roomFound function in FindRoom.tsx
+    scanForDevices();
 
     if (!roomFound&& userDestination!='Bathroom') { 
       utils.setDestination(userDestination); // sets global destination variable to local destination variable
