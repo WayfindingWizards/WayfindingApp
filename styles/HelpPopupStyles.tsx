@@ -7,7 +7,8 @@ text: {
     color: '#000000',
     fontWeight: '500',
     justifyContent: 'flex-start',
-    marginTop: 15
+    marginTop: 15,
+    minWidth: 50,
 },
 explanationContainers:{
     flexDirection: 'row',

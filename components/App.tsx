@@ -19,8 +19,6 @@ const App: React.FC = () => {
   const stomperImage = 'AwesomeProject/images/Asset7.png';
 
   const [userDestination, setUserDestination] = useState(''); {/*used to change input box as user types in destination*/}
-  const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
-  const [soundButtonClick, setSoundButtonClick] = useState(false);
   const [noStartPopup, setNoStartPopupVisible] = useState<boolean>(false);
   const [invalidDestinatonPopup, setInvalidDestinationPopupVisible] = useState<boolean>(false);
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
@@ -37,16 +35,16 @@ const App: React.FC = () => {
     const roomFound: boolean = findRoom(userDestination);
 
     if (!roomFound&& userDestination!='Bathroom') {
-      utils.setDestination(userDestination);
-      setInvalidDestinationPopupVisible(true);
+      utils.setDestination(userDestination); // sets destination global to userDestination
+      setInvalidDestinationPopupVisible(true); //set to false by default on line 23
     } else if (!utils.getOrigin()) { //checks to see if beacons have found origin
-      utils.setDestination(userDestination);
-      setNoStartPopupVisible(true);
+      utils.setDestination(userDestination); //sets destination global to userDestination
+      setNoStartPopupVisible(true); //set to false by default on line 22
     } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
-      setBathroomPopupVisible(true);
+      setBathroomPopupVisible(true); //set to false by default on line 24
     } else { {/*if destination is valid*/}
-      utils.setDestination(userDestination);
-      utils.setMapVisible(true);
+      utils.setDestination(userDestination); //sets destination global to user destination
+      utils.setMapVisible(true); //sets mapVisible global to true
       setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
     }
   };
@@ -67,6 +65,7 @@ const App: React.FC = () => {
       source={require(backgroundImage)}
       style={baseStyles.background}>
       {/* Determines if home screen or map screen is displayed*/}
+      {/*home screen visible*/}
       {!utils.getMapVisible() && (
         <View testID = 'homePage'>
           <Text id = 'welcomeText' style={baseStyles.text}>Welcome To MNSU Wayfinder!</Text>
@@ -77,6 +76,7 @@ const App: React.FC = () => {
           />
         </View>
       )}
+      {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
           <Image source={require('AwesomeProject/images/model.png')} style = {baseStyles.modelImage}></Image>
@@ -110,6 +110,7 @@ const App: React.FC = () => {
 
         {/*Determines if go button or start over button is displayed*/}
         <View>
+        {/*displays go button when home screen is visible*/}
         {!utils.getMapVisible() && (
             <TouchableOpacity
               testID = 'goButton'
@@ -119,6 +120,7 @@ const App: React.FC = () => {
               <Text style={baseStyles.goButtonText}>GO</Text>
             </TouchableOpacity>
           )}
+          {/*displays start over button when map is visible*/}
           {utils.getMapVisible() && (
             <TouchableOpacity
               testID = 'startOverButton'
@@ -130,7 +132,7 @@ const App: React.FC = () => {
           )}
         </View>
       </View>
-      {/* displays popups if condition is true */}
+      {/* displays popups if popup is set to true in the go button handler*/}
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}

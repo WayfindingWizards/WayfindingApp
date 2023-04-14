@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,} from 'react-native';
-import {baseStyles} from '../styles/BaseStyles';
+import {TouchableOpacity,Image} from 'react-native';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
 
@@ -12,18 +11,17 @@ export interface AccessButtonProps {
    ID
   }) => {
 
-    const accessibilityImageDisabledImage = 'AwesomeProject/images/access_disabled.png';
-    const accessibilityImageEnabledImage = 'AwesomeProject/images/Asset9.png';
+    const accessibilityImageDisabledImage = '../images/access_disabled.png';
+    const accessibilityImageEnabledImage = '../images/Asset9.png';
     const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
 
     const handleButtonClickAccessibility = () => {
       setAccessibilityButtonClick(!accessibilityButtonClick);
-      utils.setAccessibleRoute(!utils.getAccessibleRoute());
+      utils.setAccessibleRoute(!utils.getAccessibleRoute()); //sets accessible route global to true or false
     };
   
     return(
       <TouchableOpacity
-      testID = 'accessibilityButton'
       style={[accessibilityStyles.accessibilityButton, accessibilityButtonClick ? accessibilityStyles.circleButtonClicked : accessibilityStyles.circleButtonUnclicked]}
       onPress={handleButtonClickAccessibility}>
       <Image source={ accessibilityButtonClick ? require(accessibilityImageEnabledImage) : require(accessibilityImageDisabledImage)}
@@ -37,9 +35,9 @@ export interface AccessButtonProps {
     ID
    }) => {
  
-    const soundImageDisabledImage = 'AwesomeProject/images/Asset8.png';
-    const soundImageEnabledImage = 'AwesomeProject/images/Asset10.png';
-     const [soundButtonClick, setSoundButtonClick] = useState(false);
+    const soundImageDisabledImage = '../images/Asset8.png';
+    const soundImageEnabledImage = '../images/Asset10.png';
+    const [soundButtonClick, setSoundButtonClick] = useState(false);
  
      const handleButtonClickSound = () => {
       setSoundButtonClick(!soundButtonClick);
@@ -61,8 +59,8 @@ export interface AccessButtonProps {
     ID
    }) => {
  
-    const voiceCommandButtonImageDisabled = 'AwesomeProject/images/mic_disabled.png';
-    const voiceCommandButtonImageEnabled = 'AwesomeProject/images/mic_enabled.png';
+    const voiceCommandButtonImageDisabled = '../images/mic_disabled.png';
+    const voiceCommandButtonImageEnabled = '../images/mic_enabled.png';
     const [voiceCommandButtonClick, setVoiceCommandButtonClick] = useState(false);
  
      const handleButtonClickVoiceCommand = () => {

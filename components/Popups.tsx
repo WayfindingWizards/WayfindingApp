@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Modal,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput,
-  Image
-} from 'react-native';
+import {Modal,Text,TouchableOpacity,View,TextInput,Image} from 'react-native';
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
 import { helpStyles } from '../styles/HelpPopupStyles';
@@ -204,12 +197,40 @@ export const HelpPopup: React.FC<CustomModalProps> = ({
           <View style={helpStyles.explanationContainers}>
             <Text style = {helpStyles.text}>Accessible Route:</Text>
             <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('AwesomeProject/images/access_ena_image.png')} />
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_ena_help_menu.png')} />
               <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
             </View>
             <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('AwesomeProject/images/access_dis_image.png')} />
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_dis_help_menu.png')} />
               <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
+            </View>
+          </View>
+          <View style={helpStyles.explanationContainers}>
+            <Text style = {helpStyles.text}>{"\t".repeat(5)}Sound:{"\t".repeat(6)}</Text>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_ena_help_menu.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
+            </View>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_dis_help_menu.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
+            </View>
+          </View>
+          <View style={helpStyles.explanationContainers}>
+            <Text style = {helpStyles.text}>Voice Commands:</Text>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/voice_ena_help_menu.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
+            </View>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/voice_dis_help_menu.png')} />
+              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
+            </View>
+          </View>
+          <View style={helpStyles.explanationContainers}>
+            <Text style = {[helpStyles.text,{marginLeft: 10}]}>Destination Format:</Text>
+            <View style = {helpStyles.enabledDisabledImageAndText}>
+              <Text style = {[helpStyles.text, {marginLeft:5}]}>TN+Room ex. "TN150"</Text>
             </View>
           </View>
           <TouchableOpacity

@@ -81,8 +81,6 @@ export const baseStyles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
- 
-  
   modelImage:{
     width: '100%',
     height: '100%',
