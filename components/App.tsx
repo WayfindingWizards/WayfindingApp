@@ -77,6 +77,7 @@ const App: React.FC = () => {
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
           <Image source={require('AwesomeProject/images/model_image.png')} style = {baseStyles.modelImage}></Image>
+        </View>)}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
           <Image source={require('AwesomeProject/images/model.png')} style = {baseStyles.modelImage}></Image>
@@ -144,6 +145,9 @@ const App: React.FC = () => {
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}
       {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }  
     </ImageBackground>
+
   );
 };
+
+
 export default App;
