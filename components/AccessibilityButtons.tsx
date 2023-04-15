@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {TouchableOpacity,Image} from 'react-native';
+import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,} from 'react-native';
+import {baseStyles} from '../styles/BaseStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
 
@@ -10,6 +11,7 @@ export interface AccessButtonProps {
   export const AccessibleRouteButton: React.FC<AccessButtonProps> = ({
    ID
   }) => {
+
 
     const accessibilityImageDisabledImage = '../images/access_disabled.png';
     const accessibilityImageEnabledImage = '../images/access_enabled.png';

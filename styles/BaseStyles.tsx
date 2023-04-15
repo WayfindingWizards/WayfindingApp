@@ -1,5 +1,4 @@
 import {StyleSheet,Platform} from 'react-native';
-import getFontSize from '../components/App'
 
 export const baseStyles = StyleSheet.create({
   background: {
