@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 export const accessibilityStyles = StyleSheet.create({
 
     accessibilityButton: {
         borderRadius: 80,
-        marginBottom: 130,
+        marginBottom: 135,
         marginLeft: 10,
         position: 'absolute',
         bottom: 0,
@@ -17,9 +17,9 @@ export const accessibilityStyles = StyleSheet.create({
       },
       soundButton: {
         borderRadius: 80,
-        marginBottom: 130,
+        marginBottom: 135,
         alignSelf: 'flex-end',
-        marginLeft: '81.5%',
+        marginLeft: Platform.OS === 'ios' ? '81%' : '81.5%',
         margin: 10,
         position: 'absolute',
         bottom: 0,
@@ -33,8 +33,8 @@ export const accessibilityStyles = StyleSheet.create({
         borderRadius: 80,
         marginBottom: 210,
         alignSelf: 'flex-end',
-        marginLeft: '81.5%',
         margin: 10,
+        marginLeft: Platform.OS === 'ios' ? '81%' : '81.5%',
         position: 'absolute',
         bottom: 0,
         left: 0,
@@ -77,21 +77,17 @@ export const accessibilityStyles = StyleSheet.create({
       },
       helpButton: {
         borderRadius: 80,
-        marginLeft: 10,
-        marginTop: 10,
+        marginLeft: Platform.OS === 'ios' ? '5%' : '3%',
+        marginTop: Platform.OS === 'ios' ? '10%' : '3%',
         position: 'absolute',
-        left: 0,
-        right: 0,
-        width: 45,
-        height: 45,
+        width: Platform.OS === 'ios' ? 30 : 30,
+        height: Platform.OS === 'ios' ? 15 : 30,
         justifyContent: 'center',
-        padding: 13,
       },
       helpButtonText: {
         fontSize: 27,
         fontWeight: 'bold',
         color: '#B3B3B3',
         textAlign: 'center',
-        marginTop: -10,
       }
 })

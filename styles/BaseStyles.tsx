@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet,Platform} from 'react-native';
 
 export const baseStyles = StyleSheet.create({
   background: {
@@ -6,11 +6,11 @@ export const baseStyles = StyleSheet.create({
     resizeMode: 'cover',
   },
   text: {
-    fontSize: 45,
+    fontSize: Platform.OS === 'ios' ? 35 : 45,
     fontWeight: 'bold',
     color: '#FFFFFF',
     textAlign: 'center',
-    marginTop: '25%',
+    marginTop: '30%',
     marginLeft: '5%',
     marginRight: '5%',
   },
@@ -23,8 +23,8 @@ export const baseStyles = StyleSheet.create({
   },
   navigation: {
     backgroundColor: '#191919',
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingHorizontal: 0,
+    paddingVertical: Platform.OS === 'ios' ? 12 : 8,
     flexDirection: 'row',
     justifyContent: 'center',
     position: 'absolute',
@@ -37,19 +37,21 @@ export const baseStyles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     margin: 10,
+    marginBottom: Platform.OS === 'ios' ? 35 : 25,
     width: 200,
     height: 70,
+    alignSelf: 'center'
   },
   inputEnabled: {
     paddingTop: 15,
-    fontSize: 22,
+    fontSize: Platform.OS === 'ios' ? 18 : 22,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#FFFFFF',
   },
   inputDisabled: {
     paddingTop: 15,
-    fontSize: 22,
+    fontSize: Platform.OS === 'ios' ? 18 : 22,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#999999',
@@ -69,20 +71,18 @@ export const baseStyles = StyleSheet.create({
   },
   goButtonText: {
     paddingTop: 2,
-    fontSize: 35,
+    fontSize: Platform.OS === 'ios' ? 30 : 35,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#fff',
   },
   startOverButtonText: {
     paddingTop: 8,
-    fontSize: 25,
+    fontSize: Platform.OS === 'ios' ? 20 : 25,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#fff',
   },
- 
-  
   modelImage:{
     width: '100%',
     height: '100%',
