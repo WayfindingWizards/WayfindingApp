@@ -17,6 +17,7 @@ const App: React.FC = () => {
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
   const [helpPopup, setHelpPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
+
   const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
   const isGoButtonEnabled = () => {
@@ -59,6 +60,7 @@ const App: React.FC = () => {
       source={require(backgroundImage)}
       style={baseStyles.background}>
       {/* Determines if home screen or map screen is displayed*/}
+
       {/*home screen visible*/}
       {!utils.getMapVisible() && (
         <View testID = 'homePage'>
@@ -70,10 +72,14 @@ const App: React.FC = () => {
           />
         </View>
       )}
+      
       {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
           <Image source={require('AwesomeProject/images/model_image.png')} style = {baseStyles.modelImage}></Image>
+      {utils.getMapVisible() && (
+        <View testID = 'mapVisiblePage'>
+          <Image source={require('AwesomeProject/images/model.png')} style = {baseStyles.modelImage}></Image>
         </View>
       )}
       {/* accessibility and sound buttons */}
@@ -82,6 +88,7 @@ const App: React.FC = () => {
         onPress={handleHelpButtonPress}>
         <Text style={accessibilityStyles.helpButtonText}>?</Text>
       </TouchableOpacity>
+      
         <AccessibleRouteButton ID='accessibility button'></AccessibleRouteButton>
         <SoundButton ID='soundButton'></SoundButton>
         <VoiceCommandButton ID='voice command button'></VoiceCommandButton>
@@ -105,6 +112,7 @@ const App: React.FC = () => {
 
         {/*Determines if go button or start over button is displayed*/}
         <View>
+
         {/*displays go button when home screen is visible*/}
         {!utils.getMapVisible() && (
             <TouchableOpacity
@@ -115,6 +123,7 @@ const App: React.FC = () => {
               <Text style={baseStyles.goButtonText}>GO</Text>
             </TouchableOpacity>
           )}
+
           {/*displays start over button when map is visible*/}
           {utils.getMapVisible() && (
             <TouchableOpacity
@@ -126,8 +135,10 @@ const App: React.FC = () => {
             </TouchableOpacity>
           )}
         </View>
+
       </ViewComponent>
       {/* displays popups if popup is set to true in the go button handler*/}
+
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}

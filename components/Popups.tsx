@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
+
 import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView} from 'react-native';
+
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
 import { helpStyles } from '../styles/HelpPopupStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
+
 import {findRoom} from './FindRoom';
+
 
 export interface CustomModalProps {
   modalVisible: boolean;
@@ -17,6 +21,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
   setModalVisible
 }) => {
   const [originInput, setOriginInput] = useState('');
+
   const [validInput, setValidInput] = useState(true);
 
   const handleOkButtonClick = () => {
@@ -40,6 +45,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
           <Text style={popupStyles.modalText}>Please enter the closest room.</Text></View>}
           {!validInput && <View>
           <Text style={popupStyles.modalText}>Please enter a valid room.</Text></View>}
+          
           <TextInput
             style={popupStyles.modalTextContainer}
             placeholder="Room"
@@ -48,6 +54,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
             value={originInput}
           />
           <TouchableOpacity
+
             style={[
               popupStyles.modalOkButton,
               originInput
@@ -108,6 +115,7 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={true}>
+
       <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
           <Text style={popupStyles.modalText}>
