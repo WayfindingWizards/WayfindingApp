@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,KeyboardAvoidingView,Platform} from 'react-native';
 import {baseStyles} from '../styles/BaseStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
@@ -6,7 +6,7 @@ import * as utils from './GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from './Popups';
 import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
-import useBLE from '../useBLE';
+import useBLE from '../useBLE'
 
 
 const App: React.FC = () => {
@@ -21,23 +21,28 @@ const App: React.FC = () => {
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
   const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
 
-
   const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+
+  useEffect(() => {
+    scanForDevices();
+    console.log(utils.getClosestBeacon());
+  }, []);
+
+  const scanForDevices = () => {
+    requestPermissions((isGranted: boolean) => {
+      if (isGranted) {
+        scanForPeripherals();
+        utils.setClosestBeacon(closestBeacon);
+      }
+  });
+}
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
     else if (utils.getMapVisible()) return false;
     return true;
   };
-
-  const scanForDevices = () => {
-    requestPermissions(isGranted => {
-      if (isGranted) {
-        scanForPeripherals();
-      }
-    });
-  };
-
+  
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
@@ -70,9 +75,9 @@ const App: React.FC = () => {
     <ImageBackground
       testID = 'backgroundImage'
       source={require(backgroundImage)}
-      style={baseStyles.background}>
+      style={baseStyles.background}
+      onLoad = {scanForDevices}>
       {/* Determines if home screen or map screen is displayed*/}
-
       {/*home screen visible*/}
       {!utils.getMapVisible() && (
         <View testID = 'homePage'>
@@ -155,6 +160,4 @@ const App: React.FC = () => {
 
   );
 };
-
-
 export default App;
