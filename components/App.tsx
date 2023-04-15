@@ -6,6 +6,8 @@ import * as utils from './GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from './Popups';
 import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
+import useBLE from '../useBLE';
+
 
 const App: React.FC = () => {
   const backgroundImage = 'AwesomeProject/images/app_background.png';
@@ -17,6 +19,8 @@ const App: React.FC = () => {
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
   const [helpPopup, setHelpPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
+  const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
+
 
   const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
@@ -24,6 +28,14 @@ const App: React.FC = () => {
     if (!userDestination) return false;
     else if (utils.getMapVisible()) return false;
     return true;
+  };
+
+  const scanForDevices = () => {
+    requestPermissions(isGranted => {
+      if (isGranted) {
+        scanForPeripherals();
+      }
+    });
   };
 
   const handleGoButtonPress = () => {
@@ -72,15 +84,10 @@ const App: React.FC = () => {
           />
         </View>
       )}
-      
       {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
-          <Image source={require('AwesomeProject/images/model_image.png')} style = {baseStyles.modelImage}></Image>
-        </View>)}
-      {utils.getMapVisible() && (
-        <View testID = 'mapVisiblePage'>
-          <Image source={require('AwesomeProject/images/model.png')} style = {baseStyles.modelImage}></Image>
+          <Image source={require('../images/model_image.png')} style = {baseStyles.modelImage}></Image>
         </View>
       )}
       {/* accessibility and sound buttons */}
