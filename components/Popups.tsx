@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {Modal,Text,TouchableOpacity,View,TextInput,Image} from 'react-native';
+import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView} from 'react-native';
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
 import { helpStyles } from '../styles/HelpPopupStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
+import {findRoom} from './FindRoom';
 
 export interface CustomModalProps {
   modalVisible: boolean;
@@ -16,19 +17,29 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
   setModalVisible
 }) => {
   const [originInput, setOriginInput] = useState('');
+  const [validInput, setValidInput] = useState(true);
 
   const handleOkButtonClick = () => {
+
+    //tests if the origin input is a valid room
+    if(!findRoom(originInput)){
+      setValidInput(false)
+    }else{
     utils.setOrigin(originInput);
     setModalVisible(!modalVisible);
     utils.setMapVisible(true);
+    }
   };
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <View style={popupStyles.modalBackground}>
+      <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
+          {validInput && <View>
           <Text style={popupStyles.modalText}>We couldn't find you.</Text>
-          <Text style={popupStyles.modalText}>Please enter the closest room.</Text>
+          <Text style={popupStyles.modalText}>Please enter the closest room.</Text></View>}
+          {!validInput && <View>
+          <Text style={popupStyles.modalText}>Please enter a valid room.</Text></View>}
           <TextInput
             style={popupStyles.modalTextContainer}
             placeholder="Room"
@@ -37,12 +48,18 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
             value={originInput}
           />
           <TouchableOpacity
-            style={popupStyles.modalOkButton}
-            onPress={handleOkButtonClick}>
+            style={[
+              popupStyles.modalOkButton,
+              originInput
+                ? popupStyles.modalOkButtonEnabled
+                : baseStyles.buttonDisabled,
+            ]}
+            onPress={handleOkButtonClick}
+            disabled= {!originInput}>
             <Text style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
@@ -91,7 +108,7 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={true}>
-      <View style={popupStyles.modalBackground}>
+      <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
           <Text style={popupStyles.modalText}>
             Please select what type of bathroom you want.
@@ -143,7 +160,7 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
@@ -161,7 +178,7 @@ export const InvalidDestinationPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <View style={popupStyles.modalBackground}>
+      <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
           <Text style={popupStyles.modalText}>Invalid Destination</Text>
           <Text style={popupStyles.modalText}>
@@ -174,7 +191,7 @@ export const InvalidDestinationPopup: React.FC<CustomModalProps> = ({
             <Text  style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
@@ -194,45 +211,7 @@ export const HelpPopup: React.FC<CustomModalProps> = ({
     <Modal animationType="fade" transparent visible={modalVisible}>
       <View style={helpStyles.modalBackground}>
         <View style={helpStyles.modalContainer}>
-          <View style={helpStyles.explanationContainers}>
-            <Text style = {helpStyles.text}>Accessible Route:</Text>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_ena_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
-            </View>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_dis_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
-            </View>
-          </View>
-          <View style={helpStyles.explanationContainers}>
-            <Text style = {helpStyles.text}>{"\t".repeat(5)}Sound:{"\t".repeat(6)}</Text>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_ena_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
-            </View>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/access_dis_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
-            </View>
-          </View>
-          <View style={helpStyles.explanationContainers}>
-            <Text style = {helpStyles.text}>Voice Commands:</Text>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/voice_ena_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Enabled</Text>
-            </View>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Image style = {accessibilityStyles.wheelchairImageDisabled} source = {require('../images/voice_dis_help_menu.png')} />
-              <Text style = {helpStyles.enabledDisabledText}>Disabled</Text>
-            </View>
-          </View>
-          <View style={helpStyles.explanationContainers}>
-            <Text style = {[helpStyles.text,{marginLeft: 10}]}>Destination Format:</Text>
-            <View style = {helpStyles.enabledDisabledImageAndText}>
-              <Text style = {[helpStyles.text, {marginLeft:5}]}>TN+Room ex. "TN150"</Text>
-            </View>
-          </View>
+          <Image style = {[{height:330}, {width: 290}]} source={require('../images/help_menu.png')} ></Image>
           <TouchableOpacity
             testID = 'okButton'
             style={helpStyles.helpOkButton}

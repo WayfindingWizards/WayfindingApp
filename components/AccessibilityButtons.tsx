@@ -12,7 +12,7 @@ export interface AccessButtonProps {
   }) => {
 
     const accessibilityImageDisabledImage = '../images/access_disabled.png';
-    const accessibilityImageEnabledImage = '../images/Asset9.png';
+    const accessibilityImageEnabledImage = '../images/access_enabled.png';
     const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
 
     const handleButtonClickAccessibility = () => {
@@ -35,8 +35,8 @@ export interface AccessButtonProps {
     ID
    }) => {
  
-    const soundImageDisabledImage = '../images/Asset8.png';
-    const soundImageEnabledImage = '../images/Asset10.png';
+    const soundImageDisabledImage = '../images/sound_disabled.png';
+    const soundImageEnabledImage = '../images/sound_enabled.png';
     const [soundButtonClick, setSoundButtonClick] = useState(false);
  
      const handleButtonClickSound = () => {

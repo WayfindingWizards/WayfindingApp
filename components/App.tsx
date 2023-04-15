@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  Image,
-  ImageBackground,
-} from 'react-native';
+import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,KeyboardAvoidingView,Platform} from 'react-native';
 import {baseStyles} from '../styles/BaseStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
@@ -15,8 +8,8 @@ import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
 
 const App: React.FC = () => {
-  const backgroundImage = 'AwesomeProject/images/Asset5.png';
-  const stomperImage = 'AwesomeProject/images/Asset7.png';
+  const backgroundImage = 'AwesomeProject/images/app_background.png';
+  const stomperImage = 'AwesomeProject/images/stomper.png';
 
   const [userDestination, setUserDestination] = useState(''); {/*used to change input box as user types in destination*/}
   const [noStartPopup, setNoStartPopupVisible] = useState<boolean>(false);
@@ -24,6 +17,7 @@ const App: React.FC = () => {
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
   const [helpPopup, setHelpPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
+  const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -79,7 +73,7 @@ const App: React.FC = () => {
       {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
-          <Image source={require('AwesomeProject/images/model.png')} style = {baseStyles.modelImage}></Image>
+          <Image source={require('AwesomeProject/images/model_image.png')} style = {baseStyles.modelImage}></Image>
         </View>
       )}
       {/* accessibility and sound buttons */}
@@ -88,12 +82,13 @@ const App: React.FC = () => {
         onPress={handleHelpButtonPress}>
         <Text style={accessibilityStyles.helpButtonText}>?</Text>
       </TouchableOpacity>
-      <AccessibleRouteButton ID='accessibility button'></AccessibleRouteButton>
-      <SoundButton ID='soundButton'></SoundButton>
-      <VoiceCommandButton ID='voice command button'></VoiceCommandButton>
+        <AccessibleRouteButton ID='accessibility button'></AccessibleRouteButton>
+        <SoundButton ID='soundButton'></SoundButton>
+        <VoiceCommandButton ID='voice command button'></VoiceCommandButton>
 
       {/* destination input and go button */}
-      <View style={baseStyles.navigation} id = 'navigationContainer'>
+      <ViewComponent style={baseStyles.navigation} id = 'navigationContainer' behavior="padding">
+
         <View style={baseStyles.inputBox} id = 'destinationInputBox'>
           <TextInput
             testID = 'destinationInput'
@@ -131,7 +126,7 @@ const App: React.FC = () => {
             </TouchableOpacity>
           )}
         </View>
-      </View>
+      </ViewComponent>
       {/* displays popups if popup is set to true in the go button handler*/}
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
