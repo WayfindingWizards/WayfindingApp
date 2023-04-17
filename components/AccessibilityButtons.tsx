@@ -12,7 +12,6 @@ export interface AccessButtonProps {
    ID
   }) => {
 
-
     const accessibilityImageDisabledImage = '../images/access_disabled.png';
     const accessibilityImageEnabledImage = '../images/access_enabled.png';
     const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);

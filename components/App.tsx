@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,KeyboardAvoidingView,Platform} from 'react-native';
 import {baseStyles} from '../styles/BaseStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
@@ -21,23 +21,28 @@ const App: React.FC = () => {
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
   const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
 
-
   const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+
+  useEffect(() => {
+    scanForDevices();
+    console.log(utils.getClosestBeacon());
+  }, []);
+
+  const scanForDevices = () => {
+    requestPermissions((isGranted: boolean) => {
+      if (isGranted) {
+        scanForPeripherals();
+        utils.setClosestBeacon(closestBeacon);
+      }
+  });
+}
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
     else if (utils.getMapVisible()) return false;
     return true;
   };
-
-  const scanForDevices = () => {
-    requestPermissions(isGranted => {
-      if (isGranted) {
-        scanForPeripherals();
-      }
-    });
-  };
-
+  
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
@@ -72,7 +77,6 @@ const App: React.FC = () => {
       source={require(backgroundImage)}
       style={baseStyles.background}>
       {/* Determines if home screen or map screen is displayed*/}
-
       {/*home screen visible*/}
       {!utils.getMapVisible() && (
         <View testID = 'homePage'>
@@ -152,9 +156,6 @@ const App: React.FC = () => {
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}
       {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }  
     </ImageBackground>
-
   );
 };
-
-
 export default App;
