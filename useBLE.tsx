@@ -113,7 +113,7 @@ function useBLE(): BluetoothLowEnergyApi {
           let currentTime = Date.now();
 
           // Match deviceID to beacon and put signal in array
-          beaconNum = IDMap.get(deviceID);
+          beaconNum = IDMap.get(deviceID)!;
           beaconSignals[beaconNum] = deviceRssi;
           signalTimes[beaconNum] = currentTime;
 
