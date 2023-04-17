@@ -23,12 +23,37 @@ interface BluetoothLowEnergyApi {
 }
 
 // variables to declare outside of scan
-const numberOfBeacons = 6;
+const numberOfBeacons = 25;
 let beaconSignals = new Array<number>(numberOfBeacons); // beaconSignals is an array where beaconSignals[beaconNum] = rssi
 let signalTimes = new Array<number>(numberOfBeacons);
 let deleteOld = false;
 let prevTime = Date.now();
 let recentClosest: number[] = [];
+let IDMap = new Map<string, number>([
+  ["DC:0D:30:14:30:26", 19],
+  ["DC:0D:30:14:30:28", 21],
+  ["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
+  ["DC:0D:30:14:30:2F", 20],
+  ["DC:0D:30:14:30:26", 19],
+  ["DC:0D:30:14:30:23", 6],
+  ["DC:0D:30:14:2F:CF", 13],
+  ["DC:0D:30:14:2F:F5", 12],
+  ["DC:0D:30:14:30:29", 11],
+  ["DC:0D:30:14:30:0D", 10],
+  ["DC:0D:30:14:2F:D0", 9],
+  ["DC:0D:30:14:2F:C9", 8],
+  ["DC:0D:30:14:30:27", 7],
+  ["DC:0D:30:14:2F:E8", 18],
+  ["DC:0D:30:14:2F:A7", 15],
+  ["DC:0D:30:14:30:31", 16],
+  ["DC:0D:30:14:2F:D1", 17],
+  ["DC:0D:30:10:4E:F2", 0], // not installed
+  ["DC:0D:30:10:4F:57", 1],
+  ["DC:0D:30:10:4F:3D", 2],
+  ["DD:60:03:00:02:C0", 3],
+  ["DD:60:03:00:03:3C", 4],
+  ["DD:60:03:00:00:4F", 5],
+]);
 
 function useBLE(): BluetoothLowEnergyApi {
   const [closestBeacon, setclosestBeacon] = useState<number>(-1);
@@ -86,31 +111,6 @@ function useBLE(): BluetoothLowEnergyApi {
           const deviceID = device.id;
           let beaconNum: number;
           let currentTime = Date.now();
-          let IDMap = new Map<string, number>([
-            ["DC:0D:30:14:30:26", 19],
-            ["DC:0D:30:14:30:28", 210], // these both have "Beacon 21" as their name on accident
-            ["DC:0D:30:14:2F:D6", 211],
-            ["DC:0D:30:14:30:2F", 20],
-            ["DC:0D:30:14:30:26", 19],
-            ["DC:0D:30:14:30:23", 6],
-            ["DC:0D:30:14:2F:CF", 13],
-            ["DC:0D:30:14:2F:F5", 12],
-            ["DC:0D:30:14:30:29", 11],
-            ["DC:0D:30:14:30:0D", 10],
-            ["DC:0D:30:14:2F:D0", 9],
-            ["DC:0D:30:14:2F:C9", 8],
-            ["DC:0D:30:14:30:27", 7],
-            ["DC:0D:30:14:2F:E8", 18],
-            ["DC:0D:30:14:2F:A7", 15],
-            ["DC:0D:30:14:30:31", 16],
-            ["DC:0D:30:14:2F:D1", 17],
-            ["DC:0D:30:10:4E:F2", 0], // not installed
-            ["DC:0D:30:10:4F:57", 1],
-            ["DC:0D:30:10:4F:3D", 2],
-            ["DD:60:03:00:02:C0", 3],
-            ["DD:60:03:00:03:3C", 4],
-            ["DD:60:03:00:00:4F", 5],
-          ]);
 
           // Match deviceID to beacon and put signal in array
           beaconNum = IDMap.get(deviceID);
