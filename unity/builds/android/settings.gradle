@@ -1,0 +1,3 @@
+include ':launcher', ':unityLibrary'
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File('..\\unity\\builds\\android\\unityLibrary')
