@@ -86,41 +86,38 @@ function useBLE(): BluetoothLowEnergyApi {
           const deviceID = device.id;
           let beaconNum: number;
           let currentTime = Date.now();
+          let IDMap = new Map<string, number>([
+            ["DC:0D:30:14:30:26", 19],
+            ["DC:0D:30:14:30:28", 210], // these both have "Beacon 21" as their name on accident
+            ["DC:0D:30:14:2F:D6", 211],
+            ["DC:0D:30:14:30:2F", 20],
+            ["DC:0D:30:14:30:26", 19],
+            ["DC:0D:30:14:30:23", 6],
+            ["DC:0D:30:14:2F:CF", 13],
+            ["DC:0D:30:14:2F:F5", 12],
+            ["DC:0D:30:14:30:29", 11],
+            ["DC:0D:30:14:30:0D", 10],
+            ["DC:0D:30:14:2F:D0", 9],
+            ["DC:0D:30:14:2F:C9", 8],
+            ["DC:0D:30:14:30:27", 7],
+            ["DC:0D:30:14:2F:E8", 18],
+            ["DC:0D:30:14:2F:A7", 15],
+            ["DC:0D:30:14:30:31", 16],
+            ["DC:0D:30:14:2F:D1", 17],
+            ["DC:0D:30:10:4E:F2", 0], // not installed
+            ["DC:0D:30:10:4F:57", 1],
+            ["DC:0D:30:10:4F:3D", 2],
+            ["DD:60:03:00:02:C0", 3],
+            ["DD:60:03:00:03:3C", 4],
+            ["DD:60:03:00:00:4F", 5],
+          ]);
 
           // Match deviceID to beacon and put signal in array
-          switch (deviceID){
-            case 'DC:0D:30:10:4E:F2': //Feasy1
-              beaconNum = 0;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-            case 'DC:0D:30:10:4F:57': //Feasy2
-              beaconNum = 1;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-            case 'DC:0D:30:10:4F:3D': //Feasy3
-              beaconNum = 2;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-            case 'DD:60:03:00:02:C0': //BC1
-              beaconNum = 3;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-            case 'DD:60:03:00:03:3C': //BC2
-              beaconNum = 4;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-            case 'DD:60:03:00:00:4F': //BC3
-              beaconNum = 5;
-              beaconSignals[beaconNum] = deviceRssi;
-              signalTimes[beaconNum] = currentTime;
-              break;
-          }
+          beaconNum = IDMap.get(deviceID);
+          beaconSignals[beaconNum] = deviceRssi;
+          signalTimes[beaconNum] = currentTime;
 
+          
           // invalidate old rssi values once every other scan
             // consider changing this to once every few scans or once every time period
           if (deleteOld){
