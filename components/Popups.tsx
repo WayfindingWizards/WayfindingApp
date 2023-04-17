@@ -5,7 +5,6 @@ import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView} f
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
 import { helpStyles } from '../styles/HelpPopupStyles';
-import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
 
 import {findRoom} from './FindRoom';
@@ -32,7 +31,8 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
     }else{
     utils.setOrigin(originInput);
     setModalVisible(!modalVisible);
-    utils.setMapVisible(true);
+    if (utils.getDestination() != 'Bathroom')
+      utils.setMapVisible(true);
     }
   };
 

@@ -6,7 +6,7 @@ import * as utils from './GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from './Popups';
 import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
-import useBLE from '../useBLE'
+import useBLE from '../useBLE';
 
 
 const App: React.FC = () => {
@@ -75,8 +75,7 @@ const App: React.FC = () => {
     <ImageBackground
       testID = 'backgroundImage'
       source={require(backgroundImage)}
-      style={baseStyles.background}
-      onLoad = {scanForDevices}>
+      style={baseStyles.background}>
       {/* Determines if home screen or map screen is displayed*/}
       {/*home screen visible*/}
       {!utils.getMapVisible() && (
@@ -157,7 +156,6 @@ const App: React.FC = () => {
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}
       {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }  
     </ImageBackground>
-
   );
 };
 export default App;

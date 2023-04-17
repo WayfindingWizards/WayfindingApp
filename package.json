@@ -43,5 +43,15 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "reactNativePermissions": {
+    "ios": {
+      "Location": {
+        "purpose": "Bluetooth devices"
+      },
+      "Bluetooth": {
+        "purpose": "Bluetooth devices"
+      }
+    }
   }
 }
