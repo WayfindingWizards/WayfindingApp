@@ -17,7 +17,7 @@ export const baseStyles = StyleSheet.create({
   image: {
     height: 195,
     width: 275,
-    marginTop: '20%',
+    marginTop: '15%',
     marginLeft: '17%',
     justifyContent: 'center',
   },
@@ -86,5 +86,20 @@ export const baseStyles = StyleSheet.create({
   modelImage:{
     width: '100%',
     height: '100%',
+  },
+  closestBeaconContainer: {
+    width: 65,
+    height: 110,
+    backgroundColor: '#191919',
+    margin: 20,
+    marginLeft: '80%',
+    paddingTop: 10,
+    borderRadius: 10,
+  },
+  closestBeaconText: {
+    textAlign: 'center',
+    fontSize: 13,
+    color: '#fff',
+    fontWeight: 'bold',
   }
 });

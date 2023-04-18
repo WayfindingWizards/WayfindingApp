@@ -91,7 +91,14 @@ const App: React.FC = () => {
       {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
-          <Image source={require('../images/model_image.png')} style = {baseStyles.modelImage}></Image>
+          
+          <ImageBackground source={require('../images/model_image.png')} style = {baseStyles.modelImage}>
+              <View style = {baseStyles.closestBeaconContainer}>
+                  <Text style = {baseStyles.closestBeaconText}>Closest Beacon:</Text>
+                  <Text style = {[baseStyles.closestBeaconText,{fontSize: 40}]}>{utils.getClosestBeacon()}</Text>
+             </View>
+          </ImageBackground>
+          
         </View>
       )}
       {/* accessibility and sound buttons */}

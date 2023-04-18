@@ -5,7 +5,8 @@ let isBathroomSet: boolean = false;
 let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 
-let closestBeacon: number;
+
+let closestBeacon: number = -1;
 
 
 export function getDestination(): string{
@@ -34,6 +35,7 @@ export function getAccessibleRoute():boolean {
 
 
 export function getClosestBeacon(): number {
+  console.log(closestBeacon);
   return closestBeacon;
 }
 
