@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView} from 'react-native';
+import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView,Platform} from 'react-native';
 
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
@@ -20,8 +20,10 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
   setModalVisible
 }) => {
   const [originInput, setOriginInput] = useState('');
-
   const [validInput, setValidInput] = useState(true);
+  const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+
+
 
   const handleOkButtonClick = () => {
 
@@ -38,7 +40,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
+      <ViewComponent style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
           {validInput && <View>
           <Text style={popupStyles.modalText}>We couldn't find you.</Text>
@@ -66,7 +68,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
             <Text style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
+      </ViewComponent>
     </Modal>
   );
 };
