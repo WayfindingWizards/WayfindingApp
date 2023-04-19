@@ -10,7 +10,7 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import { setClosestBeacon } from './components/GlobalVariables';
+import  {setClosestBeacon}  from './components/GlobalVariables';
 
 
 const bleManager = new BleManager();
@@ -29,9 +29,9 @@ let beaconSignals = new Array<number>(numberOfBeacons); // beaconSignals is an a
 let signalTimes = new Array<number>(numberOfBeacons);
 let deleteOld = false;
 let prevTime = Date.now();
-let recentClosest: number[] = [];
+let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
 let closestBeaconFinal: number;
-let IDMap = new Map<string, number>([
+let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
   ["DC:0D:30:14:30:26", 19],
   ["DC:0D:30:14:30:28", 21],
   ["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
@@ -50,11 +50,11 @@ let IDMap = new Map<string, number>([
   ["DC:0D:30:14:30:31", 16],
   ["DC:0D:30:14:2F:D1", 17],
   ["DC:0D:30:10:4E:F2", 0], // not installed
-  ["DC:0D:30:10:4F:57", 1],
-  ["DC:0D:30:10:4F:3D", 2],
-  ["DD:60:03:00:02:C0", 3],
-  ["DD:60:03:00:03:3C", 4],
-  ["DD:60:03:00:00:4F", 5],
+  ["DC:0D:30:10:4F:57", 1], // not installed
+  ["DC:0D:30:10:4F:3D", 2], // not installed
+  ["DD:60:03:00:02:C0", 3], // not installed
+  ["DD:60:03:00:03:3C", 4], // not installed
+  ["DD:60:03:00:00:4F", 5], // not installed
 ]);
 
 function useBLE(): BluetoothLowEnergyApi {
@@ -94,7 +94,7 @@ function useBLE(): BluetoothLowEnergyApi {
 
         cb(isGranted);
       }
-    } else {
+    } else {  // set to true if ios
       cb(true);
     }
   };
@@ -120,7 +120,7 @@ function useBLE(): BluetoothLowEnergyApi {
           beaconSignals[beaconNum] = deviceRssi;
           signalTimes[beaconNum] = currentTime;
 
-          
+          // Age out signals:
           // invalidate old rssi values once every other scan
             // consider changing this to once every few scans or once every time period
           if (deleteOld){
@@ -131,8 +131,8 @@ function useBLE(): BluetoothLowEnergyApi {
                 // console.log({beaconSignals});
                 // console.log({signalTimes});
                 // console.log({currentTime});
-                // console.log("OLD DATA RESETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-                signalTimes[i] = undefined as number; // ignore error; setting as undefined prevents from continuously reseting signal when signal is lost
+                // console.log("OLD DATA RESET");
+                signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
               }
             }  
           }
@@ -142,8 +142,8 @@ function useBLE(): BluetoothLowEnergyApi {
           // add current closest to recentClosest
           recentClosest.push(beaconSignals.indexOf(beaconSignals.reduce((a, b) => Math.max(a, b), -Infinity)));
 
-          function findMode(arr: Array<number>){  // find mode of recentClosest, if empty return -1
-            // check for empty array
+          // find mode of recentClosest, if empty return -1
+          function findMode(arr: Array<number>){
             if(arr.length == 0){
               return -1;
             }
@@ -167,11 +167,12 @@ function useBLE(): BluetoothLowEnergyApi {
                 currentCount = 0;
               }
             }
+            
             console.log({mode});
             return mode;
           }
 
-          // every second:
+          // call findMode every second
           if((currentTime - prevTime) > 1000){
             console.log({recentClosest});
             closestBeaconFinal = findMode(recentClosest);
@@ -190,7 +191,6 @@ function useBLE(): BluetoothLowEnergyApi {
   return {
     scanForPeripherals,
     requestPermissions,
-    //distance,
     closestBeacon,
   };
 }
