@@ -4,7 +4,6 @@ import {Modal,Text,TouchableOpacity,View,TextInput,Image,KeyboardAvoidingView,Pl
 
 import { popupStyles } from '../styles/PopupStyles';
 import { baseStyles } from '../styles/BaseStyles';
-import { helpStyles } from '../styles/HelpPopupStyles';
 import * as utils from './GlobalVariables';
 
 import {findRoom} from './FindRoom';
@@ -219,12 +218,12 @@ export const HelpPopup: React.FC<CustomModalProps> = ({
 
   return (
     <Modal animationType="fade" transparent visible={modalVisible}>
-      <View style={helpStyles.modalBackground}>
-        <View style={helpStyles.modalContainer}>
+      <View style={popupStyles.modalBackground}>
+        <View style={popupStyles.modalContainer}>
           <Image style = {[{height:330}, {width: 290}]} source={require('../images/help_menu.png')} ></Image>
           <TouchableOpacity
             testID = 'okButton'
-            style={helpStyles.helpOkButton}
+            style={popupStyles.modalOkButton}
             onPress={handleOkButtonClick}>
             <Text  style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>

@@ -26,7 +26,7 @@ const App: React.FC = () => {
   useEffect(() => {
     scanForDevices();
     console.log(utils.getClosestBeacon());
-  }, []);
+  }, [] );
 
   const scanForDevices = () => {
     requestPermissions((isGranted: boolean) => {
@@ -36,6 +36,9 @@ const App: React.FC = () => {
       }
   });
 }
+
+  const checkOrigin = () => {
+  }
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -49,7 +52,7 @@ const App: React.FC = () => {
     if (!roomFound&& userDestination!='Bathroom') {
       utils.setDestination(userDestination); // sets destination global to userDestination
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
-    } else if (!utils.getOrigin()) { //checks to see if beacons have found origin
+    } else if (utils.getClosestBeacon() == -1) { //checks to see if beacons have found origin
       utils.setDestination(userDestination); //sets destination global to userDestination
       setNoStartPopupVisible(true); //set to false by default on line 22
     } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
