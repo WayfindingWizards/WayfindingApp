@@ -10,6 +10,7 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
+import { setClosestBeacon } from './components/GlobalVariables';
 
 
 const bleManager = new BleManager();
@@ -29,6 +30,7 @@ let signalTimes = new Array<number>(numberOfBeacons);
 let deleteOld = false;
 let prevTime = Date.now();
 let recentClosest: number[] = [];
+let closestBeaconFinal: number;
 let IDMap = new Map<string, number>([
   ["DC:0D:30:14:30:26", 19],
   ["DC:0D:30:14:30:28", 21],
@@ -171,7 +173,9 @@ function useBLE(): BluetoothLowEnergyApi {
           // every second:
           if((currentTime - prevTime) > 1000){
             console.log({recentClosest});
-            setclosestBeacon(findMode(recentClosest));
+            closestBeaconFinal = findMode(recentClosest);
+            setclosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
+            setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
             recentClosest = [];
             prevTime = currentTime;
           }
