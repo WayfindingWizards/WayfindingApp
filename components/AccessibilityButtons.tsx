@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
-import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,} from 'react-native';
-import {baseStyles} from '../styles/BaseStyles';
+import {TouchableOpacity,Image} from 'react-native';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
 
 export interface AccessButtonProps {
-    ID: string;
 }
 
   export const AccessibleRouteButton: React.FC<AccessButtonProps> = ({
-   ID
   }) => {
 
     const accessibilityImageDisabledImage = '../images/access_disabled.png';
@@ -17,8 +14,8 @@ export interface AccessButtonProps {
     const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
 
     const handleButtonClickAccessibility = () => {
-      setAccessibilityButtonClick(!accessibilityButtonClick);
-      utils.setAccessibleRoute(!utils.getAccessibleRoute()); //sets accessible route global to true or false
+      setAccessibilityButtonClick(!accessibilityButtonClick); //set to false by default on line 14
+      utils.setAccessibleRoute(!utils.getAccessibleRoute()); //flips accessible route global state
     };
   
     return(
@@ -33,7 +30,6 @@ export interface AccessButtonProps {
   }
 
   export const SoundButton: React.FC<AccessButtonProps> = ({
-    ID
    }) => {
  
     const soundImageDisabledImage = '../images/sound_disabled.png';
@@ -41,7 +37,8 @@ export interface AccessButtonProps {
     const [soundButtonClick, setSoundButtonClick] = useState(false);
  
      const handleButtonClickSound = () => {
-      setSoundButtonClick(!soundButtonClick);
+      setSoundButtonClick(!soundButtonClick); //set to false by default on line 37
+      utils.setSound(!utils.getSound()); //flips global sound state
     };
    
      return(
@@ -57,7 +54,6 @@ export interface AccessButtonProps {
    }
 
    export const VoiceCommandButton: React.FC<AccessButtonProps> = ({
-    ID
    }) => {
  
     const voiceCommandButtonImageDisabled = '../images/mic_disabled.png';
@@ -65,7 +61,8 @@ export interface AccessButtonProps {
     const [voiceCommandButtonClick, setVoiceCommandButtonClick] = useState(false);
  
      const handleButtonClickVoiceCommand = () => {
-      setVoiceCommandButtonClick(!voiceCommandButtonClick);
+      setVoiceCommandButtonClick(!voiceCommandButtonClick); //set to false by default on line 61
+      utils.setVoiceCommands(!utils.getVoiceCommands()); //flips global voice commands state
     }
 
      return(

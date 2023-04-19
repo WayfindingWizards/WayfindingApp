@@ -1,11 +1,11 @@
-import {StyleSheet,Platform} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 export const baseStyles = StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: 'cover',
   },
-  text: {
+  welcomeText: {
     fontSize: Platform.OS === 'ios' ? 35 : 45,
     fontWeight: 'bold',
     color: '#FFFFFF',
@@ -14,14 +14,14 @@ export const baseStyles = StyleSheet.create({
     marginLeft: '5%',
     marginRight: '5%',
   },
-  image: {
+  stomperImage: {
     height: 195,
     width: 275,
     marginTop: '15%',
     marginLeft: '17%',
     justifyContent: 'center',
   },
-  navigation: {
+  navigationContainer: {
     backgroundColor: '#191919',
     paddingHorizontal: 0,
     paddingVertical: Platform.OS === 'ios' ? 12 : 8,
@@ -32,7 +32,7 @@ export const baseStyles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  inputBox: {
+  destinationInputBox: {
     backgroundColor: '#636363',
     borderRadius: 5,
     padding: 5,
@@ -40,7 +40,7 @@ export const baseStyles = StyleSheet.create({
     marginBottom: Platform.OS === 'ios' ? 35 : 25,
     width: 200,
     height: 70,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   inputEnabled: {
     paddingTop: 15,
@@ -66,6 +66,7 @@ export const baseStyles = StyleSheet.create({
   goButtonEnabled: {
     backgroundColor: '#5B4379',
   },
+  //used for go button and ok buttons on popups
   buttonDisabled: {
     backgroundColor: '#999999',
   },
@@ -83,7 +84,8 @@ export const baseStyles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-  modelImage:{
+  //3D model image on route screen
+  modelImage: {
     width: '100%',
     height: '100%',
   },
@@ -101,5 +103,5 @@ export const baseStyles = StyleSheet.create({
     fontSize: 13,
     color: '#fff',
     fontWeight: 'bold',
-  }
+  },
 });

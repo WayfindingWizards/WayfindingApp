@@ -5,7 +5,10 @@ buildings.set("TN", traftonNorthRooms);
 
 export function findRoom(room: string): boolean{
 
+  //gets building from first two letters on input
+  //potential bug: when csb is integrated
   const building = buildings?.get(room.substring(0, 2));
+  //gets floor from third letter of input
   const floor = building?.get(room.substring(2, 3));
 
   //gets building from room string and checks if it exists in buildings map

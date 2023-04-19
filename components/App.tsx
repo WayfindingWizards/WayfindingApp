@@ -25,20 +25,16 @@ const App: React.FC = () => {
 
   useEffect(() => {
     scanForDevices();
-    console.log(utils.getClosestBeacon());
+    console.log(utils.getClosestBeacon()); //scans for devices when app is rendered and running
   }, [] );
 
   const scanForDevices = () => {
     requestPermissions((isGranted: boolean) => {
       if (isGranted) {
         scanForPeripherals();
-       
       }
   });
 }
-
-  const checkOrigin = () => {
-  }
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -83,19 +79,20 @@ const App: React.FC = () => {
       {/*home screen visible*/}
       {!utils.getMapVisible() && (
         <View testID = 'homePage'>
-          <Text id = 'welcomeText' style={baseStyles.text}>Welcome To MNSU Wayfinder!</Text>
+          <Text id = 'welcomeText' style={baseStyles.welcomeText}>Welcome To MNSU Wayfinder!</Text>
           <Image
             id = 'stomperImage'
             source={require(stomperImage)}
-            style={baseStyles.image}
+            style={baseStyles.stomperImage}
           />
         </View>
       )}
       {/*map visible*/}
       {utils.getMapVisible() && (
         <View testID = 'mapVisiblePage'>
-          
+          {/*map image*/}
           <ImageBackground source={require('../images/model_image.png')} style = {baseStyles.modelImage}>
+              {/*closest beacon container*/}
               <View style = {baseStyles.closestBeaconContainer}>
                   <Text style = {baseStyles.closestBeaconText}>Closest Beacon:</Text>
                   <Text style = {[baseStyles.closestBeaconText,{fontSize: 40}]}>{utils.getClosestBeacon()}</Text>
@@ -111,30 +108,29 @@ const App: React.FC = () => {
         <Text style={accessibilityStyles.helpButtonText}>?</Text>
       </TouchableOpacity>
       
-        <AccessibleRouteButton ID='accessibility button'></AccessibleRouteButton>
-        <SoundButton ID='soundButton'></SoundButton>
-        <VoiceCommandButton ID='voice command button'></VoiceCommandButton>
+        <AccessibleRouteButton></AccessibleRouteButton>
+        <SoundButton></SoundButton>
+        <VoiceCommandButton></VoiceCommandButton>
 
       {/* destination input and go button */}
-      <ViewComponent style={baseStyles.navigation} id = 'navigationContainer' behavior="padding">
+      <ViewComponent style={baseStyles.navigationContainer} id = 'navigationContainer' behavior="padding">
 
-        <View style={baseStyles.inputBox} id = 'destinationInputBox'>
+        <View style={baseStyles.destinationInputBox} id = 'destinationInputBox'>
           <TextInput
             testID = 'destinationInput'
             style={
-              isGoButtonEnabled() ? baseStyles.inputEnabled : baseStyles.inputDisabled
+              isGoButtonEnabled() ? baseStyles.inputEnabled : baseStyles.inputDisabled //disables input if start over button is displayed
             }
             placeholder="Enter Destination"
             placeholderTextColor="#CCCCCC"
             onChangeText={setUserDestination}
             value={userDestination}
-            editable={!utils.getMapVisible()}
+            editable={!utils.getMapVisible()} // is editable if global map visible is false
           />
         </View>
 
         {/*Determines if go button or start over button is displayed*/}
         <View>
-
         {/*displays go button when home screen is visible*/}
         {!utils.getMapVisible() && (
             <TouchableOpacity
@@ -151,7 +147,7 @@ const App: React.FC = () => {
             <TouchableOpacity
               testID = 'startOverButton'
               style={[baseStyles.goButton,userDestination ? baseStyles.goButtonEnabled : baseStyles.buttonDisabled]}
-              disabled={!userDestination}
+              disabled={!userDestination} //disabled if userDestination is empty
               onPress={handleStartOverButtonPress}>
               <Text style={baseStyles.startOverButtonText}>Start Over</Text>
             </TouchableOpacity>
@@ -160,7 +156,6 @@ const App: React.FC = () => {
 
       </ViewComponent>
       {/* displays popups if popup is set to true in the go button handler*/}
-
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}

@@ -4,8 +4,8 @@ let bathroom: string = '';
 let isBathroomSet: boolean = false;
 let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
-
-
+let voiceCommands: boolean = false;
+let sound: boolean = false;
 let closestBeacon: number = -1;
 
 
@@ -33,12 +33,26 @@ export function getAccessibleRoute():boolean {
   return accessibleRoute;
 }
 
+export function getVoiceCommands():boolean {
+  return voiceCommands;
+}
+
+export function getSound():boolean {
+  return sound;
+}
 
 export function getClosestBeacon(): number {
   console.log(closestBeacon);
   return closestBeacon;
 }
 
+export function setVoiceCommands(newVoiceCommands:boolean){
+  voiceCommands = newVoiceCommands;
+}
+
+export function setSound(newSound:boolean){
+  sound = newSound;
+}
 
 export function setDestination(newDestination: string) {
   destination = newDestination;
