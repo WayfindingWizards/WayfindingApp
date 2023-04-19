@@ -32,7 +32,7 @@ const App: React.FC = () => {
     requestPermissions((isGranted: boolean) => {
       if (isGranted) {
         scanForPeripherals();
-        utils.setClosestBeacon(closestBeacon);
+       
       }
   });
 }

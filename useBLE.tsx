@@ -59,6 +59,7 @@ let IDMap = new Map<string, number>([
 
 function useBLE(): BluetoothLowEnergyApi {
   const [closestBeacon, setclosestBeacon] = useState<number>(-1);
+  const [render, setRender] = useState<boolean>(true); //manually rerenders app when closest beacon changes
 
   const requestPermissions = async (cb: VoidCallback) => {
     if (Platform.OS === 'android') {
@@ -176,6 +177,7 @@ function useBLE(): BluetoothLowEnergyApi {
             closestBeaconFinal = findMode(recentClosest);
             setclosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
             setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            setRender(!render); //see line 62
             recentClosest = [];
             prevTime = currentTime;
           }
