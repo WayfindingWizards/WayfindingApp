@@ -9,8 +9,8 @@ export interface AccessButtonProps {
   export const AccessibleRouteButton: React.FC<AccessButtonProps> = ({
   }) => {
 
-    const accessibilityImageDisabledImage = '../images/access_disabled.png';
-    const accessibilityImageEnabledImage = '../images/access_enabled.png';
+    const accessibilityDisabledImage = '../images/access_disabled.png';
+    const accessibilityEnabledImage = '../images/access_enabled.png';
     const [accessibilityButtonClick, setAccessibilityButtonClick] = useState(false);
 
     const handleButtonClickAccessibility = () => {
@@ -22,7 +22,7 @@ export interface AccessButtonProps {
       <TouchableOpacity
       style={[accessibilityStyles.accessibilityButton, accessibilityButtonClick ? accessibilityStyles.circleButtonClicked : accessibilityStyles.circleButtonUnclicked]}
       onPress={handleButtonClickAccessibility}>
-      <Image source={ accessibilityButtonClick ? require(accessibilityImageEnabledImage) : require(accessibilityImageDisabledImage)}
+      <Image source={ accessibilityButtonClick ? require(accessibilityEnabledImage) : require(accessibilityDisabledImage)}
         style={accessibilityButtonClick ? accessibilityStyles.wheelchairImage : accessibilityStyles.wheelchairImageDisabled}
       />
       </TouchableOpacity>
@@ -32,8 +32,8 @@ export interface AccessButtonProps {
   export const SoundButton: React.FC<AccessButtonProps> = ({
    }) => {
  
-    const soundImageDisabledImage = '../images/sound_disabled.png';
-    const soundImageEnabledImage = '../images/sound_enabled.png';
+    const soundDisabledImage = '../images/sound_disabled.png';
+    const soundEnabledImage = '../images/sound_enabled.png';
     const [soundButtonClick, setSoundButtonClick] = useState(false);
  
      const handleButtonClickSound = () => {
@@ -46,7 +46,7 @@ export interface AccessButtonProps {
       testID = 'soundButton'
       style={[accessibilityStyles.soundButton,soundButtonClick ? accessibilityStyles.circleButtonClicked : accessibilityStyles.circleButtonUnclicked]}
       onPress={handleButtonClickSound}>
-      <Image source={soundButtonClick? require(soundImageEnabledImage) : require(soundImageDisabledImage)}
+      <Image source={soundButtonClick? require(soundEnabledImage) : require(soundDisabledImage)}
         style={soundButtonClick ? accessibilityStyles.soundImageEnabled : accessibilityStyles.soundVoiceImageDisabled}
       />
     </TouchableOpacity>
@@ -56,8 +56,8 @@ export interface AccessButtonProps {
    export const VoiceCommandButton: React.FC<AccessButtonProps> = ({
    }) => {
  
-    const voiceCommandButtonImageDisabled = '../images/mic_disabled.png';
-    const voiceCommandButtonImageEnabled = '../images/mic_enabled.png';
+    const voiceCommandButtonDisabledImage = '../images/mic_disabled.png';
+    const voiceCommandButtonEnabledImage = '../images/mic_enabled.png';
     const [voiceCommandButtonClick, setVoiceCommandButtonClick] = useState(false);
  
      const handleButtonClickVoiceCommand = () => {
@@ -69,7 +69,7 @@ export interface AccessButtonProps {
       <TouchableOpacity
           style={[accessibilityStyles.voiceCommandButton, voiceCommandButtonClick ? accessibilityStyles.circleButtonClicked : accessibilityStyles.circleButtonUnclicked]}
           onPress={handleButtonClickVoiceCommand}>
-          <Image source={voiceCommandButtonClick? require(voiceCommandButtonImageEnabled) : require(voiceCommandButtonImageDisabled)}
+          <Image source={voiceCommandButtonClick? require(voiceCommandButtonEnabledImage) : require(voiceCommandButtonDisabledImage)}
           style={voiceCommandButtonClick ? accessibilityStyles.voiceCommandImageEnabled : accessibilityStyles.soundVoiceImageDisabled}
         />
         </TouchableOpacity>
