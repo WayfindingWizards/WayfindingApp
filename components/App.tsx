@@ -6,7 +6,7 @@ import * as utils from './GlobalVariables';
 import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from './Popups';
 import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
-import useBLE from '../useBLE';
+import useBLE from './useBLE';
 
 
 const App: React.FC = () => {

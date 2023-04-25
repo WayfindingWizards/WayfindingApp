@@ -10,7 +10,7 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import  {setClosestBeacon}  from './components/GlobalVariables';
+import  {setClosestBeacon}  from './GlobalVariables';
 
 
 const bleManager = new BleManager();
@@ -132,7 +132,7 @@ function useBLE(): BluetoothLowEnergyApi {
                 // console.log({signalTimes});
                 // console.log({currentTime});
                 // console.log("OLD DATA RESET");
-                signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
+                signalTimes[i] = undefined as unknown as number; // setting as undefined prevents from continuously reseting signal when signal is lost
               }
             }  
           }

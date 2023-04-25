@@ -6,6 +6,7 @@ export const baseStyles = StyleSheet.create({
     resizeMode: 'cover',
   },
   welcomeText: {
+    //to accomidate the difference between ios and android
     fontSize: Platform.OS === 'ios' ? 35 : 45,
     fontWeight: 'bold',
     color: '#FFFFFF',
@@ -24,7 +25,8 @@ export const baseStyles = StyleSheet.create({
   navigationContainer: {
     backgroundColor: '#191919',
     paddingHorizontal: 0,
-    paddingVertical: Platform.OS === 'ios' ? 12 : 8,
+    //to accomidate the difference between ios and android
+    paddingVertical: Platform.OS === 'ios' ? 12 : 8, 
     flexDirection: 'row',
     justifyContent: 'center',
     position: 'absolute',
@@ -37,6 +39,7 @@ export const baseStyles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     margin: 10,
+    //to accomidate the difference between ios and android
     marginBottom: Platform.OS === 'ios' ? 35 : 25,
     width: 200,
     height: 70,
@@ -44,6 +47,7 @@ export const baseStyles = StyleSheet.create({
   },
   inputEnabled: {
     paddingTop: 15,
+    //to accomidate the difference between ios and android
     fontSize: Platform.OS === 'ios' ? 18 : 22,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -51,6 +55,7 @@ export const baseStyles = StyleSheet.create({
   },
   inputDisabled: {
     paddingTop: 15,
+    //to accomidate the difference between ios and android
     fontSize: Platform.OS === 'ios' ? 18 : 22,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -72,6 +77,7 @@ export const baseStyles = StyleSheet.create({
   },
   goButtonText: {
     paddingTop: 2,
+    //to accomidate the difference between ios and android
     fontSize: Platform.OS === 'ios' ? 30 : 35,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -79,6 +85,7 @@ export const baseStyles = StyleSheet.create({
   },
   startOverButtonText: {
     paddingTop: 8,
+    //to accomidate the difference between ios and android
     fontSize: Platform.OS === 'ios' ? 20 : 25,
     textAlign: 'center',
     fontWeight: 'bold',
