@@ -32,6 +32,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
   };
 
   return (
+
     <Modal animationType="fade" transparent visible={modalVisible}>
       <ViewComponent style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
@@ -46,7 +47,6 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
             placeholderTextColor="#BABABA"
             onChangeText={setOriginInput}
             value={originInput}/>
-          {/*Ok button*/}
           <TouchableOpacity
             style={[
               popupStyles.modalOkButton,
@@ -55,7 +55,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
                 : baseStyles.buttonDisabled,
             ]}
             onPress={handleOkButtonClick}
-            disabled= {!originInput}> {/*disabled if there is no input*/}
+            disabled= {!originInput}>
             <Text style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
@@ -228,7 +228,7 @@ export const HelpPopup: React.FC<CustomModalProps> = ({
             testID = 'okButton'
             style={popupStyles.modalOkButton}
             onPress={handleOkButtonClick}>
-            <Text  style={popupStyles.modalOkButtonText}>OK</Text>
+            <Text style={popupStyles.modalOkButtonText}>OK</Text>
           </TouchableOpacity>
         </View>
       </View>
