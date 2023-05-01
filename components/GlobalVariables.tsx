@@ -88,4 +88,5 @@ export function reset() {
   setBathroom('');
   setIsBathroomSet(false);
   setMapVisible(false);
+  setOrigin('');
 }
