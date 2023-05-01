@@ -48,7 +48,7 @@ const App: React.FC = () => {
     if (!roomFound&& userDestination!='Bathroom') {
       utils.setDestination(userDestination); // sets destination global to userDestination
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
-    } else if (utils.getClosestBeacon() == -1 && !utils.getOrigin()) { //checks to see if beacons have found origin
+    } else if (utils.getClosestBeacon() == -1 || !utils.getOrigin()) { //checks to see if beacons have found origin
       utils.setDestination(userDestination); //sets destination global to userDestination
       setNoStartPopupVisible(true); //set to false by default on line 22
     } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
