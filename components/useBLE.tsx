@@ -132,7 +132,7 @@ function useBLE(): BluetoothLowEnergyApi {
                 // console.log({signalTimes});
                 // console.log({currentTime});
                 // console.log("OLD DATA RESET");
-                signalTimes[i] = undefined as unknown as number; // setting as undefined prevents from continuously reseting signal when signal is lost
+                signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
               }
             }  
           }
