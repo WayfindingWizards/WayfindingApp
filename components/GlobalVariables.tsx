@@ -6,7 +6,7 @@ let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 let voiceCommands: boolean = false;
 let sound: boolean = false;
-let closestBeacon: number = -1;
+let closestBeacon: number;
 
 
 export function getDestination(): string{
