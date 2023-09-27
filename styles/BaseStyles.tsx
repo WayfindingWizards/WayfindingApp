@@ -1,6 +1,11 @@
 import {StyleSheet, Platform} from 'react-native';
 
 export const baseStyles = StyleSheet.create({
+  unityView: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   background: {
     flex: 1,
     resizeMode: 'cover',
