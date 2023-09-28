@@ -40,9 +40,9 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
     
     ```ndkVersion = "21.3.6528147"```
     ``` ```
-	```flatDir {```
-    ```    dirs "${project(':unityLibrary').projectDir}/libs"```
-    ```}```
+	>```flatDir {```
+    >```    dirs "${project(':unityLibrary').projectDir}/libs"```
+    >```}```
     
 10. Go to `C:\Users\<your username>\Documents\GitHub\WayfindingApp\unity\builds\android\local.properties` and make sure the path to the sdk and ndk lead to those installed by android studio:
 
@@ -52,7 +52,7 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
 
     ``` ndk.dir = path to ndk ```    
 
-    >On Windows, if you installed Android Studio the path to the SDK is usually `C:\Users\<your username>\AppData\Local\Android\Sdk\ndk\ndk version`. Use double backslashes to separate path components in the `local.properties` file, e.g. `sdk.dir = C://Users//student//AppData//Local//Android//Sdk//ndk//21.3.6528147`
+    >On Windows, if you installed Android Studio the path to the SDK is usually `C:\Users\<your username>\AppData\Local\Android\Sdk\ndk\ndk version`. Use double backslashes to separate path components in the `local.properties` file, e.g. `ndk.dir = C://Users//student//AppData//Local//Android//Sdk//ndk//21.3.6528147`
 
 11. Go to `C:\Users\<your username>\Documents\GitHub\WayfindingApp\unity\builds\android\unityLibrary\symbols` and unzip `arm64-v8a`,`armeabi-v7a`,`x86`, and `x86_64` to the symbols folder.
     
