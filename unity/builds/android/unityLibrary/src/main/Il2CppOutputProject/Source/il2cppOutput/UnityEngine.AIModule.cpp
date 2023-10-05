@@ -288,6 +288,11 @@ struct NavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F  : public Behaviou
 {
 };
 
+// UnityEngine.AI.NavMeshObstacle
+struct NavMeshObstacle_t8A0C6288BB17A7B9DEF5897AEAFA7C58DB85C411  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
+{
+};
+
 // <Module>
 
 // <Module>
@@ -379,6 +384,10 @@ struct Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_StaticFields
 // UnityEngine.AI.NavMeshAgent
 
 // UnityEngine.AI.NavMeshAgent
+
+// UnityEngine.AI.NavMeshObstacle
+
+// UnityEngine.AI.NavMeshObstacle
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -735,6 +744,14 @@ IL_0011:
 		return L_1;
 	}
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

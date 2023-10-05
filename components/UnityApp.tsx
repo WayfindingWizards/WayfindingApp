@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import UnityView, { UnityMessage } from '@azesmway/react-native-unity';
+import UnityView from '@azesmway/react-native-unity';
 import { View } from 'react-native';
+//import UnityMessage from '@azesmway/react-native-unity';
+import * as utils from './GlobalVariables';
 
 interface UnityAppProps {}
 
@@ -12,7 +14,8 @@ const UnityApp: React.FC<UnityAppProps> = () => {
   }, []);
 
   // delay function helps us control when to send the data to Unity in ms.
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  // const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); //old one
+  const delay = (ms: number): Promise<void> => new Promise<void>(resolve => setTimeout(resolve, ms));
 
   // Send Data function uses the main function that sends the data to Unity.
   // With the delay.
@@ -25,9 +28,11 @@ const UnityApp: React.FC<UnityAppProps> = () => {
     unityRef.current?.postMessage('ReactToUnity', 'GetDatas', data);
   }
 
-  const unityData = {
-    name: "I'm Stepa",
-    age: 25,
+  const unityData = { //send data from GlobalVariables.tsx to Unity
+    originR: utils.getOrigin,
+    destinationR: utils.getDestination,
+    beaconID1R: utils.getClosestBeacon,
+    distance1R: 5,
   };
 
   const jsonedData = JSON.stringify(unityData);
@@ -43,7 +48,8 @@ const UnityApp: React.FC<UnityAppProps> = () => {
           top: 1,
           bottom: 1
         }}
-        onUnityMessage={(result: UnityMessage) => {
+        // result: UnityMessage
+        onUnityMessage={(result) => { // previously used (result: UnityMessage)
           console.log('Message Here: ', result.nativeEvent.message);
         }}
       />

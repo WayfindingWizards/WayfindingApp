@@ -5,8 +5,8 @@ dependencies {
     }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    compileSdkVersion 34
+    buildToolsVersion '30.0.3'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         minSdkVersion 22
-        targetSdkVersion 30
+        targetSdkVersion 34
         applicationId 'com.DefaultCompany.Myproject1'
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
