@@ -16579,14 +16579,16 @@ struct CustomEvent_t68DCB5C6D36D2058F4A1A7385B9852234DF2F540  : public GameObjec
 // DataFromReact
 struct DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// UnityEngine.UI.Text DataFromReact::messageText
+	Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* ___messageText_4;
 	// System.String DataFromReact::originR
-	String_t* ___originR_4;
+	String_t* ___originR_5;
 	// System.String DataFromReact::destinationR
-	String_t* ___destinationR_5;
+	String_t* ___destinationR_6;
 	// System.String DataFromReact::beaconID1R
-	String_t* ___beaconID1R_6;
+	String_t* ___beaconID1R_7;
 	// System.String DataFromReact::distance1R
-	String_t* ___distance1R_7;
+	String_t* ___distance1R_8;
 };
 
 // UnityEngine.EventSystems.EventTrigger
@@ -24192,7 +24194,7 @@ struct TextGenerator_t6B84DC798596D3A9944DC346DD453C075EE62366_StaticFields
 struct DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_StaticFields
 {
 	// DataFromReact DataFromReact::instance
-	DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* ___instance_8;
+	DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* ___instance_9;
 };
 
 // DataFromReact
@@ -28464,9 +28466,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5311[1] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5322[4] = 
 {
 	static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___originR_0)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___destinationR_1)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___beaconID1R_2)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___distance1R_3)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5323[5] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5323[6] = 
 {
-	static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___originR_4)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___destinationR_5)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___beaconID1R_6)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___distance1R_7)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_StaticFields, ___instance_8)),};
+	static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___messageText_4)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___originR_5)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___destinationR_6)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___beaconID1R_7)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___distance1R_8)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_StaticFields, ___instance_9)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5324[7] = 
 {
 	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___speed_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_10)),};
