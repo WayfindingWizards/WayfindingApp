@@ -7,47 +7,71 @@ interface UnityAppProps {}
 
 const UnityApp: React.FC<UnityAppProps> = () => {
   const unityRef = useRef<UnityView>(null);
-  const [origin, setOrigin] = useState<string>('TN258'); // Initial origin
+  const FREQUENCY_MHZ = 1 / 100000; // 100 ms = 1/100000 MHz (beacons should be 100 ms)
+
+  //const [origin, setOrigin] = useState<string>('TN258'); // Initial origin
+  let testBeaconArray: Array<{ beaconNum: number, rssi: number }> = [
+    { beaconNum: 1, rssi: -60 },  // default values used for testing
+    { beaconNum: 2, rssi: -65 },
+  ];;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Change the origin every few seconds
-      const newOrigin = getNextOrigin(); // Implement getNextOrigin as needed
-      console.log('newOrigin:', newOrigin); //check the origin
-      setOrigin(newOrigin);
+      //const newOrigin = getNextOrigin(); // Implement getNextOrigin as needed
+      //console.log('newOrigin:', newOrigin); //check the origin
+      //setOrigin(newOrigin);
+      let beaconID1 = null;
+      let beaconDist1 = null;
 
-      // Send updated data to Unity
+      const beaconArray = utils.getBeaconArray();  //get the beacon array from GlobalVariables.tsx
+      if (beaconArray && beaconArray.length > 0) {
+        let beacon1 = beaconArray[0];
+        beaconID1 = beacon1.beaconNum; //get the first beacon's ID from the beacon
+        // Formula to calculate distance from rssi: 10^((27.55-(20*log10(frequency))+Math.abs(RSSI))/20) where frequency is in MHz, and RSSI is in dBm
+        beaconDist1 = Math.pow(10, (27.55 - (20 * Math.log10(FREQUENCY_MHZ)) + Math.abs(beacon1.rssi)) / 20);
+      } else {
+        console.log('Invalid or empty beaconArray (using test array)');
+        let beacon1 = testBeaconArray[0];
+        beaconID1 = beacon1.beaconNum; //get the first beacon's ID from the beacon
+        // Formula to calculate distance from rssi: 10^((27.55-(20*log10(frequency))+Math.abs(RSSI))/20) where frequency is in MHz, and RSSI is in dBm
+        //beaconDist1 = Math.pow(10, (27.55 - (20 * Math.log10(FREQUENCY_MHZ)) + Math.abs(beacon1.rssi)) / 20);
+        beaconDist1 = Math.pow(10, ((-59 - beacon1.rssi)) / (10 * 2));
+      }
+      // Send updated data to Unity (variables end in R to show they come from React Native)
       SendData({
-        originR: newOrigin,
-        destinationR: 'TN255', //utils.getDestination()
-        beaconID1R: '21', //utils.getClosestBeacon()
-        distance1R: '5',
+        originR: utils.getOrigin(),  //newOrigin, 'TN255', '7','8'
+        destinationR: utils.getDestination(), //utils.getDestination()
+        beaconID1R: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
+        distance1R: beaconDist1,                                       //might need to make this different
+        // beaconID2R: '8', //utils.getClosestBeacon()
+        // distance2R: '5',
+        // beaconID3R: '9', //utils.getClosestBeacon()
+        // distance3R: '5',
       });
-    }, 4000); //4 seconds
+    }, 500); // 0.5 seconds (500 ms)
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, [origin]);
+  }, []);  //[origin]
 
   async function SendData(data: any) {
     // This is the main function postMessage takes 3 arguments:
     // ReactToUnity is the game Object
-    // GetDatas is the function name we will send the data to in Unity depends on hierarchy.
+    // GetData is the function name we will send the data to in Unity depends on hierarchy.
     // data is the data we will send.
-    unityRef.current?.postMessage('ReactToUnity', 'GetDatas', JSON.stringify(data));
+    unityRef.current?.postMessage('ReactToUnity', 'GetData', JSON.stringify(data));
     //console.log("sent: " + JSON.stringify(data))
     console.log("sent at", new Date().toLocaleTimeString(), JSON.stringify(data));
+    //console.log("beacon array global value", JSON.stringify(utils.getBeaconArray));
   }
 
-  function getNextOrigin(): string {
-    // Implement your logic to get the next origin value
-    // For example, you can have an array of origins and cycle through them.
-    // Ensure to handle the logic to avoid index out of bounds.
-    const origins = ['TN258', 'TN270', 'TN268', 'TN265','TN250', 'TN247', 'TN246']; // Add more origins as needed
-    const currentIndex = origins.indexOf(origin);
-    const nextIndex = (currentIndex + 1) % origins.length;
-    return origins[nextIndex];
-  }
+  // function getNextOrigin(): string {
+  //   const origins = ['TN258', 'TN270', 'TN268', 'TN265','TN250', 'TN247', 'TN246']; // cycle through array of origins
+  //   const currentIndex = origins.indexOf(origin);
+  //   const nextIndex = (currentIndex + 1) % origins.length; // mod to avoid index out of bounds
+  //   return origins[nextIndex];
+  // }
 
   return (
     <View style={{ flex: 1 }}>

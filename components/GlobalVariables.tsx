@@ -6,8 +6,11 @@ let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 let voiceCommands: boolean = false;
 let sound: boolean = false;
-let closestBeacon: number;
-
+let closestBeacon: number = 18; //test value of 18
+let beaconArray: Array<{ beaconNum: number, rssi: number }> = [
+  { beaconNum: 1, rssi: -60 },  // default values used for testing
+  { beaconNum: 2, rssi: -65 },
+];
 
 export function getDestination(): string{
   return destination;
@@ -42,8 +45,12 @@ export function getSound():boolean {
 }
 
 export function getClosestBeacon(): number {
-  console.log(closestBeacon);
+  //console.log(closestBeacon);
   return closestBeacon;
+}
+
+export function getBeaconArray():Array<{ beaconNum: number, rssi: number }> { 
+  return beaconArray;
 }
 
 export function setVoiceCommands(newVoiceCommands:boolean){
@@ -80,7 +87,11 @@ export function setAccessibleRoute(newAccessibleRoute: boolean) {
 
 export function setClosestBeacon(newClosestBeacon: number) {
   closestBeacon = newClosestBeacon;
-  console.log(closestBeacon);
+  //console.log(closestBeacon);
+}
+
+export function setBeaconArray(NewBeaconArray:Array<{ beaconNum: number, rssi: number}>){ 
+  beaconArray = NewBeaconArray;
 }
 
 export function reset() {
