@@ -24190,6 +24190,8 @@ struct NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields
 	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___lineRendererSmall_11;
 	// System.Boolean NavMeshLine::accessibileRoute
 	bool ___accessibileRoute_13;
+	// NavMeshLine NavMeshLine::instance
+	NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B* ___instance_17;
 };
 
 // NavMeshLine
@@ -28411,30 +28413,30 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5304[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5309[1] = 
 {
 	static_cast<int32_t>(offsetof(NavMesh_t3543D236ABB9A67F696BCF9440D669A1578B3D46_StaticFields, ___onPreUpdate_0)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5320[3] = 
-{
-	static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_nTag_0)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_aValue_1)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___elist_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5325[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5320[4] = 
 {
 	static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___originR_0)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___destinationR_1)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___beaconID1R_2)),static_cast<int32_t>(offsetof(JsonObject_t05AF75AC14C4977C37E319133C8AC1C18966F4A8, ___distance1R_3)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5326[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5321[6] = 
 {
 	static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___messageText_4)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___originR_5)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___destinationR_6)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___beaconID1R_7)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4, ___distance1R_8)),static_cast<int32_t>(offsetof(DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_StaticFields, ___instance_9)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5327[7] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5322[7] = 
 {
 	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___speed_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_10)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5328[13] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5323[14] = 
 {
-	static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___DR_4)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___origin_5)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___destination_6)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___originRoom_7)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationRoom_8)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___building_9)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererBig_10)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererSmall_11)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___navMeshAgent_12)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___accessibileRoute_13)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationScene_14)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___stairs_15)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___elevator_16)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5329[1] = 
+	static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___DR_4)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___origin_5)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___destination_6)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___originRoom_7)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationRoom_8)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___building_9)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererBig_10)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererSmall_11)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___navMeshAgent_12)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___accessibileRoute_13)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationScene_14)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___stairs_15)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___elevator_16)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___instance_17)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5324[1] = 
 {
 	static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___target_4)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5330[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5325[4] = 
 {
 	static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___heading_0)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___text_1)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___linkText_2)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___url_3)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5331[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5326[4] = 
 {
 	static_cast<int32_t>(offsetof(Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB, ___icon_4)),static_cast<int32_t>(offsetof(Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB, ___title_5)),static_cast<int32_t>(offsetof(Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB, ___sections_6)),static_cast<int32_t>(offsetof(Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB, ___loadedLayout_7)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5328[3] = 
+{
+	static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_nTag_0)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_aValue_1)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___elist_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5346[3] = 
 {
 	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};

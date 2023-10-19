@@ -5,12 +5,13 @@
 // in another cmd window navigate to project folder and run: npx react-native run-android
 
 /* eslint-disable no-bitwise */
-import { useState, useEffect } from 'react';
-import { PermissionsAndroid, Platform } from 'react-native';
-import { BleManager, ScanMode } from 'react-native-ble-plx';
-import { PERMISSIONS, requestMultiple } from 'react-native-permissions';
+import {useState} from 'react';
+import {PermissionsAndroid, Platform} from 'react-native';
+import {BleManager, ScanMode} from 'react-native-ble-plx';
+import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import * as utils from './GlobalVariables';
+import  {setClosestBeacon, setBeaconArray}  from './GlobalVariables';
+
 
 const bleManager = new BleManager();
 
@@ -23,144 +24,45 @@ interface BluetoothLowEnergyApi {
 }
 
 // variables to declare outside of scan
-// const numberOfBeacons = 25;
-// let beaconSignals = new Array<number>(numberOfBeacons);
-// let signalTimes = new Array<number>(numberOfBeacons);
-// let deleteOld = false;
-// let prevTime = Date.now();
-// let recentClosest: number[] = [];
-// let closestBeaconFinal: number;
-let IDMap = new Map<string, number>([ // this and numberOfBeacons can be migrated to a csv file
-["DC:0D:30:14:30:26", 19],
-["DC:0D:30:14:30:28", 21],
-["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
-["DC:0D:30:14:30:2F", 20],
-["DC:0D:30:14:30:26", 19],
-["DC:0D:30:14:30:23", 6],
-["DC:0D:30:14:2F:CF", 13], 
-["DC:0D:30:14:2F:F5", 12], // should have been outside of stairs G, but was missing
-["DC:0D:30:14:30:29", 11],
-["DC:0D:30:14:30:0D", 10],
-["DC:0D:30:14:2F:D0", 9],
-["DC:0D:30:14:2F:C9", 8],
-["DC:0D:30:14:30:27", 7],
-["DC:0D:30:14:2F:E8", 18],
-["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped
-["DC:0D:30:14:30:31", 16],
-["DC:0D:30:14:2F:D1", 17],
-["DC:0D:30:10:4E:F2", 0], // not installed
-["DC:0D:30:10:4F:57", 1], // not installed
-["DC:0D:30:10:4F:3D", 2], // not installed
-["DD:60:03:00:02:C0", 3], // not installed              //rssi at 1m = -59, 100 ms            (n=2.66 or n=2)? 
-["DD:60:03:00:03:3C", 4], // not installed
-["DD:60:03:00:00:4F", 5], // not installed
+const numberOfBeacons = 25;
+let beaconSignals = new Array<number>(numberOfBeacons); // beaconSignals is an array where beaconSignals[beaconNum] = rssi
+let signalTimes = new Array<number>(numberOfBeacons);
+let deleteOld = false;
+let prevTime = Date.now();
+let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
+let closestBeaconFinal: number;
+let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
+  ["DC:0D:30:14:30:26", 19],
+  ["DC:0D:30:14:30:28", 21],
+  ["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
+  ["DC:0D:30:14:30:2F", 20],
+  ["DC:0D:30:14:30:26", 19],
+  ["DC:0D:30:14:30:23", 6],
+  ["DC:0D:30:14:2F:CF", 13], 
+  ["DC:0D:30:14:2F:F5", 12], // should have been outside of stairs G, but was missing
+  ["DC:0D:30:14:30:29", 11],
+  ["DC:0D:30:14:30:0D", 10],
+  ["DC:0D:30:14:2F:D0", 9],
+  ["DC:0D:30:14:2F:C9", 8],
+  ["DC:0D:30:14:30:27", 7],
+  ["DC:0D:30:14:2F:E8", 18],
+  ["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped
+  ["DC:0D:30:14:30:31", 16],
+  ["DC:0D:30:14:2F:D1", 17],
+  ["DC:0D:30:10:4E:F2", 0], // not installed
+  ["DC:0D:30:10:4F:57", 1], // not installed
+  ["DC:0D:30:10:4F:3D", 2], // not installed
+  ["DD:60:03:00:02:C0", 3], // not installed              //rssi at 1m = -59, 100 ms            (n=2.66 or n=2)? 
+  ["DD:60:03:00:03:3C", 4], // not installed
+  ["DD:60:03:00:00:4F", 5], // not installed
+
+  ["DC:0D:30:14:2F:CB", 7], // for testing, not installed (named: Beacon FSC)
+  ["DC:0D:30:14:2F:D7", 8]  // for testing, not installed (named: Beacon tes)
 ]);
 
-const closestBeaconData: { [key: number]: { rssiValues: number[]; lastUpdateTime: number } } = {};
-
-const useBLE = (): BluetoothLowEnergyApi => {
-  const [closestBeacon] = useState<number>(-1);
-
-  const handleDeviceScan = (error: any, device: any) => { // currently, no error handling. However, it could be added using the error parameter.
-    if (device?.name?.includes('Beacon' || 'BCPro')) { // General Identifiers = { BlueCharm:'BCPro', Feasy:'Beacon' }
-      const deviceRssi = device.rssi!;
-      const deviceID = device.id;
-      const beaconNum = IDMap.get(deviceID);
-
-      if (beaconNum !== undefined) {
-        if (!closestBeaconData[beaconNum]) {
-          closestBeaconData[beaconNum] = {
-            rssiValues: [],
-            lastUpdateTime: Date.now(),
-          };
-        }
-
-        closestBeaconData[beaconNum].rssiValues.push(deviceRssi);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleDeviceScan = (error: any, device: any) => { // currently, no error handling. However, it could be added using the error parameter.
-      if (device?.name?.includes('Beacon' || 'BCPro')) {
-        const deviceRssi = device.rssi!;
-        const deviceID = device.id;
-        const beaconNum = IDMap.get(deviceID);
-
-        if (beaconNum !== undefined) {
-          if (!closestBeaconData[beaconNum]) {
-            closestBeaconData[beaconNum] = {
-              rssiValues: [],
-              lastUpdateTime: Date.now(),
-            };
-          }
-
-          closestBeaconData[beaconNum].rssiValues.push(deviceRssi);
-        }
-      }
-    };
-
-    const scanForPeripherals = () =>
-      bleManager.startDeviceScan(
-        null,
-        {
-          allowDuplicates: true,
-          scanMode: ScanMode.LowLatency,
-        },
-        handleDeviceScan,
-      );
-
-    const calculateAndSendAverageRSSI = () => {
-      const currentTime = Date.now();
-      const averageRSSIData: { [key: number]: number } = {};
-
-      Object.keys(closestBeaconData).forEach((beaconNumStr) => {
-        const beaconNum = parseInt(beaconNumStr, 10);
-        const { rssiValues, lastUpdateTime } = closestBeaconData[beaconNum];
-
-        const averageRssi = calculateAverageRSSI(rssiValues, currentTime - lastUpdateTime);
-
-        averageRSSIData[beaconNum] = averageRssi;
-
-        closestBeaconData[beaconNum].rssiValues = [];
-        closestBeaconData[beaconNum].lastUpdateTime = currentTime;
-      });
-
-      const transformedData = Object.keys(averageRSSIData).map((beaconNumStr) => {
-        const beaconNum = parseInt(beaconNumStr, 10);
-        const rssi = averageRSSIData[beaconNum];
-
-        return { beaconNum, rssi };
-      });
-
-      utils.setBeaconArray(transformedData);
-    };
-
-    const calculateAverageRSSI = (rssiValues: number[], timePeriod: number): number => {
-      const currentTime = Date.now();
-      const validRssiValues = rssiValues.filter((rssi, index) => { // create new array and filter out old values based on currentTime
-        const timeSinceUpdate = currentTime - index * 1000; // 1 second ago
-        return timeSinceUpdate <= timePeriod;
-      });
-
-      const sumRssi = validRssiValues.reduce((acc, rssi) => acc + rssi, 0);
-      const averageRssi = sumRssi / validRssiValues.length;
-
-      return averageRssi;
-    };
-
-    // Start scanning on mount (render method has been called, resulting virtual Document Object Model elements have been added to the actual Document Object Model)
-    const scan = scanForPeripherals();
-
-    // Calculate and send average RSSI every second
-    const intervalId = setInterval(calculateAndSendAverageRSSI, 1000);
-
-    return () => {
-      // Cleanup: Stop scanning and clear the interval on unmount (removed from Document Object Model)
-      bleManager.stopDeviceScan();
-      clearInterval(intervalId);
-    };
-  }, []); // Empty dependency array means this effect runs once on mount (won't re-run if any of the dependencies change)
+function useBLE(): BluetoothLowEnergyApi {
+  const [closestBeacon, setclosestBeacon] = useState<number>(-1);
+  const [render, setRender] = useState<boolean>(true); //manually rerenders app when closest beacon changes
 
   const requestPermissions = async (cb: VoidCallback) => {
     if (Platform.OS === 'android') {
@@ -186,13 +88,16 @@ const useBLE = (): BluetoothLowEnergyApi => {
         ]);
 
         const isGranted =
-          result['android.permission.BLUETOOTH_CONNECT'] === PermissionsAndroid.RESULTS.GRANTED &&
-          result['android.permission.BLUETOOTH_SCAN'] === PermissionsAndroid.RESULTS.GRANTED &&
-          result['android.permission.ACCESS_FINE_LOCATION'] === PermissionsAndroid.RESULTS.GRANTED;
+          result['android.permission.BLUETOOTH_CONNECT'] ===
+            PermissionsAndroid.RESULTS.GRANTED &&
+          result['android.permission.BLUETOOTH_SCAN'] ===
+            PermissionsAndroid.RESULTS.GRANTED &&
+          result['android.permission.ACCESS_FINE_LOCATION'] ===
+            PermissionsAndroid.RESULTS.GRANTED;
 
         cb(isGranted);
       }
-    } else { // set to true if ios
+    } else {  // set to true if ios
       cb(true);
     }
   };
@@ -205,15 +110,105 @@ const useBLE = (): BluetoothLowEnergyApi => {
         scanMode: ScanMode.LowLatency,
       },
       (error, device) => {
-        // This function is defined in the effect
-        handleDeviceScan(error, device);
+        // Parse signal from our beacons
+        if (device?.name?.includes('Beacon' || 'BCPro')) {  // General Identifiers = { BlueCharm:'BCPro', Feasy:'Beacon' }
+          // variables to declare each scan
+          const deviceRssi = device.rssi!;
+          const deviceID = device.id;
+          let beaconNum: number;
+          let currentTime = Date.now();
+
+          // Match deviceID to beacon and put signal in array
+          beaconNum = IDMap.get(deviceID)!;
+          beaconSignals[beaconNum] = deviceRssi;
+          signalTimes[beaconNum] = currentTime;
+
+          // Age out signals:
+          // invalidate old rssi values once every other scan
+            // consider changing this to once every few scans or once every time period
+          if (deleteOld){
+            for(let i = 0; i < numberOfBeacons; i++){
+              if((currentTime - signalTimes[i]) > 3000){
+                beaconSignals[i] = -100;
+                // console.log(i);
+                // console.log({beaconSignals});
+                // console.log({signalTimes});
+                // console.log({currentTime});
+                // console.log("OLD DATA RESET");
+                signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
+              }
+            }  
+          }
+
+          deleteOld = !deleteOld;
+          
+          // add current closest to recentClosest
+          recentClosest.push(beaconSignals.indexOf(beaconSignals.reduce((a, b) => Math.max(a, b), -Infinity)));
+
+          // find mode of recentClosest, if empty return -1
+          function findMode(arr: Array<number>){
+            if(arr.length == 0){
+              return -1;
+            }
+
+            // sort array
+            arr = arr.sort((n1,n2) => n1 - n2);
+            let mode: number = arr[0];
+            let modeCount: number = 0;
+            let currentCount: number = 0;
+
+            // find mode
+            for(let i = 1; i < arr.length; i++){
+              if(arr[i-1] == arr[i]){
+                currentCount += 1;
+                if(currentCount > modeCount){
+                  mode = arr[i];
+                  modeCount = currentCount;
+                }
+              }
+              else {
+                currentCount = 0;
+              }
+            }
+            
+            console.log({mode});
+            return mode;
+          }
+
+          // call findMode every second
+          if((currentTime - prevTime) > 1000){
+            console.log({recentClosest});
+            closestBeaconFinal = findMode(recentClosest);
+            setclosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
+            setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            setRender(!render); //see line 62
+            recentClosest = [];
+            prevTime = currentTime;
+
+            //set beaconsArray in GlobalVariables.tsx
+            const beaconsArray = beaconSignals
+              .map((rssi, index) => {
+                const beaconId = Array.from(IDMap.keys())[index];
+                const beaconNum = IDMap.get(beaconId) ?? -1; // Use -1 as a default if undefined
+                //add something to get distance from rssi
+                return { beaconNum, rssi };
+              })
+              
+              // Sort these pairs based on RSSI and take the top 3
+              .sort((a, b) => b.rssi - a.rssi)
+              .slice(0, 3);
+
+              setBeaconArray(beaconsArray);
+          }
+        }
       },
     );
+
   return {
     scanForPeripherals,
     requestPermissions,
     closestBeacon,
   };
-};
+}
 
 export default useBLE;

@@ -6,7 +6,7 @@ let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 let voiceCommands: boolean = false;
 let sound: boolean = false;
-let closestBeacon: number = 18; //test value of 18
+let closestBeacon: number; //test value of 18
 let beaconArray: Array<{ beaconNum: number, rssi: number }> = [
   { beaconNum: 1, rssi: -60 },  // default values used for testing
   { beaconNum: 2, rssi: -65 },

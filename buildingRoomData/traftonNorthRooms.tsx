@@ -101,7 +101,7 @@ traftonNorthRooms.set("3",[
 '340',
 '342',
 '344',
-'346',
+'345', //was 346, but there is no N346
 '347',
 '350',
 '351',

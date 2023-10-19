@@ -43,7 +43,7 @@ const UnityApp: React.FC<UnityAppProps> = () => {
         originR: utils.getOrigin(),  //newOrigin, 'TN255', '7','8'
         destinationR: utils.getDestination(), //utils.getDestination()
         beaconID1R: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
-        distance1R: beaconDist1,                                       //might need to make this different
+        distance1R: beaconDist1,                                      
         // beaconID2R: '8', //utils.getClosestBeacon()
         // distance2R: '5',
         // beaconID3R: '9', //utils.getClosestBeacon()

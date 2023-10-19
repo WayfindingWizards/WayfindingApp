@@ -9,6 +9,9 @@ import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './Access
 import useBLE from './useBLE';
 import UnityApp from "./UnityApp";
 
+// import { BleManager } from 'react-native-ble-plx';
+// import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
+
 
 const App: React.FC = () => {
   const backgroundImage = 'AwesomeProject/images/app_background.png';
@@ -27,10 +30,47 @@ const App: React.FC = () => {
   useEffect(() => {
     scanForDevices();
     console.log(utils.getClosestBeacon()); //scans for devices when app is rendered and running
+
+    // const bleManager = new BleManager();
+    // // Check if the permission is already granted
+    // check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION)
+    //   .then((result) => {
+    //     switch (result) {
+    //       case RESULTS.GRANTED:
+    //         // Location permission is granted
+    //         break;
+    //       case RESULTS.DENIED:
+    //         // Location permission is denied, request it
+    //         request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then((result) => {
+    //           if (result === RESULTS.GRANTED) {
+    //             // Permission has been granted
+    //           }
+    //         });
+    //         break;
+    //       case RESULTS.BLOCKED:
+    //         // The user has denied permission and selected "Never ask again"
+    //         // You should guide the user to app settings to enable permissions.
+    //         break;
+    //     }
+    //   });
+
+    // // Start scanning for BLE devices
+    // bleManager.startDeviceScan(null, null, (error, device) => {
+    //   if (error) {
+    //     console.error('Error scanning for devices:', error);
+    //     return;
+    //   }
+
+    //   // Handle the discovered device
+    //   console.log('Discovered device:', device.name || device.id);
+    //   // You can connect to and interact with the device here
+    // });
+
   }, [] );
 
   const scanForDevices = () => {
     requestPermissions((isGranted: boolean) => {
+      //console.log(isGranted);
       if (isGranted) {
         scanForPeripherals();
       }
@@ -46,10 +86,11 @@ const App: React.FC = () => {
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
-    if (!roomFound&& userDestination!='Bathroom') {
+    if (!roomFound && userDestination!='Bathroom') {
       utils.setDestination(userDestination); // sets destination global to userDestination
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
-    } else if (utils.getClosestBeacon() == -1 || !utils.getOrigin()) { //checks to see if beacons have found origin
+      return;
+    } else if (utils.getClosestBeacon() == -1 || utils.getClosestBeacon() == null) { //checks to see if beacons have found origin
       utils.setDestination(userDestination); //sets destination global to userDestination
       setNoStartPopupVisible(true); //set to false by default on line 22
     } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {

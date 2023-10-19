@@ -114,7 +114,6 @@ struct Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401;
 
 IL2CPP_EXTERN_C RuntimeClass* DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7_il2cpp_TypeInfo_var;
@@ -122,25 +121,38 @@ IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_i
 IL2CPP_EXTERN_C RuntimeClass* SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral055601E076D65992B3FCD809DD5E222AFB903BEE;
 IL2CPP_EXTERN_C String_t* _stringLiteral0BDB5C7629A5A7AFBD397E9FDAB96A290F837A15;
+IL2CPP_EXTERN_C String_t* _stringLiteral0E49A71FB10A9B92465D2918A3D0E4330FC92841;
 IL2CPP_EXTERN_C String_t* _stringLiteral13798C1076526F7D73D219253A8A20DC3AF49CC6;
 IL2CPP_EXTERN_C String_t* _stringLiteral2070E726C871B3253729E896E2FA5E9683DFD132;
+IL2CPP_EXTERN_C String_t* _stringLiteral2C9029B7E436861FFDB26B51554442225BEC8047;
 IL2CPP_EXTERN_C String_t* _stringLiteral2E7D870E1B5784012F668FEC57622DA6F22BDC35;
 IL2CPP_EXTERN_C String_t* _stringLiteral326F8ED709FDE0BF727567D770C987E4E0C304A5;
+IL2CPP_EXTERN_C String_t* _stringLiteral331550C0DB1643A8C5E6C9E3A71B9D7B919BAA4D;
 IL2CPP_EXTERN_C String_t* _stringLiteral34FC702AEC66258178A46131859C6AC3DC1A6CAC;
 IL2CPP_EXTERN_C String_t* _stringLiteral3D4887776042D73AD182766CDE2B5AE68B794B7D;
 IL2CPP_EXTERN_C String_t* _stringLiteral4B35CE1AB5E2DC90AB069C4BE809941334FE0BE4;
+IL2CPP_EXTERN_C String_t* _stringLiteral4D907D57B03FA9501EF8CC073AFA8083D933F18F;
+IL2CPP_EXTERN_C String_t* _stringLiteral521FB55423CC068B92B5E8453A36DF0D6CBDD93F;
 IL2CPP_EXTERN_C String_t* _stringLiteral531E387870CC445371BE34AA2C9951D80ABB7B2C;
 IL2CPP_EXTERN_C String_t* _stringLiteral55B692982E8D7D40B76677D63A0E19E4122B4D5E;
 IL2CPP_EXTERN_C String_t* _stringLiteral7F5627428095188E5EF05DC9F795355CC0AD0624;
 IL2CPP_EXTERN_C String_t* _stringLiteral8027FA7717CD64C56FB13FB4CF9FA8C8A7EA9586;
 IL2CPP_EXTERN_C String_t* _stringLiteral821CEEC61505D4CA03CAA67DD242D13E8E0EADB7;
+IL2CPP_EXTERN_C String_t* _stringLiteral8B49496FA009995B8099240460BC36FADDB0B000;
+IL2CPP_EXTERN_C String_t* _stringLiteralA1F8C30AF9A614832E6AEAE94C81E0CB4D21FA81;
 IL2CPP_EXTERN_C String_t* _stringLiteralB828714B11C6F1EB4808DBBC3DFC8AE99E1C750C;
+IL2CPP_EXTERN_C String_t* _stringLiteralD010E318976CE5F70DF3F9F64208CD14479457E8;
 IL2CPP_EXTERN_C String_t* _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
 IL2CPP_EXTERN_C String_t* _stringLiteralDD02367CA00BC2720D908FB0B5C6B0BE514B3C72;
 IL2CPP_EXTERN_C String_t* _stringLiteralE42E8BB820D4F7550A0F04619F4E15FDC56943B9;
 IL2CPP_EXTERN_C String_t* _stringLiteralE7D5EA38B5337CF6CFF605A0C932922FEFEF9EA7;
+IL2CPP_EXTERN_C String_t* _stringLiteralEF7FC24B5117DE7A50326EB54B70AF5BAC17A774;
 IL2CPP_EXTERN_C String_t* _stringLiteralF6069768F61828E801568A477AE87CCB7DBACA60;
+IL2CPP_EXTERN_C String_t* _stringLiteralF8591E019243177659D36C84E0F0DD536C62D029;
+IL2CPP_EXTERN_C String_t* _stringLiteralF859CAA74FC4BD45E85F9AFF276F614AE47D3DA2;
+IL2CPP_EXTERN_C String_t* _stringLiteralFF01C47ABD568A459C8EA38273E930831E0F8561;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisNavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F_m45B783D78932EFB8409019F84FED6DF3A492F16F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* GameObject_AddComponent_TisDataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_m56DECE70E2B63338AF01B2432AE7D678879B1282_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* GameObject_GetComponent_TisLineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D_mE703918F1B04E115CCE78A5FF891A12648B04D75_RuntimeMethod_var;
@@ -273,6 +285,13 @@ struct Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974
 	float ___z_2;
 	// System.Single UnityEngine.Quaternion::w
 	float ___w_3;
+};
+
+// UnityEngine.SceneManagement.Scene
+struct Scene_tA1DC762B79745EB5140F054C884855B922318356 
+{
+	// System.Int32 UnityEngine.SceneManagement.Scene::m_Handle
+	int32_t ___m_Handle_0;
 };
 
 // System.Single
@@ -636,6 +655,10 @@ struct Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_StaticFields
 
 // UnityEngine.Quaternion
 
+// UnityEngine.SceneManagement.Scene
+
+// UnityEngine.SceneManagement.Scene
+
 // System.Single
 
 // System.Single
@@ -742,6 +765,8 @@ struct NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields
 	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___lineRendererSmall_11;
 	// System.Boolean NavMeshLine::accessibileRoute
 	bool ___accessibileRoute_13;
+	// NavMeshLine NavMeshLine::instance
+	NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B* ___instance_17;
 };
 
 // NavMeshLine
@@ -884,8 +909,8 @@ inline DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* Object_FindObjec
 {
 	return ((  DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* (*) (const RuntimeMethod*))Object_FindObjectOfType_TisRuntimeObject_m02DFBF011F3B59F777A5E521DB2A116DD496E968_gshared)(method);
 }
-// System.Void UnityEngine.GameObject::.ctor(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject__ctor_m37D512B05D292F954792225E6C6EEE95293A9B88 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, String_t* ___0_name, const RuntimeMethod* method) ;
+// UnityEngine.GameObject UnityEngine.GameObject::Find(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300 (String_t* ___0_name, const RuntimeMethod* method) ;
 // T UnityEngine.GameObject::AddComponent<DataFromReact>()
 inline DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* GameObject_AddComponent_TisDataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_m56DECE70E2B63338AF01B2432AE7D678879B1282 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -926,8 +951,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_position_mA1A817124BB41B68
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_AngleAxis_mF37022977B297E63AA70D69EA1C4C922FF22CC80 (float ___0_angle, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_axis, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Transform::set_rotation(UnityEngine.Quaternion)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___0_value, const RuntimeMethod* method) ;
-// UnityEngine.GameObject UnityEngine.GameObject::Find(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300 (String_t* ___0_name, const RuntimeMethod* method) ;
 // T UnityEngine.GameObject::GetComponent<UnityEngine.LineRenderer>()
 inline LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* GameObject_GetComponent_TisLineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D_mE703918F1B04E115CCE78A5FF891A12648B04D75 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -942,12 +965,24 @@ inline NavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F* Component_GetComp
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE (String_t* __this, int32_t ___0_startIndex, int32_t ___1_length, const RuntimeMethod* method) ;
 // DataFromReact DataFromReact::get_Instance()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* DataFromReact_get_Instance_mEE585681175EAD268E7C19CE608E49ED5D3857B3 (const RuntimeMethod* method) ;
+// UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Object::DontDestroyOnLoad(UnityEngine.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_DontDestroyOnLoad_m4B70C3AEF886C176543D1295507B6455C9DCAEA7 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_target, const RuntimeMethod* method) ;
+// UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetActiveScene()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scene_tA1DC762B79745EB5140F054C884855B922318356 SceneManager_GetActiveScene_m0B320EC4302F51A71495D1CCD1A0FF9C2ED1FDC8 (const RuntimeMethod* method) ;
 // System.Boolean System.String::op_Inequality(System.String,System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Inequality_m8C940F3CFC42866709D7CA931B3D77B4BE94BCB6 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
+// System.Boolean System.String::op_Equality(System.String,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
 // System.Char System.String::get_Chars(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3 (String_t* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 // System.String System.String::Substring(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472 (String_t* __this, int32_t ___0_startIndex, const RuntimeMethod* method) ;
+// System.String UnityEngine.SceneManagement.Scene::get_name()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Scene_get_name_m3C818DFA663E159274DAD823B780C7616C5E2A8C (Scene_tA1DC762B79745EB5140F054C884855B922318356* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E (String_t* ___0_sceneName, const RuntimeMethod* method) ;
 // UnityEngine.Transform UnityEngine.GameObject::get_transform()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
 // UnityEngine.Vector3 UnityEngine.Transform::get_position()
@@ -962,8 +997,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_calculatePath_m100F0C2341D71
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Input_GetKeyDown_mB237DEA6244132670D38990BAB77D813FBB028D2 (int32_t ___0_key, const RuntimeMethod* method) ;
 // System.String UnityEngine.Object::get_name()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* __this, const RuntimeMethod* method) ;
-// System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E (String_t* ___0_sceneName, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.AI.NavMesh::CalculatePath(UnityEngine.Vector3,UnityEngine.Vector3,System.Int32,UnityEngine.AI.NavMeshPath)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NavMesh_CalculatePath_m15FF9A2E008A90375072B9293D290D9167E580E9 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_sourcePosition, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_targetPosition, int32_t ___2_areaMask, NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* ___3_path, const RuntimeMethod* method) ;
 // UnityEngine.Vector3[] UnityEngine.AI.NavMeshPath::get_corners()
@@ -1023,7 +1056,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataFromReact_tB90C188C1526DFE2EC21A998A76786
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_AddComponent_TisDataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_m56DECE70E2B63338AF01B2432AE7D678879B1282_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_FindObjectOfType_TisDataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_mA69CB9246642315A4F619E16076D08083CF46183_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2070E726C871B3253729E896E2FA5E9683DFD132);
@@ -1057,10 +1089,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DataFromReact_tB90C188C1526DFE2EC21A998A76786
 		}
 	}
 	{
-		// GameObject obj = new GameObject("ReactToUnity"); // previously just GameObject()
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5 = (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)il2cpp_codegen_object_new(GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
-		NullCheck(L_5);
-		GameObject__ctor_m37D512B05D292F954792225E6C6EEE95293A9B88(L_5, _stringLiteral2070E726C871B3253729E896E2FA5E9683DFD132, NULL);
+		// GameObject obj = GameObject.Find("ReactToUnity"); // Find the existing object named "ReactToUnity" in the scene
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5;
+		L_5 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(_stringLiteral2070E726C871B3253729E896E2FA5E9683DFD132, NULL);
 		// instance = obj.AddComponent<DataFromReact>();
 		NullCheck(L_5);
 		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_6;
@@ -1351,6 +1382,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_Start_m4F5393B4ECB0875499F94
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisNavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F_m45B783D78932EFB8409019F84FED6DF3A492F16F_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_GetComponent_TisLineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D_mE703918F1B04E115CCE78A5FF891A12648B04D75_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral531E387870CC445371BE34AA2C9951D80ABB7B2C);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE7D5EA38B5337CF6CFF605A0C932922FEFEF9EA7);
 		s_Il2CppMethodInitialized = true;
@@ -1382,12 +1414,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_Start_m4F5393B4ECB0875499F94
 		L_5 = Component_GetComponent_TisNavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F_m45B783D78932EFB8409019F84FED6DF3A492F16F(__this, Component_GetComponent_TisNavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F_m45B783D78932EFB8409019F84FED6DF3A492F16F_RuntimeMethod_var);
 		__this->___navMeshAgent_12 = L_5;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___navMeshAgent_12), (void*)L_5);
-		// destinationScene = building + destinationRoom.Substring(1,1);
+		// destinationScene = building + destinationRoom.Substring(2,1); //if input is TN270, the substring will take the 2 (end result: building + 2 = N2)
 		String_t* L_6 = __this->___building_9;
 		String_t* L_7 = __this->___destinationRoom_8;
 		NullCheck(L_7);
 		String_t* L_8;
-		L_8 = String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE(L_7, 1, 1, NULL);
+		L_8 = String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE(L_7, 2, 1, NULL);
 		String_t* L_9;
 		L_9 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(L_6, L_8, NULL);
 		__this->___destinationScene_14 = L_9;
@@ -1397,6 +1429,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_Start_m4F5393B4ECB0875499F94
 		L_10 = DataFromReact_get_Instance_mEE585681175EAD268E7C19CE608E49ED5D3857B3(NULL);
 		__this->___DR_4 = L_10;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___DR_4), (void*)L_10);
+		// DontDestroyOnLoad(DR.gameObject); //make sure ReactToUnity doesn't get destroyed when loading a new scene
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_11 = __this->___DR_4;
+		NullCheck(L_11);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_12;
+		L_12 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_11, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		Object_DontDestroyOnLoad_m4B70C3AEF886C176543D1295507B6455C9DCAEA7(L_12, NULL);
 		// }
 		return;
 	}
@@ -1412,14 +1451,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_Update_mB81292E9FBCD3D6BCF31
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral055601E076D65992B3FCD809DD5E222AFB903BEE);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0E49A71FB10A9B92465D2918A3D0E4330FC92841);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2C9029B7E436861FFDB26B51554442225BEC8047);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral331550C0DB1643A8C5E6C9E3A71B9D7B919BAA4D);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4B35CE1AB5E2DC90AB069C4BE809941334FE0BE4);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4D907D57B03FA9501EF8CC073AFA8083D933F18F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral521FB55423CC068B92B5E8453A36DF0D6CBDD93F);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral55B692982E8D7D40B76677D63A0E19E4122B4D5E);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8027FA7717CD64C56FB13FB4CF9FA8C8A7EA9586);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8B49496FA009995B8099240460BC36FADDB0B000);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA1F8C30AF9A614832E6AEAE94C81E0CB4D21FA81);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD010E318976CE5F70DF3F9F64208CD14479457E8);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEF7FC24B5117DE7A50326EB54B70AF5BAC17A774);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF8591E019243177659D36C84E0F0DD536C62D029);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF859CAA74FC4BD45E85F9AFF276F614AE47D3DA2);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralFF01C47ABD568A459C8EA38273E930831E0F8561);
 		s_Il2CppMethodInitialized = true;
 	}
-	NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* V_0 = NULL;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_1 = NULL;
+	String_t* V_0 = NULL;
+	Scene_tA1DC762B79745EB5140F054C884855B922318356 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* V_2 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_3 = NULL;
 	{
 		// Debug.Log(DR.messageText.text);
 		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_0 = __this->___DR_4;
@@ -1430,329 +1485,471 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NavMeshLine_Update_mB81292E9FBCD3D6BCF31
 		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(74 /* System.String UnityEngine.UI.Text::get_text() */, L_1);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_2, NULL);
+		// string sceneToLoad = "Scenes/N2";
+		V_0 = _stringLiteralD010E318976CE5F70DF3F9F64208CD14479457E8;
+		// Scene currentScene = SceneManager.GetActiveScene();
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		Scene_tA1DC762B79745EB5140F054C884855B922318356 L_3;
+		L_3 = SceneManager_GetActiveScene_m0B320EC4302F51A71495D1CCD1A0FF9C2ED1FDC8(NULL);
+		V_1 = L_3;
 		// if (DR.originR != null && DR.destinationR != null && DR.beaconID1R != null && DR.beaconID1R != "") // checks if the closest beacon is valid
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_3 = __this->___DR_4;
-		NullCheck(L_3);
-		String_t* L_4 = L_3->___originR_5;
-		if (!L_4)
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_4 = __this->___DR_4;
+		NullCheck(L_4);
+		String_t* L_5 = L_4->___originR_5;
+		if (!L_5)
 		{
-			goto IL_00bb;
+			goto IL_0170;
 		}
 	}
 	{
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_5 = __this->___DR_4;
-		NullCheck(L_5);
-		String_t* L_6 = L_5->___destinationR_6;
-		if (!L_6)
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_6 = __this->___DR_4;
+		NullCheck(L_6);
+		String_t* L_7 = L_6->___destinationR_6;
+		if (!L_7)
 		{
-			goto IL_00bb;
+			goto IL_0170;
 		}
 	}
 	{
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_7 = __this->___DR_4;
-		NullCheck(L_7);
-		String_t* L_8 = L_7->___beaconID1R_7;
-		if (!L_8)
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_8 = __this->___DR_4;
+		NullCheck(L_8);
+		String_t* L_9 = L_8->___beaconID1R_7;
+		if (!L_9)
 		{
-			goto IL_00bb;
+			goto IL_0170;
 		}
 	}
 	{
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_9 = __this->___DR_4;
-		NullCheck(L_9);
-		String_t* L_10 = L_9->___beaconID1R_7;
-		bool L_11;
-		L_11 = String_op_Inequality_m8C940F3CFC42866709D7CA931B3D77B4BE94BCB6(L_10, _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709, NULL);
-		if (!L_11)
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_10 = __this->___DR_4;
+		NullCheck(L_10);
+		String_t* L_11 = L_10->___beaconID1R_7;
+		bool L_12;
+		L_12 = String_op_Inequality_m8C940F3CFC42866709D7CA931B3D77B4BE94BCB6(L_11, _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709, NULL);
+		if (!L_12)
 		{
-			goto IL_00bb;
+			goto IL_0170;
 		}
 	}
 	{
 		// originRoom = "Beacon " + DR.beaconID1R;
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_12 = __this->___DR_4;
-		NullCheck(L_12);
-		String_t* L_13 = L_12->___beaconID1R_7;
-		String_t* L_14;
-		L_14 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral8027FA7717CD64C56FB13FB4CF9FA8C8A7EA9586, L_13, NULL);
-		__this->___originRoom_7 = L_14;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_14);
-		// if (DR.destinationR[0] == 'T')
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_15 = __this->___DR_4;
-		NullCheck(L_15);
-		String_t* L_16 = L_15->___destinationR_6;
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_13 = __this->___DR_4;
+		NullCheck(L_13);
+		String_t* L_14 = L_13->___beaconID1R_7;
+		String_t* L_15;
+		L_15 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral8027FA7717CD64C56FB13FB4CF9FA8C8A7EA9586, L_14, NULL);
+		__this->___originRoom_7 = L_15;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_15);
+		// destinationRoom = DR.destinationR;
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_16 = __this->___DR_4;
 		NullCheck(L_16);
-		Il2CppChar L_17;
-		L_17 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_16, 0, NULL);
-		if ((!(((uint32_t)L_17) == ((uint32_t)((int32_t)84)))))
-		{
-			goto IL_00a5;
-		}
-	}
-	{
-		// destinationRoom = DR.destinationR.Substring(1); //take a substring to get rid of the T ex: TN270 -> N270
+		String_t* L_17 = L_16->___destinationR_6;
+		__this->___destinationRoom_8 = L_17;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_17);
+		// if (DR.beaconID1R == "19" || DR.beaconID1R == "20" || DR.beaconID1R == "21" || DR.beaconID1R == "22"){
 		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_18 = __this->___DR_4;
 		NullCheck(L_18);
-		String_t* L_19 = L_18->___destinationR_6;
-		NullCheck(L_19);
-		String_t* L_20;
-		L_20 = String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472(L_19, 1, NULL);
-		__this->___destinationRoom_8 = L_20;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_20);
-		goto IL_0156;
-	}
-
-IL_00a5:
-	{
-		// destinationRoom = DR.destinationR;
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_21 = __this->___DR_4;
-		NullCheck(L_21);
-		String_t* L_22 = L_21->___destinationR_6;
-		__this->___destinationRoom_8 = L_22;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_22);
-		goto IL_0156;
-	}
-
-IL_00bb:
-	{
-		// else if (DR.originR != null && DR.destinationR != null) // uses the closest room entered by the user in React Native if no beacons found
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_23 = __this->___DR_4;
-		NullCheck(L_23);
-		String_t* L_24 = L_23->___originR_5;
-		if (!L_24)
+		String_t* L_19 = L_18->___beaconID1R_7;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralA1F8C30AF9A614832E6AEAE94C81E0CB4D21FA81, NULL);
+		if (L_20)
 		{
-			goto IL_0156;
+			goto IL_00f3;
 		}
 	}
 	{
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_25 = __this->___DR_4;
-		NullCheck(L_25);
-		String_t* L_26 = L_25->___destinationR_6;
-		if (!L_26)
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_21 = __this->___DR_4;
+		NullCheck(L_21);
+		String_t* L_22 = L_21->___beaconID1R_7;
+		bool L_23;
+		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral521FB55423CC068B92B5E8453A36DF0D6CBDD93F, NULL);
+		if (L_23)
 		{
-			goto IL_0156;
+			goto IL_00f3;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_24 = __this->___DR_4;
+		NullCheck(L_24);
+		String_t* L_25 = L_24->___beaconID1R_7;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral055601E076D65992B3FCD809DD5E222AFB903BEE, NULL);
+		if (L_26)
+		{
+			goto IL_00f3;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_27 = __this->___DR_4;
+		NullCheck(L_27);
+		String_t* L_28 = L_27->___beaconID1R_7;
+		bool L_29;
+		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral331550C0DB1643A8C5E6C9E3A71B9D7B919BAA4D, NULL);
+		if (!L_29)
+		{
+			goto IL_00fe;
+		}
+	}
+
+IL_00f3:
+	{
+		// sceneToLoad = "Scenes/N1";
+		V_0 = _stringLiteral2C9029B7E436861FFDB26B51554442225BEC8047;
+		goto IL_01f9;
+	}
+
+IL_00fe:
+	{
+		// else if (DR.beaconID1R == "15" || DR.beaconID1R == "16" || DR.beaconID1R == "17" ||DR.beaconID1R == "18"){
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_30 = __this->___DR_4;
+		NullCheck(L_30);
+		String_t* L_31 = L_30->___beaconID1R_7;
+		bool L_32;
+		L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralF8591E019243177659D36C84E0F0DD536C62D029, NULL);
+		if (L_32)
+		{
+			goto IL_015a;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_33 = __this->___DR_4;
+		NullCheck(L_33);
+		String_t* L_34 = L_33->___beaconID1R_7;
+		bool L_35;
+		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralFF01C47ABD568A459C8EA38273E930831E0F8561, NULL);
+		if (L_35)
+		{
+			goto IL_015a;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_36 = __this->___DR_4;
+		NullCheck(L_36);
+		String_t* L_37 = L_36->___beaconID1R_7;
+		bool L_38;
+		L_38 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_37, _stringLiteralEF7FC24B5117DE7A50326EB54B70AF5BAC17A774, NULL);
+		if (L_38)
+		{
+			goto IL_015a;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_39 = __this->___DR_4;
+		NullCheck(L_39);
+		String_t* L_40 = L_39->___beaconID1R_7;
+		bool L_41;
+		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteralF859CAA74FC4BD45E85F9AFF276F614AE47D3DA2, NULL);
+		if (!L_41)
+		{
+			goto IL_0165;
+		}
+	}
+
+IL_015a:
+	{
+		// sceneToLoad = "Scenes/N2";
+		V_0 = _stringLiteralD010E318976CE5F70DF3F9F64208CD14479457E8;
+		goto IL_01f9;
+	}
+
+IL_0165:
+	{
+		// sceneToLoad = "Scenes/N3";
+		V_0 = _stringLiteral0E49A71FB10A9B92465D2918A3D0E4330FC92841;
+		goto IL_01f9;
+	}
+
+IL_0170:
+	{
+		// else if (DR.originR != null && DR.destinationR != null) // uses the closest room entered by the user in React Native if no beacons found
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_42 = __this->___DR_4;
+		NullCheck(L_42);
+		String_t* L_43 = L_42->___originR_5;
+		if (!L_43)
+		{
+			goto IL_01f9;
+		}
+	}
+	{
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_44 = __this->___DR_4;
+		NullCheck(L_44);
+		String_t* L_45 = L_44->___destinationR_6;
+		if (!L_45)
+		{
+			goto IL_01f9;
 		}
 	}
 	{
 		// if (DR.originR[0] == 'T')
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_27 = __this->___DR_4;
-		NullCheck(L_27);
-		String_t* L_28 = L_27->___originR_5;
-		NullCheck(L_28);
-		Il2CppChar L_29;
-		L_29 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_28, 0, NULL);
-		if ((!(((uint32_t)L_29) == ((uint32_t)((int32_t)84)))))
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_46 = __this->___DR_4;
+		NullCheck(L_46);
+		String_t* L_47 = L_46->___originR_5;
+		NullCheck(L_47);
+		Il2CppChar L_48;
+		L_48 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_47, 0, NULL);
+		if ((!(((uint32_t)L_48) == ((uint32_t)((int32_t)84)))))
 		{
-			goto IL_0106;
+			goto IL_01d0;
 		}
 	}
 	{
 		// originRoom = DR.originR.Substring(1); //take a substring to get rid of the T ex: TN270 -> N270
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_30 = __this->___DR_4;
-		NullCheck(L_30);
-		String_t* L_31 = L_30->___originR_5;
-		NullCheck(L_31);
-		String_t* L_32;
-		L_32 = String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472(L_31, 1, NULL);
-		__this->___originRoom_7 = L_32;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_32);
-		goto IL_0117;
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_49 = __this->___DR_4;
+		NullCheck(L_49);
+		String_t* L_50 = L_49->___originR_5;
+		NullCheck(L_50);
+		String_t* L_51;
+		L_51 = String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472(L_50, 1, NULL);
+		__this->___originRoom_7 = L_51;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_51);
+		// sceneToLoad = "Scenes/" + originRoom.Substring(0,2); // ex: N270 -> Scenes/N2
+		String_t* L_52 = __this->___originRoom_7;
+		NullCheck(L_52);
+		String_t* L_53;
+		L_53 = String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE(L_52, 0, 2, NULL);
+		String_t* L_54;
+		L_54 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral4D907D57B03FA9501EF8CC073AFA8083D933F18F, L_53, NULL);
+		V_0 = L_54;
+		goto IL_01f9;
 	}
 
-IL_0106:
+IL_01d0:
 	{
 		// originRoom = DR.originR;
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_33 = __this->___DR_4;
-		NullCheck(L_33);
-		String_t* L_34 = L_33->___originR_5;
-		__this->___originRoom_7 = L_34;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_34);
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_55 = __this->___DR_4;
+		NullCheck(L_55);
+		String_t* L_56 = L_55->___originR_5;
+		__this->___originRoom_7 = L_56;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_56);
+		// sceneToLoad = "Scenes/" + originRoom.Substring(0,2); // ex: N270 -> Scenes/N2
+		String_t* L_57 = __this->___originRoom_7;
+		NullCheck(L_57);
+		String_t* L_58;
+		L_58 = String_Substring_mB1D94F47935D22E130FF2C01DBB6A4135FBB76CE(L_57, 0, 2, NULL);
+		String_t* L_59;
+		L_59 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral4D907D57B03FA9501EF8CC073AFA8083D933F18F, L_58, NULL);
+		V_0 = L_59;
 	}
 
-IL_0117:
+IL_01f9:
 	{
 		// if (DR.destinationR[0] == 'T')
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_35 = __this->___DR_4;
-		NullCheck(L_35);
-		String_t* L_36 = L_35->___destinationR_6;
-		NullCheck(L_36);
-		Il2CppChar L_37;
-		L_37 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_36, 0, NULL);
-		if ((!(((uint32_t)L_37) == ((uint32_t)((int32_t)84)))))
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_60 = __this->___DR_4;
+		NullCheck(L_60);
+		String_t* L_61 = L_60->___destinationR_6;
+		NullCheck(L_61);
+		Il2CppChar L_62;
+		L_62 = String_get_Chars_mC49DF0CD2D3BE7BE97B3AD9C995BE3094F8E36D3(L_61, 0, NULL);
+		if ((!(((uint32_t)L_62) == ((uint32_t)((int32_t)84)))))
 		{
-			goto IL_0145;
+			goto IL_0227;
 		}
 	}
 	{
 		// destinationRoom = DR.destinationR.Substring(1); //take a substring to get rid of the T ex: TN270 -> N270
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_38 = __this->___DR_4;
-		NullCheck(L_38);
-		String_t* L_39 = L_38->___destinationR_6;
-		NullCheck(L_39);
-		String_t* L_40;
-		L_40 = String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472(L_39, 1, NULL);
-		__this->___destinationRoom_8 = L_40;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_40);
-		goto IL_0156;
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_63 = __this->___DR_4;
+		NullCheck(L_63);
+		String_t* L_64 = L_63->___destinationR_6;
+		NullCheck(L_64);
+		String_t* L_65;
+		L_65 = String_Substring_m6BA4A3FA3800FE92662D0847CC8E1EEF940DF472(L_64, 1, NULL);
+		__this->___destinationRoom_8 = L_65;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_65);
+		goto IL_0238;
 	}
 
-IL_0145:
+IL_0227:
 	{
 		// destinationRoom = DR.destinationR;
-		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_41 = __this->___DR_4;
-		NullCheck(L_41);
-		String_t* L_42 = L_41->___destinationR_6;
-		__this->___destinationRoom_8 = L_42;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_42);
+		DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* L_66 = __this->___DR_4;
+		NullCheck(L_66);
+		String_t* L_67 = L_66->___destinationR_6;
+		__this->___destinationRoom_8 = L_67;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___destinationRoom_8), (void*)L_67);
 	}
 
-IL_0156:
+IL_0238:
 	{
-		// origin = GameObject.Find(originRoom);  // "convert" string into game object
-		String_t* L_43 = __this->___originRoom_7;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_44;
-		L_44 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_43, NULL);
-		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5 = L_44;
-		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5), (void*)L_44);
-		// if (GameObject.Find(destinationRoom) == null){
-		String_t* L_45 = __this->___destinationRoom_8;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_46;
-		L_46 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_45, NULL);
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_47;
-		L_47 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_46, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_47)
+		// if (sceneToLoad != ("Scenes/" + currentScene.name)){ //switch scenes if needed
+		String_t* L_68 = V_0;
+		String_t* L_69;
+		L_69 = Scene_get_name_m3C818DFA663E159274DAD823B780C7616C5E2A8C((&V_1), NULL);
+		String_t* L_70;
+		L_70 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral4D907D57B03FA9501EF8CC073AFA8083D933F18F, L_69, NULL);
+		bool L_71;
+		L_71 = String_op_Inequality_m8C940F3CFC42866709D7CA931B3D77B4BE94BCB6(L_68, L_70, NULL);
+		if (!L_71)
 		{
-			goto IL_01d2;
+			goto IL_0269;
 		}
 	}
 	{
-		// if (accessibileRoute){
-		bool L_48 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___accessibileRoute_13;
-		if (!L_48)
+		// SceneManager.LoadScene(sceneToLoad);
+		String_t* L_72 = V_0;
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(L_72, NULL);
+		// Debug.Log(sceneToLoad);
+		String_t* L_73 = V_0;
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_73, NULL);
+		// Debug.Log(currentScene.name);
+		String_t* L_74;
+		L_74 = Scene_get_name_m3C818DFA663E159274DAD823B780C7616C5E2A8C((&V_1), NULL);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_74, NULL);
+	}
+
+IL_0269:
+	{
+		// origin = GameObject.Find(originRoom);  // "convert" string into game object
+		String_t* L_75 = __this->___originRoom_7;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_76;
+		L_76 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_75, NULL);
+		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5 = L_76;
+		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5), (void*)L_76);
+		// if (GameObject.Find(destinationRoom) == null){
+		String_t* L_77 = __this->___destinationRoom_8;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_78;
+		L_78 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_77, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_79;
+		L_79 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_78, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_79)
 		{
-			goto IL_01a9;
+			goto IL_02fa;
+		}
+	}
+	{
+		// Debug.Log("destinationRoom: " + destinationRoom);
+		String_t* L_80 = __this->___destinationRoom_8;
+		String_t* L_81;
+		L_81 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral8B49496FA009995B8099240460BC36FADDB0B000, L_80, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_81, NULL);
+		// if (accessibileRoute){
+		bool L_82 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___accessibileRoute_13;
+		if (!L_82)
+		{
+			goto IL_02d1;
 		}
 	}
 	{
 		// destination = elevator = FindNearest(origin.transform.position, "Elevator");
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_49 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
-		NullCheck(L_49);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_50;
-		L_50 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_49, NULL);
-		NullCheck(L_50);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_51;
-		L_51 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_50, NULL);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_52;
-		L_52 = NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331(L_51, _stringLiteral55B692982E8D7D40B76677D63A0E19E4122B4D5E, NULL);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_53 = L_52;
-		V_1 = L_53;
-		__this->___elevator_16 = L_53;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___elevator_16), (void*)L_53);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_54 = V_1;
-		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_54;
-		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_54);
-		goto IL_01e2;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_83 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
+		NullCheck(L_83);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_84;
+		L_84 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_83, NULL);
+		NullCheck(L_84);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_85;
+		L_85 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_84, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_86;
+		L_86 = NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331(L_85, _stringLiteral55B692982E8D7D40B76677D63A0E19E4122B4D5E, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_87 = L_86;
+		V_3 = L_87;
+		__this->___elevator_16 = L_87;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___elevator_16), (void*)L_87);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_88 = V_3;
+		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_88;
+		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_88);
+		goto IL_030a;
 	}
 
-IL_01a9:
+IL_02d1:
 	{
 		// destination = stairs = FindNearest(origin.transform.position, "Stairs");
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_55 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
-		NullCheck(L_55);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_56;
-		L_56 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_55, NULL);
-		NullCheck(L_56);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_57;
-		L_57 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_56, NULL);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_58;
-		L_58 = NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331(L_57, _stringLiteral4B35CE1AB5E2DC90AB069C4BE809941334FE0BE4, NULL);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_59 = L_58;
-		V_1 = L_59;
-		__this->___stairs_15 = L_59;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___stairs_15), (void*)L_59);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_60 = V_1;
-		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_60;
-		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_60);
-		goto IL_01e2;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_89 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
+		NullCheck(L_89);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_90;
+		L_90 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_89, NULL);
+		NullCheck(L_90);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_91;
+		L_91 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_90, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_92;
+		L_92 = NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331(L_91, _stringLiteral4B35CE1AB5E2DC90AB069C4BE809941334FE0BE4, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_93 = L_92;
+		V_3 = L_93;
+		__this->___stairs_15 = L_93;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___stairs_15), (void*)L_93);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_94 = V_3;
+		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_94;
+		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_94);
+		goto IL_030a;
 	}
 
-IL_01d2:
+IL_02fa:
 	{
 		// destination = GameObject.Find(destinationRoom);
-		String_t* L_61 = __this->___destinationRoom_8;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_62;
-		L_62 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_61, NULL);
-		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_62;
-		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_62);
+		String_t* L_95 = __this->___destinationRoom_8;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_96;
+		L_96 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(L_95, NULL);
+		((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6 = L_96;
+		Il2CppCodeGenWriteBarrier((void**)(&((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6), (void*)L_96);
 	}
 
-IL_01e2:
+IL_030a:
 	{
 		// NavMeshPath navMeshPath = new NavMeshPath();
-		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_63 = (NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7*)il2cpp_codegen_object_new(NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7_il2cpp_TypeInfo_var);
-		NullCheck(L_63);
-		NavMeshPath__ctor_mEA40BFC2492814FFC97A71C3AEC2154A9415C37F(L_63, NULL);
-		V_0 = L_63;
+		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_97 = (NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7*)il2cpp_codegen_object_new(NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7_il2cpp_TypeInfo_var);
+		NullCheck(L_97);
+		NavMeshPath__ctor_mEA40BFC2492814FFC97A71C3AEC2154A9415C37F(L_97, NULL);
+		V_2 = L_97;
 		// calculatePath(origin, destination, navMeshPath, lineRendererBig, 60.0f);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_64 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_65 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6;
-		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_66 = V_0;
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_67 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___lineRendererBig_10;
-		NavMeshLine_calculatePath_m100F0C2341D7173981EFA94DF896516C4862FF59(L_64, L_65, L_66, L_67, (60.0f), NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_98 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_99 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6;
+		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_100 = V_2;
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_101 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___lineRendererBig_10;
+		NavMeshLine_calculatePath_m100F0C2341D7173981EFA94DF896516C4862FF59(L_98, L_99, L_100, L_101, (60.0f), NULL);
 		// calculatePath(origin, destination, navMeshPath, lineRendererSmall, 1.0f);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_68 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_69 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6;
-		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_70 = V_0;
-		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_71 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___lineRendererSmall_11;
-		NavMeshLine_calculatePath_m100F0C2341D7173981EFA94DF896516C4862FF59(L_68, L_69, L_70, L_71, (1.0f), NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_102 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___origin_5;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_103 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___destination_6;
+		NavMeshPath_tC77ABF4A25FC0F0A94E8A70E304E114FE690A3A7* L_104 = V_2;
+		LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* L_105 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___lineRendererSmall_11;
+		NavMeshLine_calculatePath_m100F0C2341D7173981EFA94DF896516C4862FF59(L_102, L_103, L_104, L_105, (1.0f), NULL);
 		// if (Input.GetKeyDown(KeyCode.Return))
-		bool L_72;
-		L_72 = Input_GetKeyDown_mB237DEA6244132670D38990BAB77D813FBB028D2(((int32_t)13), NULL);
-		if (!L_72)
+		bool L_106;
+		L_106 = Input_GetKeyDown_mB237DEA6244132670D38990BAB77D813FBB028D2(((int32_t)13), NULL);
+		if (!L_106)
 		{
-			goto IL_025b;
+			goto IL_0383;
 		}
 	}
 	{
 		// if (accessibileRoute){
-		bool L_73 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___accessibileRoute_13;
-		if (!L_73)
+		bool L_107 = ((NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields*)il2cpp_codegen_static_fields_for(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_il2cpp_TypeInfo_var))->___accessibileRoute_13;
+		if (!L_107)
 		{
-			goto IL_023f;
+			goto IL_0367;
 		}
 	}
 	{
 		// originRoom = elevator.name;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_74 = __this->___elevator_16;
-		NullCheck(L_74);
-		String_t* L_75;
-		L_75 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_74, NULL);
-		__this->___originRoom_7 = L_75;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_75);
-		goto IL_0250;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_108 = __this->___elevator_16;
+		NullCheck(L_108);
+		String_t* L_109;
+		L_109 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_108, NULL);
+		__this->___originRoom_7 = L_109;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_109);
+		goto IL_0378;
 	}
 
-IL_023f:
+IL_0367:
 	{
 		// originRoom = stairs.name;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_76 = __this->___stairs_15;
-		NullCheck(L_76);
-		String_t* L_77;
-		L_77 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_76, NULL);
-		__this->___originRoom_7 = L_77;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_77);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_110 = __this->___stairs_15;
+		NullCheck(L_110);
+		String_t* L_111;
+		L_111 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_110, NULL);
+		__this->___originRoom_7 = L_111;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___originRoom_7), (void*)L_111);
 	}
 
-IL_0250:
+IL_0378:
 	{
 		// SceneManager.LoadScene(destinationScene);
-		String_t* L_78 = __this->___destinationScene_14;
+		String_t* L_112 = __this->___destinationScene_14;
 		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
-		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(L_78, NULL);
+		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(L_112, NULL);
 	}
 
-IL_025b:
+IL_0383:
 	{
 		// }
 		return;
