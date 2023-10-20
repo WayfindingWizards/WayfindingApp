@@ -36,7 +36,6 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
   ["DC:0D:30:14:30:28", 21],
   ["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
   ["DC:0D:30:14:30:2F", 20],
-  ["DC:0D:30:14:30:26", 19],
   ["DC:0D:30:14:30:23", 6],
   ["DC:0D:30:14:2F:CF", 13], 
   ["DC:0D:30:14:2F:F5", 12], // should have been outside of stairs G, but was missing
@@ -46,7 +45,7 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
   ["DC:0D:30:14:2F:C9", 8],
   ["DC:0D:30:14:30:27", 7],
   ["DC:0D:30:14:2F:E8", 18],
-  ["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped
+  ["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped in this file by the previous team. We think 14 is missing too.
   ["DC:0D:30:14:30:31", 16],
   ["DC:0D:30:14:2F:D1", 17],
   ["DC:0D:30:10:4E:F2", 0], // not installed
