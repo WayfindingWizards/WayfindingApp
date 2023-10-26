@@ -37,7 +37,7 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
     > removing the intent filter will prevent the Unity app from being a separate entry point on the device. If you leave the intent filter, both the React Native app and the Unity app might appear as separate apps on the device screen.
 15. Go to `...\WayfindingApp\unity\builds\android\unityLibrary\build.gradle` and add the following:
     ```ndkVersion = "21.3.6528147" ```
-16. Go to `C:\Users\<your username>\Documents\GitHub\WayfindingApp\unity\builds\android\local.properties` and make sure the path to the sdk and ndk lead to those installed by android studio: (this step should have been fixed by # )
+16. Go to `C:\Users\<your username>\Documents\GitHub\WayfindingApp\unity\builds\android\local.properties` and make sure the path to the sdk and ndk lead to those installed by android studio: (this step should have been fixed by #4)
     ``` sdk.dir = path to sdk ```
 
     >On Windows, if you installed Android Studio the path to the SDK is usually `C:\Users\<your username>\AppData\Local\Android\Sdk`. Use double backslashes to separate path components in the `local.properties` file, e.g. `sdk.dir = C:\\users\\student\\AppData\\Local\\Android\\Sdk`
