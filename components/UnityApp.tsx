@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import UnityView from '@azesmway/react-native-unity';
 import { View } from 'react-native';
 import * as utils from './GlobalVariables';
-import { getAccelerometerData, getGyroscopeData } from './Sensors'
+import { getAccelerometerData, getVelocityData } from './Sensors'
 
 interface UnityAppProps {}
 
@@ -19,8 +19,8 @@ const UnityApp: React.FC<UnityAppProps> = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       //collect data from accelerometer and gyroscope from Sensors.tsx
-      const accel = getAccelerometerData();
-      const gyro = getGyroscopeData();
+      const acceleration = getAccelerometerData();
+      const velocity = getVelocityData();
 
       // Change the origin every few seconds
       //const newOrigin = getNextOrigin(); // Implement getNextOrigin as needed
@@ -46,14 +46,11 @@ const UnityApp: React.FC<UnityAppProps> = () => {
 
       // Send updated data to Unity (variables end in R to show they come from React Native)
       SendData({
-        originR: utils.getOrigin(),  //newOrigin, 'TN255', '7','8'
-        destinationR: utils.getDestination(), //utils.getDestination()
-        beaconID1R: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
-        distance1R: "",              //beaconDist1
-        // beaconID2R: '8', //utils.getClosestBeacon()
-        // distance2R: '5',
-        // beaconID3R: '9', //utils.getClosestBeacon()
-        // distance3R: '5',
+        origin: utils.getOrigin(),  //newOrigin, 'TN255', '7','8'
+        destination: utils.getDestination(), //utils.getDestination()
+        beacon1: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
+        accessibility: utils.getAccessibleRoute(),
+        floor: "2",
       });
     }, 500); // 0.5 seconds (500 ms)
 
