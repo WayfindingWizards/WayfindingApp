@@ -235,3 +235,117 @@ export const HelpPopup: React.FC<CustomModalProps> = ({
     </Modal>
   );
 }
+
+//only used when beacons are found (at this time, beacons on 2nd floor used for pathfinding even when on 1st or 3rd floor)
+export const FloorPopup: React.FC<CustomModalProps> = ({
+  modalVisible,
+  setModalVisible,
+}) => {
+  const [floorInput, setFloorInput] = useState('');
+  const [floor1Click, setFloor1Click] = useState(false);
+  const [floor2Click, setFloor2Click] = useState(false);
+  const [floor3Click, setFloor3Click] = useState(false);
+  const [okButtonEnabled, setOkButtonEnabled] = useState(false);
+
+  const handleOkButtonClick = () => {
+    utils.setFloor(floorInput); //sets global floor to floor input
+    utils.setIsFloorSet(true); //sets global IsFloorSet to true
+    setModalVisible(!modalVisible); //closes popup
+    utils.setMapVisible(true); //sets global map visible to true
+  };
+
+  const handleCancelButtonClick = () => {
+    setModalVisible(!modalVisible); //closes modal
+    setOkButtonEnabled(false); //disables ok button
+    utils.setIsFloorSet(false); //sets global IsFloorSet to false
+  };
+
+  const handleFloorButtonClick = (floor: string) => {
+    if (floor === 'N1') {
+      setFloor1Click(!floor1Click);
+      {/*ensures only one floor button is selected*/}
+      setFloor2Click(false); 
+      setFloor3Click(false);
+      setOkButtonEnabled(!floor1Click); //disable the Ok button if unclicked, enable if clicked
+    } else if (floor === 'N2') {
+      setFloor2Click(!floor2Click);
+      {/*ensures only one floor button is selected*/}
+      setFloor1Click(false); 
+      setFloor3Click(false);
+      setOkButtonEnabled(!floor2Click); //disable the Ok button if unclicked, enable if clicked
+    } else if (floor === 'N3'){
+      setFloor3Click(!floor3Click);
+      {/*ensures only one floor button is selected*/}
+      setFloor1Click(false); 
+      setFloor2Click(false);
+      setOkButtonEnabled(!floor3Click); //disable the Ok button if unclicked, enable if clicked
+    } 
+    setFloorInput(floor);
+    utils.setIsFloorSet(true); // sets global 
+  };
+
+  return (
+    <Modal animationType="fade" transparent visible={true}>
+
+      <KeyboardAvoidingView style={popupStyles.modalBackground} behavior="padding">
+        <View style={popupStyles.modalContainer}>
+          <Text style={popupStyles.modalText}>
+            Please select which floor you are on.
+          </Text>
+          <View style={popupStyles.floorButtonContainer}>
+            {/*floor buttons */}
+            <TouchableOpacity
+              style={[
+                popupStyles.floorButton,
+                floor1Click
+                  ? popupStyles.floorButtonClicked
+                  : popupStyles.floorButtonUnclicked,
+              ]}
+              onPress={() => handleFloorButtonClick('N1')}>
+              <Text style={popupStyles.modalOkButtonText}>1</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                popupStyles.floorButton,
+                floor2Click
+                  ? popupStyles.floorButtonClicked
+                  : popupStyles.floorButtonUnclicked,
+              ]}
+              onPress={() => handleFloorButtonClick('N2')}>
+              <Text style={popupStyles.modalOkButtonText}>2</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                popupStyles.floorButton,
+                floor3Click
+                  ? popupStyles.floorButtonClicked
+                  : popupStyles.floorButtonUnclicked,
+              ]}
+              onPress={() => handleFloorButtonClick('N3')}>
+              <Text style={popupStyles.modalOkButtonText}>3</Text>
+            </TouchableOpacity>
+          </View>
+          {/*ok and cancel button*/}
+          <View style={popupStyles.modalOkButtonContainer}>
+            <TouchableOpacity
+              style={[
+                popupStyles.modalOkButton,
+                okButtonEnabled
+                  ? popupStyles.modalOkButtonEnabled
+                  : baseStyles.buttonDisabled,
+              ]}
+              disabled={!okButtonEnabled} //disabled if no floor button is selected
+              onPress={handleOkButtonClick}>
+              <Text style={popupStyles.modalOkButtonText}>OK</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={popupStyles.modalOkButton}
+              onPress={handleCancelButtonClick}>
+              <Text style={popupStyles.modalOkButtonText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </KeyboardAvoidingView>
+    </Modal>
+  );
+};

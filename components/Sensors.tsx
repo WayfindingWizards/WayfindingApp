@@ -36,8 +36,8 @@ const subscription = userAccelerationStream.subscribe(event => {
         z: initialVelocity.z + acceleration.z * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
         };
 
-        console.log('Acceleration:', acceleration);
-        console.log('Velocity:', velocity);
+        // console.log('Acceleration:', acceleration);
+        // console.log('Velocity:', velocity);
 
         initialVelocity = velocity; //update initialVelocity for the next calculation
     }

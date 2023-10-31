@@ -50,7 +50,7 @@ const UnityApp: React.FC<UnityAppProps> = () => {
         destination: utils.getDestination(), //utils.getDestination()
         beacon1: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
         accessibility: utils.getAccessibleRoute(),
-        floor: "2",
+        floor: utils.getFloor(),
       });
     }, 500); // 0.5 seconds (500 ms)
 

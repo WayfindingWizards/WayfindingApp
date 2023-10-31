@@ -69,4 +69,23 @@ export const popupStyles = StyleSheet.create({
   bathroomButtonUnclicked: {
     backgroundColor: '#5B4379',
   },
+  floorButtonContainer: {
+    flexDirection: 'row',
+    marginTop: 15,
+    marginBottom: 5,
+  },
+  floorButton: {
+    borderRadius: 70,
+    margin: 5,
+    width: 90,
+    height: 40,
+    justifyContent: 'center',
+    padding: 5,
+  },
+  floorButtonClicked: {
+    backgroundColor: '#000000',
+  },
+  floorButtonUnclicked: {
+    backgroundColor: '#5B4379',
+  },
 });

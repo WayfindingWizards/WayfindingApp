@@ -1,12 +1,14 @@
 let destination: string = '';
 let origin: string = '';
 let bathroom: string = '';
+let floor: string = '';
 let isBathroomSet: boolean = false;
+let isFloorSet: boolean = false;
 let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 let voiceCommands: boolean = false;
 let sound: boolean = false;
-let closestBeacon: number; //test value of 18
+let closestBeacon: number; //test value of 7
 let beaconArray: Array<{ beaconNum: number, rssi: number }> = [
   { beaconNum: 1, rssi: -60 },  // default values used for testing
   { beaconNum: 2, rssi: -65 },
@@ -53,6 +55,14 @@ export function getBeaconArray():Array<{ beaconNum: number, rssi: number }> {
   return beaconArray;
 }
 
+export function getFloor(): string {
+  return floor;
+}
+
+export function getIsFloorSet(): boolean {
+  return isFloorSet;
+}
+
 export function setVoiceCommands(newVoiceCommands:boolean){
   voiceCommands = newVoiceCommands;
 }
@@ -94,10 +104,20 @@ export function setBeaconArray(NewBeaconArray:Array<{ beaconNum: number, rssi: n
   beaconArray = NewBeaconArray;
 }
 
+export function setFloor(newFloor: string) {
+  floor = newFloor;
+}
+
+export function setIsFloorSet(floorBoolean: boolean) {
+  isFloorSet = floorBoolean;
+}
+
 export function reset() {
   setDestination('');
   setBathroom('');
   setIsBathroomSet(false);
   setMapVisible(false);
   setOrigin('');
+  setFloor('');
+  setIsFloorSet(false);
 }

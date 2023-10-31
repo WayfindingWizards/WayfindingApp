@@ -16634,8 +16634,6 @@ struct IsObjectVariableDefined_t20AC71899A91DCD572925CD849ABF70EF24007B0  : publ
 // MoveAlongLine
 struct MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	// UnityEngine.LineRenderer MoveAlongLine::lineRenderer
-	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___lineRenderer_4;
 	// System.Single MoveAlongLine::speed
 	float ___speed_5;
 	// System.Single MoveAlongLine::distanceAlongLine
@@ -16665,10 +16663,12 @@ struct NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B  : public MonoBehav
 	NavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F* ___navMeshAgent_12;
 	// System.String NavMeshLine::destinationScene
 	String_t* ___destinationScene_14;
+	// UnityEngine.SceneManagement.Scene NavMeshLine::currentScene
+	Scene_tA1DC762B79745EB5140F054C884855B922318356 ___currentScene_15;
 	// UnityEngine.GameObject NavMeshLine::stairs
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___stairs_15;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___stairs_16;
 	// UnityEngine.GameObject NavMeshLine::elevator
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___elevator_16;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___elevator_17;
 };
 
 // Unity.VisualScripting.OnAnimatorIK
@@ -24211,6 +24211,11 @@ struct DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4_StaticFields
 // Unity.VisualScripting.IsObjectVariableDefined
 
 // MoveAlongLine
+struct MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE_StaticFields
+{
+	// UnityEngine.LineRenderer MoveAlongLine::lineRenderer
+	LineRenderer_tEFEF960672DB69CB14B6D181FAE6292F0CF8B63D* ___lineRenderer_4;
+};
 
 // MoveAlongLine
 
@@ -24228,9 +24233,9 @@ struct NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields
 	// System.Boolean NavMeshLine::accessibileRoute
 	bool ___accessibileRoute_13;
 	// NavMeshLine NavMeshLine::instance
-	NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B* ___instance_17;
+	NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B* ___instance_18;
 	// System.String NavMeshLine::lastScene
-	String_t* ___lastScene_18;
+	String_t* ___lastScene_19;
 };
 
 // NavMeshLine
@@ -28472,10 +28477,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5306[5] =
 	static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___followOn_4)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___numPresses_5)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___button_6)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___redColor_7)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___greenColor_8)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5307[7] = 
 {
-	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___speed_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_10)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5308[15] = 
+	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE_StaticFields, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___speed_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_10)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5308[16] = 
 {
-	static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___DR_4)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___origin_5)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___destination_6)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___originRoom_7)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationRoom_8)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___building_9)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererBig_10)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererSmall_11)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___navMeshAgent_12)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___accessibileRoute_13)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationScene_14)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___stairs_15)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___elevator_16)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___instance_17)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lastScene_18)),};
+	static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___DR_4)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___origin_5)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___destination_6)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___originRoom_7)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationRoom_8)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___building_9)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererBig_10)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererSmall_11)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___navMeshAgent_12)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___accessibileRoute_13)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationScene_14)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___currentScene_15)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___stairs_16)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___elevator_17)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___instance_18)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lastScene_19)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5309[14] = 
 {
 	static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___PanSpeed_4)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___ZoomSpeedTouch_5)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___ZoomSpeedMouse_6)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___BoundsX_7)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___BoundsZ_8)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB_StaticFields, ___ZoomBounds_9)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___cam_10)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___lastPanPosition_11)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___panFingerId_12)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___wasZoomingLastFrame_13)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___lastZoomPositions_14)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___target_15)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___followButtonManager_16)),static_cast<int32_t>(offsetof(TopDownCamera_tCEF672FD7C3D9DA9A812FFD53FFA96935D2E07FB, ___CameraLocked_17)),};
