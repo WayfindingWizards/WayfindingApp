@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import UnityView from '@azesmway/react-native-unity';
 import { View } from 'react-native';
 import * as utils from './GlobalVariables';
-import { getAccelerometerData, getVelocityData } from './Sensors'
+import { getAccelerometerData, getSpeedData, getVelocityData } from './Sensors'
 
 interface UnityAppProps {}
 
@@ -19,8 +19,9 @@ const UnityApp: React.FC<UnityAppProps> = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       //collect data from accelerometer and gyroscope from Sensors.tsx
-      const acceleration = getAccelerometerData();
-      const velocity = getVelocityData();
+      let acceleration = getAccelerometerData();
+      let velocity = getVelocityData();
+      let currentSpeed = getSpeedData();
 
       // Change the origin every few seconds
       //const newOrigin = getNextOrigin(); // Implement getNextOrigin as needed
@@ -51,6 +52,7 @@ const UnityApp: React.FC<UnityAppProps> = () => {
         beacon1: utils.getClosestBeacon(), //utils.getClosestBeacon()  //beaconID1 is from beaconArray with the closest beacons
         accessibility: utils.getAccessibleRoute(),
         floor: utils.getFloor(),
+        speed: currentSpeed,
       });
     }, 500); // 0.5 seconds (500 ms)
 

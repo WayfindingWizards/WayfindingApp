@@ -3,11 +3,13 @@ import { accelerometer, gravity, setUpdateIntervalForType, SensorTypes } from "r
 import { combineLatest } from "rxjs";
 import { map } from 'rxjs/operators';
 
-const interval = 500;
+const interval = 500; // in milliseconds
 let previousTimestamp = 0;
+let initialAcceleration = { x: 0, y: 0, z: 0 }; //acceleration before sensor read
 let acceleration = { x: 0, y: 0, z: 0 }; // current acceleration from sensor read
 let initialVelocity = { x: 0, y: 0, z: 0 }; //velocity before accounting for acceleration
 let velocity = { x: 0, y: 0, z: 0 }; //current velocity
+let speed = 0;
 
 setUpdateIntervalForType(SensorTypes.accelerometer, interval);
 setUpdateIntervalForType(SensorTypes.gravity, interval);
@@ -21,9 +23,9 @@ const userAccelerationStream = combineLatest(accelerometer, gravity).pipe(
 
 const subscription = userAccelerationStream.subscribe(event => {
     acceleration = {
-        x: event.accelerometer.x - event.gravity.x,
-        y: event.accelerometer.y - event.gravity.y,
-        z: event.accelerometer.z - event.gravity.z,
+        x: Math.trunc((event.accelerometer.x - event.gravity.x) * 10) / 10,  // keep 1 decimal place
+        y: Math.trunc((event.accelerometer.y - event.gravity.y) * 10) / 10,  
+        z: Math.trunc((event.accelerometer.z - event.gravity.z) * 10) / 10
     };
 
     if (previousTimestamp) {
@@ -31,13 +33,27 @@ const subscription = userAccelerationStream.subscribe(event => {
 
         // Calculate velocity using time interval
         velocity = {
-        x: initialVelocity.x + acceleration.x * timeInterval, //initialVelocity.x + acceleration.x * timeInterval
-        y: initialVelocity.y + acceleration.y * timeInterval,
-        z: initialVelocity.z + acceleration.z * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
+            // x: initialVelocity.x + acceleration.x * timeInterval, //initialVelocity.x + acceleration.x * timeInterval
+            // y: initialVelocity.y + acceleration.y * timeInterval,
+            // z: initialVelocity.z + acceleration.z * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
+
+            x: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, //trapezoid rule used to find velocity
+            y: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, 
+            z: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
+            // was: initialVelocity.y + 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval
         };
 
-        // console.log('Acceleration:', acceleration);
-        // console.log('Velocity:', velocity);
+        initialAcceleration = { //set initialAcceleration for the next calculation
+            x: acceleration.x,
+            y: acceleration.y,
+            z: acceleration.z,
+        };
+        speed = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z); //take away direction from velocity using pythagorean theorem (a^2 + b^2 = c^2)
+        speed = speed / 10; //speed was too fast in Unity (User GameObject position changed faster than the real user would)
+
+        console.log('Acceleration:', acceleration);
+        console.log('Velocity:', velocity);
+        console.log('Speed:', speed);
 
         initialVelocity = velocity; //update initialVelocity for the next calculation
     }
@@ -52,6 +68,11 @@ export function getAccelerometerData() {
 export function getVelocityData() {
     return velocity;
 };
+
+export function getSpeedData() {
+    return speed;
+};
+
 
 // version 1
 // import { accelerometer, gyroscope, setUpdateIntervalForType, SensorTypes } from "react-native-sensors";
