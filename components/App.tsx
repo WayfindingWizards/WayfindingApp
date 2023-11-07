@@ -31,52 +31,15 @@ const App: React.FC = () => {
   useEffect(() => {
     scanForDevices();
     //console.log(utils.getClosestBeacon()); //scans for devices when app is rendered and running
-
-    // const bleManager = new BleManager();
-    // // Check if the permission is already granted
-    // check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION)
-    //   .then((result) => {
-    //     switch (result) {
-    //       case RESULTS.GRANTED:
-    //         // Location permission is granted
-    //         break;
-    //       case RESULTS.DENIED:
-    //         // Location permission is denied, request it
-    //         request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then((result) => {
-    //           if (result === RESULTS.GRANTED) {
-    //             // Permission has been granted
-    //           }
-    //         });
-    //         break;
-    //       case RESULTS.BLOCKED:
-    //         // The user has denied permission and selected "Never ask again"
-    //         // You should guide the user to app settings to enable permissions.
-    //         break;
-    //     }
-    //   });
-
-    // // Start scanning for BLE devices
-    // bleManager.startDeviceScan(null, null, (error, device) => {
-    //   if (error) {
-    //     console.error('Error scanning for devices:', error);
-    //     return;
-    //   }
-
-    //   // Handle the discovered device
-    //   console.log('Discovered device:', device.name || device.id);
-    //   // You can connect to and interact with the device here
-    // });
-
   }, [] );
 
   const scanForDevices = () => {
     requestPermissions((isGranted: boolean) => {
-      //console.log(isGranted);
       if (isGranted) {
         scanForPeripherals();
       }
-  });
-}
+    });
+  }
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -87,23 +50,45 @@ const App: React.FC = () => {
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
-    if (!roomFound && userDestination!='Bathroom') {
-      utils.setDestination(userDestination); // sets destination global to userDestination
+    // if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
+    //   setBathroomPopupVisible(true); //set to false by default on line 24
+    //   utils.setDestination(userDestination);
+    // } 
+
+    // for setting the destination
+    if (!roomFound && userDestination !='BATHROOM') {
+      //utils.setDestination(userDestination); // sets destination global to userDestination
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
-      return;
-    } else if (utils.getClosestBeacon() == -1 || utils.getClosestBeacon() == null) { //if beacons have not been detected
-      utils.setDestination(userDestination); //sets destination global to userDestination
-      setNoStartPopupVisible(true); //set to false by default on line 22
-    } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
+    } 
+    else if (userDestination === 'BATHROOM' && !utils.getIsBathroomSet()) {
       setBathroomPopupVisible(true); //set to false by default on line 24
-    } else if (!utils.getIsFloorSet()){
-      setFloorPopupVisible(true); //set to false by default on line 24
-      utils.setDestination(userDestination);
-    } else { {/*if destination is valid*/}
-      utils.setDestination(userDestination); //sets destination global to user destination
-      utils.setMapVisible(true); //sets mapVisible global to true
-      setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
+      //utils.setDestination(userDestination);
     }
+    else{
+      utils.setDestination(userDestination);
+    }
+
+    // while(utils.getDestination() == '' || utils.getDestination() == null){ //wait until there is a response from previous input
+    // }
+
+    //for setting the origin/closest beacons
+    if ((utils.getClosestBeacon() == -1 || utils.getClosestBeacon() == null) && utils.getOrigin() == '' && utils.getDestination() != '') { //No beacons detected
+      //utils.setDestination(userDestination); //sets destination global to userDestination
+      setNoStartPopupVisible(true); //set to false by default on line 22, ask for nearest room
+    } 
+    // else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
+    //   setBathroomPopupVisible(true); //set to false by default on line 24
+    //   utils.setDestination(userDestination);
+    // }
+    else if (!utils.getIsFloorSet() && utils.getDestination() != ''){ //beacons found
+      setFloorPopupVisible(true); //set to false by default on line 24
+      //utils.setDestination(userDestination);
+    } 
+    // else {
+    //   utils.setDestination(userDestination); //sets destination global to user destination
+    //   utils.setMapVisible(true); //sets mapVisible global to true
+    //   setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
+    // }
   };
 
   const handleStartOverButtonPress = () => {
@@ -114,6 +99,11 @@ const App: React.FC = () => {
   const handleHelpButtonPress = () => {
     setHelpPopupVisible(true);
   }
+
+  const handleDestinationInput = (input: string) => {
+    const capatalizedInput = input.trim().toLocaleUpperCase();
+    setUserDestination(capatalizedInput);
+  };
 
   return (
     //background image
@@ -159,7 +149,7 @@ const App: React.FC = () => {
             }
             placeholder="Enter Destination"
             placeholderTextColor="#CCCCCC"
-            onChangeText={setUserDestination}
+            onChangeText={handleDestinationInput}
             value={userDestination}
             editable={!utils.getMapVisible()} // is editable if global map visible is false
           />
@@ -195,8 +185,8 @@ const App: React.FC = () => {
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}
-      {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }
       {floorPopup && (<FloorPopup modalVisible={floorPopup} setModalVisible={setFloorPopupVisible}/>) }  
+      {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }
     </ImageBackground>
   );
 };

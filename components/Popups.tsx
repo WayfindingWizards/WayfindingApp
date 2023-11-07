@@ -5,6 +5,8 @@ import { baseStyles } from '../styles/BaseStyles';
 import * as utils from './GlobalVariables';
 import {findRoom} from './FindRoom';
 
+const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+
 export interface CustomModalProps {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,7 +18,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
 }) => {
   const [originInput, setOriginInput] = useState('');
   const [validInput, setValidInput] = useState(true);
-  const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+  //const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
   const handleOkButtonClick = () => {
 
@@ -26,7 +28,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
     }else{
     utils.setOrigin(originInput); // set global origin to local input
     setModalVisible(!modalVisible); //hides modal
-    if (utils.getDestination() != 'Bathroom')
+    if (utils.getDestination() != 'BATHROOM')
       utils.setMapVisible(true); // sets global map visible to true
     }
   };
@@ -37,16 +39,18 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
       <ViewComponent style={popupStyles.modalBackground} behavior="padding">
         <View style={popupStyles.modalContainer}>
           {validInput && <View>
-          <Text style={popupStyles.modalText}>We couldn't find you.</Text>
-          <Text style={popupStyles.modalText}>Please enter the closest room.</Text></View>}
-          {!validInput && <View><Text style={popupStyles.modalText}>Please enter a valid room.</Text></View>}
+            <Text style={popupStyles.modalText}>We couldn't find you.</Text>
+            <Text style={popupStyles.modalText}>Please enter the closest room.</Text></View>}
+          {!validInput && <View>
+            <Text style={popupStyles.modalText}>That was an invalid room.</Text>
+            <Text style={popupStyles.modalText}>Please enter a valid room.</Text></View>}
           {/*starting point input box */}
           <TextInput
             style={popupStyles.modalTextContainer}
             placeholder="Room"
             placeholderTextColor="#BABABA"
             onChangeText={setOriginInput}
-            value={originInput}/>
+            value={originInput.trim().toLocaleUpperCase()}/>
           <TouchableOpacity
             style={[
               popupStyles.modalOkButton,
@@ -78,7 +82,7 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
     utils.setDestination(bathroomInput); //sets global destiation to bathroom input
     utils.setIsBathroomSet(true); //sets global IsBathroomSet to true
     setModalVisible(!modalVisible); //closes popup
-    utils.setMapVisible(true); //sets global map visible to true
+    //utils.setMapVisible(true); //sets global map visible to true
   };
 
   const handleCancelButtonClick = () => {
@@ -109,7 +113,7 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
       setOkButtonEnabled(true);
     }
     setBathroomInput(bathroom);
-    utils.setIsBathroomSet(true); // sets global 
+    utils.setIsBathroomSet(true); // sets global
   };
 
   return (
@@ -189,7 +193,7 @@ export const InvalidDestinationPopup: React.FC<CustomModalProps> = ({
     <Modal animationType="fade" transparent visible={modalVisible}>
       <View style={popupStyles.modalBackground}>
         <View style={popupStyles.modalContainer}>
-          <Text style={popupStyles.modalText}>Invalid Destination</Text>
+          <Text style={popupStyles.modalText}>Invalid Destination.</Text>
           <Text style={popupStyles.modalText}>
             Please enter a valid destination.
           </Text>
@@ -281,7 +285,7 @@ export const FloorPopup: React.FC<CustomModalProps> = ({
       setOkButtonEnabled(!floor3Click); //disable the Ok button if unclicked, enable if clicked
     } 
     setFloorInput(floor);
-    utils.setIsFloorSet(true); // sets global 
+    utils.setIsFloorSet(true); // sets global
   };
 
   return (

@@ -7,7 +7,7 @@ const interval = 500; // in milliseconds
 let previousTimestamp = 0;
 let initialAcceleration = { x: 0, y: 0, z: 0 }; //acceleration before sensor read
 let acceleration = { x: 0, y: 0, z: 0 }; // current acceleration from sensor read
-let initialVelocity = { x: 0, y: 0, z: 0 }; //velocity before accounting for acceleration
+//let initialVelocity = { x: 0, y: 0, z: 0 }; //velocity before accounting for acceleration
 let velocity = { x: 0, y: 0, z: 0 }; //current velocity
 let speed = 0;
 
@@ -49,13 +49,13 @@ const subscription = userAccelerationStream.subscribe(event => {
             z: acceleration.z,
         };
         speed = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z); //take away direction from velocity using pythagorean theorem (a^2 + b^2 = c^2)
-        speed = speed / 10; //speed was too fast in Unity (User GameObject position changed faster than the real user would)
+        speed = speed / 100; //speed was too fast in Unity (User GameObject position changed faster than the real user would)
 
         console.log('Acceleration:', acceleration);
         console.log('Velocity:', velocity);
         console.log('Speed:', speed);
 
-        initialVelocity = velocity; //update initialVelocity for the next calculation
+        //initialVelocity = velocity; //update initialVelocity for the next calculation
     }
 
     previousTimestamp = event.accelerometer.timestamp;

@@ -54,7 +54,7 @@ const UnityApp: React.FC<UnityAppProps> = () => {
         floor: utils.getFloor(),
         speed: currentSpeed,
       });
-    }, 500); // 0.5 seconds (500 ms)
+    }, 500); // send data to the Unity model every 0.5 seconds (500 ms)
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);

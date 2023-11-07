@@ -54,33 +54,29 @@ extern void NavMeshLine_formatLine_m98F809E42BD22C33E77C572D44F760FF4473165C (vo
 extern void NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331 (void);
 // 0x00000015 System.Void NavMeshLine::.ctor()
 extern void NavMeshLine__ctor_mA7C84B8DE745FFC46D8A53E83640F6945D5D998C (void);
-// 0x00000016 System.Void ReactToUnityManager::Awake()
-extern void ReactToUnityManager_Awake_m1BA253BE13BFB524FB34F0E5F1D84A22D2B79A86 (void);
-// 0x00000017 System.Void ReactToUnityManager::.ctor()
-extern void ReactToUnityManager__ctor_m8FBB10E8AD0E16F7F1558B28C3BF45B4E15BE0AA (void);
-// 0x00000018 System.Void TopDownCamera::Awake()
+// 0x00000016 System.Void TopDownCamera::Awake()
 extern void TopDownCamera_Awake_mA24DE0A1C087226FB82BAE6D141557AC2A3DBFD6 (void);
-// 0x00000019 System.Void TopDownCamera::Start()
+// 0x00000017 System.Void TopDownCamera::Start()
 extern void TopDownCamera_Start_m767FC7AD93031AF3B1CE619B2A63D7DDEDA0BFAC (void);
-// 0x0000001A System.Void TopDownCamera::Update()
+// 0x00000018 System.Void TopDownCamera::Update()
 extern void TopDownCamera_Update_m4B647AD8A3D24B3DA728A34A1653E24ECC43D3A1 (void);
-// 0x0000001B System.Void TopDownCamera::HandleTouch()
+// 0x00000019 System.Void TopDownCamera::HandleTouch()
 extern void TopDownCamera_HandleTouch_m447097277880E4AC6EB7CF24933D1C55CF7414B3 (void);
-// 0x0000001C System.Void TopDownCamera::HandleMouse()
+// 0x0000001A System.Void TopDownCamera::HandleMouse()
 extern void TopDownCamera_HandleMouse_m52F30250E0591F03DF4ECCC876EAD6AC69C220F1 (void);
-// 0x0000001D System.Void TopDownCamera::PanCamera(UnityEngine.Vector3)
+// 0x0000001B System.Void TopDownCamera::PanCamera(UnityEngine.Vector3)
 extern void TopDownCamera_PanCamera_m504992D4383B6430D6BBF0ECE8C24F07188EDA4F (void);
-// 0x0000001E System.Void TopDownCamera::ZoomCamera(System.Single,System.Single)
+// 0x0000001C System.Void TopDownCamera::ZoomCamera(System.Single,System.Single)
 extern void TopDownCamera_ZoomCamera_mDE91541C7BC8D0E1E976969892632FE0DB19A627 (void);
-// 0x0000001F System.Void TopDownCamera::.ctor()
+// 0x0000001D System.Void TopDownCamera::.ctor()
 extern void TopDownCamera__ctor_mA07CCB917E43C7B96656651BFF0F08CA8DBF8ADC (void);
-// 0x00000020 System.Void TopDownCamera::.cctor()
+// 0x0000001E System.Void TopDownCamera::.cctor()
 extern void TopDownCamera__cctor_mEBF733F84B733C89FFD12716821781720836CDC2 (void);
-// 0x00000021 System.Void Readme::.ctor()
+// 0x0000001F System.Void Readme::.ctor()
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
-// 0x00000022 System.Void Readme/Section::.ctor()
+// 0x00000020 System.Void Readme/Section::.ctor()
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
-static Il2CppMethodPointer s_methodPointers[34] = 
+static Il2CppMethodPointer s_methodPointers[32] = 
 {
 	DataFromReact_get_Instance_mEE585681175EAD268E7C19CE608E49ED5D3857B3,
 	DataFromReact_Start_m53A18266ED81439475959E0AADBE7DAF67A0E070,
@@ -103,8 +99,6 @@ static Il2CppMethodPointer s_methodPointers[34] =
 	NavMeshLine_formatLine_m98F809E42BD22C33E77C572D44F760FF4473165C,
 	NavMeshLine_FindNearest_m4BF53D066FFCF59CA7E1DD722072E4DC9AC1E331,
 	NavMeshLine__ctor_mA7C84B8DE745FFC46D8A53E83640F6945D5D998C,
-	ReactToUnityManager_Awake_m1BA253BE13BFB524FB34F0E5F1D84A22D2B79A86,
-	ReactToUnityManager__ctor_m8FBB10E8AD0E16F7F1558B28C3BF45B4E15BE0AA,
 	TopDownCamera_Awake_mA24DE0A1C087226FB82BAE6D141557AC2A3DBFD6,
 	TopDownCamera_Start_m767FC7AD93031AF3B1CE619B2A63D7DDEDA0BFAC,
 	TopDownCamera_Update_m4B647AD8A3D24B3DA728A34A1653E24ECC43D3A1,
@@ -117,7 +111,7 @@ static Il2CppMethodPointer s_methodPointers[34] =
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
 };
-static const int32_t s_InvokerIndices[34] = 
+static const int32_t s_InvokerIndices[32] = 
 {
 	5914,
 	3978,
@@ -145,8 +139,6 @@ static const int32_t s_InvokerIndices[34] =
 	3978,
 	3978,
 	3978,
-	3978,
-	3978,
 	3310,
 	1885,
 	3978,
@@ -158,7 +150,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	34,
+	32,
 	s_methodPointers,
 	0,
 	NULL,
