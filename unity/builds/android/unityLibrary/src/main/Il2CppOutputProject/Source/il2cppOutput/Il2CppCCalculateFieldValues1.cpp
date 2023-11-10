@@ -16617,8 +16617,8 @@ struct FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976  : publ
 {
 	// System.Boolean FollowUserButtonManager::followOn
 	bool ___followOn_4;
-	// System.Int32 FollowUserButtonManager::numPresses
-	int32_t ___numPresses_5;
+	// System.Boolean FollowUserButtonManager::isRed
+	bool ___isRed_5;
 	// UnityEngine.UI.Button FollowUserButtonManager::button
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___button_6;
 	// UnityEngine.Color FollowUserButtonManager::redColor
@@ -16651,18 +16651,20 @@ struct IsObjectVariableDefined_t20AC71899A91DCD572925CD849ABF70EF24007B0  : publ
 // MoveAlongLine
 struct MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.String MoveAlongLine::previousBeacon
+	String_t* ___previousBeacon_5;
 	// System.Single MoveAlongLine::distanceAlongLine
-	float ___distanceAlongLine_5;
+	float ___distanceAlongLine_6;
 	// UnityEngine.Vector3 MoveAlongLine::lineDirection
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___lineDirection_6;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___lineDirection_7;
 	// System.Single MoveAlongLine::angle
-	float ___angle_7;
+	float ___angle_8;
 	// UnityEngine.Vector3 MoveAlongLine::rotationAxis
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___rotationAxis_8;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___rotationAxis_9;
 	// UnityEngine.Vector3 MoveAlongLine::targetPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___targetPosition_9;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___targetPosition_10;
 	// DataFromReact MoveAlongLine::DR
-	DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* ___DR_10;
+	DataFromReact_tB90C188C1526DFE2EC21A998A767869429EE89C4* ___DR_11;
 };
 
 // NavMeshLine
@@ -16682,10 +16684,10 @@ struct NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B  : public MonoBehav
 	String_t* ___destinationScene_14;
 	// UnityEngine.SceneManagement.Scene NavMeshLine::currentScene
 	Scene_tA1DC762B79745EB5140F054C884855B922318356 ___currentScene_15;
-	// UnityEngine.GameObject NavMeshLine::stairs
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___stairs_16;
-	// UnityEngine.GameObject NavMeshLine::elevator
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___elevator_17;
+	// System.String NavMeshLine::stairs
+	String_t* ___stairs_16;
+	// System.String NavMeshLine::elevator
+	String_t* ___elevator_17;
 	// System.String NavMeshLine::sceneToLoad
 	String_t* ___sceneToLoad_20;
 	// System.String NavMeshLine::lastFloor
@@ -28502,10 +28504,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5306[2] =
 	static_cast<int32_t>(offsetof(FloorChangeButtonManager_t5FC9B58EC8D24B1438EC6AB088E6299894D0F113, ___DR_4)),static_cast<int32_t>(offsetof(FloorChangeButtonManager_t5FC9B58EC8D24B1438EC6AB088E6299894D0F113, ___button_5)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5307[5] = 
 {
-	static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___followOn_4)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___numPresses_5)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___button_6)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___redColor_7)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___greenColor_8)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5308[7] = 
+	static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___followOn_4)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___isRed_5)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___button_6)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___redColor_7)),static_cast<int32_t>(offsetof(FollowUserButtonManager_t3BBB28EF9613F693A221539B03B33808BF5FD976, ___greenColor_8)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5308[8] = 
 {
-	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE_StaticFields, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___DR_10)),};
+	static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE_StaticFields, ___lineRenderer_4)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___previousBeacon_5)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___distanceAlongLine_6)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___lineDirection_7)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___angle_8)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___rotationAxis_9)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___targetPosition_10)),static_cast<int32_t>(offsetof(MoveAlongLine_t42E350EA892694661B37423862C6F907C4A167DE, ___DR_11)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5309[18] = 
 {
 	static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___DR_4)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___origin_5)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___destination_6)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___originRoom_7)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationRoom_8)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___building_9)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererBig_10)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lineRendererSmall_11)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___navMeshAgent_12)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___accessibileRoute_13)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___destinationScene_14)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___currentScene_15)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___stairs_16)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___elevator_17)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___instance_18)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B_StaticFields, ___lastScene_19)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___sceneToLoad_20)),static_cast<int32_t>(offsetof(NavMeshLine_tF6A11C78F61647698ABDED3DE26F3DDC1177566B, ___lastFloor_21)),};

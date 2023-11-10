@@ -63,7 +63,7 @@ const UnityApp: React.FC<UnityAppProps> = () => {
   async function SendData(data: any) {
     // This is the main function postMessage takes 3 arguments:
     // ReactToUnity is the game Object
-    // GetData is the function name we will send the data to in Unity depends on hierarchy.
+    // GetData is the function name we will send the data to in Unity, depends on hierarchy.
     // data is the data we will send.
     unityRef.current?.postMessage('ReactToUnity', 'GetData', JSON.stringify(data));
     //console.log("sent: " + JSON.stringify(data))

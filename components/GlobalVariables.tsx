@@ -8,7 +8,7 @@ let mapVisible: boolean = false;
 let accessibleRoute: boolean = false;
 let voiceCommands: boolean = false;
 let sound: boolean = false;
-let closestBeacon: number; //test value of 7
+let closestBeacon: number;
 let beaconArray: Array<{ beaconNum: number, rssi: number }> = [
   { beaconNum: 1, rssi: -60 },  // default values used for testing
   { beaconNum: 2, rssi: -65 },
@@ -47,7 +47,6 @@ export function getSound():boolean {
 }
 
 export function getClosestBeacon(): number {
-  //console.log(closestBeacon);
   return closestBeacon;
 }
 
@@ -97,7 +96,6 @@ export function setAccessibleRoute(newAccessibleRoute: boolean) {
 
 export function setClosestBeacon(newClosestBeacon: number) {
   closestBeacon = newClosestBeacon;
-  //console.log(closestBeacon);
 }
 
 export function setBeaconArray(NewBeaconArray:Array<{ beaconNum: number, rssi: number}>){ 
@@ -112,7 +110,7 @@ export function setIsFloorSet(floorBoolean: boolean) {
   isFloorSet = floorBoolean;
 }
 
-export function reset() {
+export function reset() { //runs when the user presses start over button
   setDestination('');
   setBathroom('');
   setIsBathroomSet(false);

@@ -10,7 +10,7 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import  {setClosestBeacon, setBeaconArray}  from './GlobalVariables';
+import  {setClosestBeacon, getClosestBeacon, setBeaconArray}  from './GlobalVariables';
 
 
 const bleManager = new BleManager();
@@ -29,6 +29,7 @@ let beaconSignals = new Array<number>(numberOfBeacons); // beaconSignals is an a
 let signalTimes = new Array<number>(numberOfBeacons);
 let deleteOld = false;
 let prevTime = Date.now();
+let prevClosestBeacon: number;
 let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
 let closestBeaconFinal: number;
 let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
@@ -60,7 +61,7 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 ]);
 
 function useBLE(): BluetoothLowEnergyApi {
-  const [closestBeacon, setclosestBeacon] = useState<number>(-1);
+  const [closestBeacon, localClosestBeacon] = useState<number>(-1);
   const [render, setRender] = useState<boolean>(true); //manually rerenders app when closest beacon changes
 
   const requestPermissions = async (cb: VoidCallback) => {
@@ -124,10 +125,10 @@ function useBLE(): BluetoothLowEnergyApi {
 
           // Age out signals:
           // invalidate old rssi values once every other scan
-            // consider changing this to once every few scans or once every time period
+          // consider changing this to once every few scans or once every time period
           if (deleteOld){
             for(let i = 0; i < numberOfBeacons; i++){
-              if((currentTime - signalTimes[i]) > 3000){
+              if((currentTime - signalTimes[i]) > 3000){ //clear after 3 seconds (3000 ms)
                 beaconSignals[i] = -100;
                 // console.log(i);
                 // console.log({beaconSignals});
@@ -175,29 +176,41 @@ function useBLE(): BluetoothLowEnergyApi {
           }
 
           // call findMode every second
-          if((currentTime - prevTime) > 1000){
+          if((currentTime - prevTime) > 1000){ // 1000 ms = 1 s
             console.log({recentClosest});
             closestBeaconFinal = findMode(recentClosest);
-            setclosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
-            setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            localClosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
+
+            if(getClosestBeacon() != null && closestBeaconFinal == prevClosestBeacon){ //update closest beacon after multiple signals report it as the closest
+              setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            }
+            else if (getClosestBeacon() != null && closestBeaconFinal != prevClosestBeacon){ //update prevClosestBeacon before changing the closest beacon
+              prevClosestBeacon = closestBeaconFinal;
+            }
+            else{ //update closest beacon if there is no closest beacon set
+              setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+              prevClosestBeacon = closestBeaconFinal;
+            }
             setRender(!render); //see line 62
             recentClosest = [];
             prevTime = currentTime;
+            console.log("closest beacon: " + getClosestBeacon());
 
-            //set beaconsArray in GlobalVariables.tsx
-            const beaconsArray = beaconSignals
-              .map((rssi, index) => {
-                const beaconId = Array.from(IDMap.keys())[index];
-                const beaconNum = IDMap.get(beaconId) ?? -1; // Use -1 as a default if undefined
-                //add something to get distance from rssi
-                return { beaconNum, rssi };
-              })
+            // //trilateration testing:
+            // //set beaconsArray in GlobalVariables.tsx
+            // const beaconsArray = beaconSignals
+            //   .map((rssi, index) => {
+            //     const beaconId = Array.from(IDMap.keys())[index];
+            //     const beaconNum = IDMap.get(beaconId) ?? -1; // Use -1 as a default if undefined
+            //     //add something to get distance from rssi
+            //     return { beaconNum, rssi };
+            //   })
               
-              // Sort these pairs based on RSSI and take the top 3
-              .sort((a, b) => b.rssi - a.rssi)
-              .slice(0, 3);
+            //   // Sort these pairs based on RSSI and take the top 3
+            //   .sort((a, b) => b.rssi - a.rssi)
+            //   .slice(0, 3);
 
-              setBeaconArray(beaconsArray);
+            //   setBeaconArray(beaconsArray);
           }
         }
       },

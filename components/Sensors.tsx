@@ -37,7 +37,7 @@ const subscription = userAccelerationStream.subscribe(event => {
             // y: initialVelocity.y + acceleration.y * timeInterval,
             // z: initialVelocity.z + acceleration.z * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
 
-            x: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, //trapezoid rule used to find velocity
+            x: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, //trapezoid rule used to estimate velocity
             y: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, 
             z: 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval, //acceleration (m/s/s) * time (s) = velocity (m/s)
             // was: initialVelocity.y + 0.5 * (initialAcceleration.x + acceleration.x) * timeInterval
@@ -48,8 +48,10 @@ const subscription = userAccelerationStream.subscribe(event => {
             y: acceleration.y,
             z: acceleration.z,
         };
-        speed = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z); //take away direction from velocity using pythagorean theorem (a^2 + b^2 = c^2)
-        speed = speed / 100; //speed was too fast in Unity (User GameObject position changed faster than the real user would)
+        //speed = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z); //take away direction from velocity using pythagorean theorem (a^2 + b^2 = c^2)
+        speed = Math.sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z); //3d pythagorean theorem (a^2 + b^2 + c^2 = d^2)
+        speed = speed / 25; //speed was too fast in Unity (User GameObject position changed faster than the real user would)
+        speed = Math.trunc(speed * 1000000) / 1000000, //make sure to avoid overflow errors in Unity
 
         console.log('Acceleration:', acceleration);
         console.log('Velocity:', velocity);
