@@ -1,5 +1,5 @@
 //version 2
-import { accelerometer, gravity, setUpdateIntervalForType, SensorTypes } from "react-native-sensors";
+import { accelerometer, gravity, magnetometer, setUpdateIntervalForType, SensorTypes } from "react-native-sensors";
 import { combineLatest } from "rxjs";
 import { map } from 'rxjs/operators';
 
@@ -10,9 +10,11 @@ let acceleration = { x: 0, y: 0, z: 0 }; // current acceleration from sensor rea
 //let initialVelocity = { x: 0, y: 0, z: 0 }; //velocity before accounting for acceleration
 let velocity = { x: 0, y: 0, z: 0 }; //current velocity
 let speed = 0;
+//let magnetometerReading = { X: 0, Y: 0, Z: 0, time: 0 };
 
 setUpdateIntervalForType(SensorTypes.accelerometer, interval);
 setUpdateIntervalForType(SensorTypes.gravity, interval);
+//setUpdateIntervalForType(SensorTypes.magnetometer, interval);
 
 const userAccelerationStream = combineLatest(accelerometer, gravity).pipe(
     map(([accelerometerValue, gravityValue]) => ({
@@ -21,7 +23,7 @@ const userAccelerationStream = combineLatest(accelerometer, gravity).pipe(
     }))
 );
 
-const subscription = userAccelerationStream.subscribe(event => {
+const accelSubscription = userAccelerationStream.subscribe(event => {
     acceleration = {
         x: Math.trunc((event.accelerometer.x - event.gravity.x) * 10) / 10,  // keep 1 decimal place
         y: Math.trunc((event.accelerometer.y - event.gravity.y) * 10) / 10,  
@@ -63,6 +65,15 @@ const subscription = userAccelerationStream.subscribe(event => {
     previousTimestamp = event.accelerometer.timestamp;
 });
 
+// const magnetSubscription = magnetometer.subscribe(({ x, y, z, timestamp }) =>
+//   magnetometerReading = { //set initialAcceleration for the next calculation
+//     X: x,
+//     Y: y,
+//     Z: z,
+//     time: timestamp,
+//   }
+// );
+
 export function getAccelerometerData() {
     return acceleration;
 };
@@ -74,6 +85,10 @@ export function getVelocityData() {
 export function getSpeedData() {
     return speed;
 };
+
+// export function getMagnetData() {
+//     return magnetometerReading;
+// };
 
 
 // version 1

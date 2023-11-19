@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import UnityView from '@azesmway/react-native-unity';
 import { View } from 'react-native';
 import * as utils from './GlobalVariables';
-import { getAccelerometerData, getSpeedData, getVelocityData } from './Sensors'
+import { getAccelerometerData, getMagnetData, getSpeedData, getVelocityData } from './Sensors'
 
 interface UnityAppProps {}
 
@@ -19,9 +19,10 @@ const UnityApp: React.FC<UnityAppProps> = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       //collect data from accelerometer and gyroscope from Sensors.tsx
-      let acceleration = getAccelerometerData();
-      let velocity = getVelocityData();
+      //let acceleration = getAccelerometerData();
+      //let velocity = getVelocityData();
       let currentSpeed = getSpeedData();
+      //let magnetometer = getMagnetData();
 
       // Change the origin every few seconds
       //const newOrigin = getNextOrigin(); // Implement getNextOrigin as needed

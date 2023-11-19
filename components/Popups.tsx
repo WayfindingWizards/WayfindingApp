@@ -5,7 +5,7 @@ import { baseStyles } from '../styles/BaseStyles';
 import * as utils from './GlobalVariables';
 import {findRoom} from './FindRoom';
 
-const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+//const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
 export interface CustomModalProps {
   modalVisible: boolean;
@@ -18,7 +18,7 @@ export const NoStartPopup: React.FC<CustomModalProps> = ({
 }) => {
   const [originInput, setOriginInput] = useState('');
   const [validInput, setValidInput] = useState(true);
-  //const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
+  const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
 
   const handleOkButtonClick = () => {
 

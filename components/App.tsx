@@ -139,6 +139,7 @@ const App: React.FC = () => {
         <VoiceCommandButton></VoiceCommandButton>
 
       {/* destination input and go button */}
+      {/*<KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'padding'} style={baseStyles.navigationContainer}>*/}
       <ViewComponent style={baseStyles.navigationContainer} id = 'navigationContainer' behavior="padding">
 
         <View style={baseStyles.destinationInputBox} id = 'destinationInputBox'>
