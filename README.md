@@ -113,7 +113,8 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
 ## Usage
 
 1. Switch to the root of the project in a command prompt.
-2. `npx react-native start`
+```cd C:\Users\<your username>\Documents\GitHub\WayfindingApp```
+2. While in this directory: `npx react-native start`
 3. Press `A` to launch on Android. 
 
 If using a device emulator, start the emulator manually first.
