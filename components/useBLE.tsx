@@ -130,11 +130,6 @@ function useBLE(): BluetoothLowEnergyApi {
             for(let i = 0; i < numberOfBeacons; i++){
               if((currentTime - signalTimes[i]) > 3000){ //clear after 3 seconds (3000 ms)
                 beaconSignals[i] = -100;
-                // console.log(i);
-                // console.log({beaconSignals});
-                // console.log({signalTimes});
-                // console.log({currentTime});
-                // console.log("OLD DATA RESET");
                 signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
               }
             }  
@@ -195,22 +190,6 @@ function useBLE(): BluetoothLowEnergyApi {
             recentClosest = [];
             prevTime = currentTime;
             console.log("closest beacon: " + getClosestBeacon());
-
-            // //trilateration testing:
-            // //set beaconsArray in GlobalVariables.tsx
-            // const beaconsArray = beaconSignals
-            //   .map((rssi, index) => {
-            //     const beaconId = Array.from(IDMap.keys())[index];
-            //     const beaconNum = IDMap.get(beaconId) ?? -1; // Use -1 as a default if undefined
-            //     //add something to get distance from rssi
-            //     return { beaconNum, rssi };
-            //   })
-              
-            //   // Sort these pairs based on RSSI and take the top 3
-            //   .sort((a, b) => b.rssi - a.rssi)
-            //   .slice(0, 3);
-
-            //   setBeaconArray(beaconsArray);
           }
         }
       },

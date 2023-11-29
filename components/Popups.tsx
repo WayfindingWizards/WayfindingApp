@@ -5,8 +5,6 @@ import { baseStyles } from '../styles/BaseStyles';
 import * as utils from './GlobalVariables';
 import {findRoom} from './FindRoom';
 
-//const ViewComponent = Platform.OS === 'ios' ? KeyboardAvoidingView : View; //manage difference in keyboardAvoiding in ios and android
-
 export interface CustomModalProps {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -82,7 +80,6 @@ export const BathroomPopup: React.FC<CustomModalProps> = ({
     utils.setDestination(bathroomInput); //sets global destiation to bathroom input
     utils.setIsBathroomSet(true); //sets global IsBathroomSet to true
     setModalVisible(!modalVisible); //closes popup
-    //utils.setMapVisible(true); //sets global map visible to true
   };
 
   const handleCancelButtonClick = () => {

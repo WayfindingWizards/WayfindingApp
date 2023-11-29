@@ -50,45 +50,25 @@ const App: React.FC = () => {
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
-    // if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
-    //   setBathroomPopupVisible(true); //set to false by default on line 24
-    //   utils.setDestination(userDestination);
-    // } 
-
     // for setting the destination
     if (!roomFound && userDestination !='BATHROOM') {
-      //utils.setDestination(userDestination); // sets destination global to userDestination
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
     } 
     else if (userDestination === 'BATHROOM' && !utils.getIsBathroomSet()) {
       setBathroomPopupVisible(true); //set to false by default on line 24
-      //utils.setDestination(userDestination);
+
     }
     else{
       utils.setDestination(userDestination);
     }
 
-    // while(utils.getDestination() == '' || utils.getDestination() == null){ //wait until there is a response from previous input
-    // }
-
     //for setting the origin/closest beacons
     if ((utils.getClosestBeacon() == -1 || utils.getClosestBeacon() == null) && utils.getOrigin() == '' && utils.getDestination() != '') { //No beacons detected
-      //utils.setDestination(userDestination); //sets destination global to userDestination
       setNoStartPopupVisible(true); //set to false by default on line 22, ask for nearest room
     } 
-    // else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
-    //   setBathroomPopupVisible(true); //set to false by default on line 24
-    //   utils.setDestination(userDestination);
-    // }
     else if (!utils.getIsFloorSet() && utils.getDestination() != ''){ //beacons found
       setFloorPopupVisible(true); //set to false by default on line 24
-      //utils.setDestination(userDestination);
     } 
-    // else {
-    //   utils.setDestination(userDestination); //sets destination global to user destination
-    //   utils.setMapVisible(true); //sets mapVisible global to true
-    //   setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
-    // }
   };
 
   const handleStartOverButtonPress = () => {
