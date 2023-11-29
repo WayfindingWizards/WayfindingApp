@@ -103,8 +103,8 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
 3. Make sure the `Export Project` box is checked
 4. Click the `Export` Button
 5. Go to `unity/builds/android` and export
-6. Open the command prompt and navigate to the `android` folder of the WayfindingApp
-    ```use something like cd  C:\Users\<student>\GitHub\WayfindingApp\android```
+6. Open the command prompt and navigate to the `android` folder of the WayfindingApp.
+    Use something like: ```cd  C:\Users\<student>\GitHub\WayfindingApp\android```
 7. Then, `gradlew.bat assembleDebug`
 8. When this finishes, Switch to the root of the project in a command prompt with `cd ..`
 9. Then, `npx react-native start`
@@ -112,7 +112,7 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
 
 ## Usage
 
-1. Switch to the root of the project in a command prompt.
+1. Switch to the root of the project in a command prompt. Use something like:
 ```cd C:\Users\<your username>\Documents\GitHub\WayfindingApp```
 2. While in this directory: `npx react-native start`
 3. Press `A` to launch on Android. 
