@@ -92,8 +92,8 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
     ``` ndk.dir = path to ndk ```    
 
     >On Windows, if you installed Android Studio the path to the NDK is usually `C:\Users\<your username>\AppData\Local\Android\Sdk\ndk\ndk version`. Use double backslashes to separate path components in the `local.properties` file, e.g. `ndk.dir = C://Users//student//AppData//Local//Android//Sdk//ndk//21.3.6528147`
-17. Open the command prompt and navigate to the `android` folder of the WayfindingApp
-    ```use something like cd  C:\Users\<student>\GitHub\WayfindingApp\android```
+17. Open the command prompt and navigate to the `android` folder of the WayfindingApp. Use something like:
+    ```cd  C:\Users\<student>\GitHub\WayfindingApp\android```
 18. While still in the `android` directory: `gradlew.bat clean`
 19. Then, `gradlew.bat assembleDebug`
 
