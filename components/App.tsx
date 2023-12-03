@@ -3,10 +3,14 @@ import {View,TextInput,TouchableOpacity,Text,Image,ImageBackground,KeyboardAvoid
 import {baseStyles} from '../styles/BaseStyles';
 import { accessibilityStyles } from '../styles/AccessibilityButtonStyles';
 import * as utils from './GlobalVariables';
-import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup} from './Popups';
+import {InvalidDestinationPopup, NoStartPopup, BathroomPopup, HelpPopup, FloorPopup} from './Popups';
 import { findRoom } from './FindRoom';
 import { AccessibleRouteButton, SoundButton, VoiceCommandButton } from './AccessibilityButtons';
 import useBLE from './useBLE';
+import UnityApp from "./UnityApp";
+
+// import { BleManager } from 'react-native-ble-plx';
+// import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 
 const App: React.FC = () => {
@@ -17,6 +21,7 @@ const App: React.FC = () => {
   const [noStartPopup, setNoStartPopupVisible] = useState<boolean>(false);
   const [invalidDestinatonPopup, setInvalidDestinationPopupVisible] = useState<boolean>(false);
   const [bathroomPopup, setBathroomPopupVisible] = useState<boolean>(false);
+  const [floorPopup, setFloorPopupVisible] = useState<boolean>(false);
   const [helpPopup, setHelpPopupVisible] = useState<boolean>(false);
   const [render, setRender] = useState(false); {/*used to manually rerender the app when necessary*/}
   const {requestPermissions, scanForPeripherals, closestBeacon} = useBLE();
@@ -25,7 +30,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     scanForDevices();
-    console.log(utils.getClosestBeacon()); //scans for devices when app is rendered and running
+    //console.log(utils.getClosestBeacon()); //scans for devices when app is rendered and running
   }, [] );
 
   const scanForDevices = () => {
@@ -33,8 +38,8 @@ const App: React.FC = () => {
       if (isGranted) {
         scanForPeripherals();
       }
-  });
-}
+    });
+  }
 
   const isGoButtonEnabled = () => {
     if (!userDestination) return false;
@@ -45,19 +50,25 @@ const App: React.FC = () => {
   const handleGoButtonPress = () => {
     const roomFound: boolean = findRoom(userDestination);
 
-    if (!roomFound&& userDestination!='Bathroom') {
-      utils.setDestination(userDestination); // sets destination global to userDestination
+    // for setting the destination
+    if (!roomFound && userDestination !='BATHROOM') {
       setInvalidDestinationPopupVisible(true); //set to false by default on line 23
-    } else if (utils.getClosestBeacon() == -1 || !utils.getOrigin()) { //checks to see if beacons have found origin
-      utils.setDestination(userDestination); //sets destination global to userDestination
-      setNoStartPopupVisible(true); //set to false by default on line 22
-    } else if (userDestination === 'Bathroom' && !utils.getIsBathroomSet()) {
+    } 
+    else if (userDestination === 'BATHROOM' && !utils.getIsBathroomSet()) {
       setBathroomPopupVisible(true); //set to false by default on line 24
-    } else { {/*if destination is valid*/}
-      utils.setDestination(userDestination); //sets destination global to user destination
-      utils.setMapVisible(true); //sets mapVisible global to true
-      setRender(!render); {/*app wasn't rerendering so map wasn't showing, needed manual rerender*/}
+
     }
+    else{
+      utils.setDestination(userDestination);
+    }
+
+    //for setting the origin/closest beacons
+    if ((utils.getClosestBeacon() == -1 || utils.getClosestBeacon() == null) && utils.getOrigin() == '' && utils.getDestination() != '') { //No beacons detected
+      setNoStartPopupVisible(true); //set to false by default on line 22, ask for nearest room
+    } 
+    else if (!utils.getIsFloorSet() && utils.getDestination() != ''){ //beacons found
+      setFloorPopupVisible(true); //set to false by default on line 24
+    } 
   };
 
   const handleStartOverButtonPress = () => {
@@ -68,6 +79,11 @@ const App: React.FC = () => {
   const handleHelpButtonPress = () => {
     setHelpPopupVisible(true);
   }
+
+  const handleDestinationInput = (input: string) => {
+    const capatalizedInput = input.trim().toLocaleUpperCase();
+    setUserDestination(capatalizedInput);
+  };
 
   return (
     //background image
@@ -89,17 +105,7 @@ const App: React.FC = () => {
       )}
       {/*map visible*/}
       {utils.getMapVisible() && (
-        <View testID = 'mapVisiblePage'>
-          {/*map image*/}
-          <ImageBackground source={require('../images/model_image.png')} style = {baseStyles.modelImage}>
-              {/*closest beacon container*/}
-              <View style = {baseStyles.closestBeaconContainer}>
-                  <Text style = {baseStyles.closestBeaconText}>Closest Beacon:</Text>
-                  <Text style = {[baseStyles.closestBeaconText,{fontSize: 40}]}>{utils.getClosestBeacon()}</Text>
-             </View>
-          </ImageBackground>
-          
-        </View>
+          <UnityApp/>
       )}
       {/* accessibility and sound buttons */}
       <TouchableOpacity
@@ -113,6 +119,7 @@ const App: React.FC = () => {
         <VoiceCommandButton></VoiceCommandButton>
 
       {/* destination input and go button */}
+      {/*<KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'padding'} style={baseStyles.navigationContainer}>*/}
       <ViewComponent style={baseStyles.navigationContainer} id = 'navigationContainer' behavior="padding">
 
         <View style={baseStyles.destinationInputBox} id = 'destinationInputBox'>
@@ -123,7 +130,7 @@ const App: React.FC = () => {
             }
             placeholder="Enter Destination"
             placeholderTextColor="#CCCCCC"
-            onChangeText={setUserDestination}
+            onChangeText={handleDestinationInput}
             value={userDestination}
             editable={!utils.getMapVisible()} // is editable if global map visible is false
           />
@@ -159,7 +166,8 @@ const App: React.FC = () => {
       {helpPopup && (<HelpPopup modalVisible={helpPopup} setModalVisible={setHelpPopupVisible}/>)}
       {noStartPopup && (<NoStartPopup modalVisible={noStartPopup} setModalVisible={setNoStartPopupVisible}/>)}
       {invalidDestinatonPopup && (<InvalidDestinationPopup modalVisible={invalidDestinatonPopup} setModalVisible={setInvalidDestinationPopupVisible}/>)}
-      {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }  
+      {floorPopup && (<FloorPopup modalVisible={floorPopup} setModalVisible={setFloorPopupVisible}/>) }  
+      {bathroomPopup && (<BathroomPopup modalVisible={bathroomPopup} setModalVisible={setBathroomPopupVisible}/>) }
     </ImageBackground>
   );
 };

@@ -10,7 +10,7 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
 import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import  {setClosestBeacon}  from './GlobalVariables';
+import  {setClosestBeacon, getClosestBeacon, setBeaconArray}  from './GlobalVariables';
 
 
 const bleManager = new BleManager();
@@ -29,6 +29,7 @@ let beaconSignals = new Array<number>(numberOfBeacons); // beaconSignals is an a
 let signalTimes = new Array<number>(numberOfBeacons);
 let deleteOld = false;
 let prevTime = Date.now();
+let prevClosestBeacon: number;
 let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
 let closestBeaconFinal: number;
 let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
@@ -36,29 +37,31 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
   ["DC:0D:30:14:30:28", 21],
   ["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
   ["DC:0D:30:14:30:2F", 20],
-  ["DC:0D:30:14:30:26", 19],
   ["DC:0D:30:14:30:23", 6],
-  ["DC:0D:30:14:2F:CF", 13],
-  ["DC:0D:30:14:2F:F5", 12],
+  ["DC:0D:30:14:2F:CF", 13], 
+  ["DC:0D:30:14:2F:F5", 12], // should have been outside of stairs G, but was missing
   ["DC:0D:30:14:30:29", 11],
   ["DC:0D:30:14:30:0D", 10],
   ["DC:0D:30:14:2F:D0", 9],
   ["DC:0D:30:14:2F:C9", 8],
   ["DC:0D:30:14:30:27", 7],
   ["DC:0D:30:14:2F:E8", 18],
-  ["DC:0D:30:14:2F:A7", 15],
+  ["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped in this file by the previous team. We think 14 is missing too.
   ["DC:0D:30:14:30:31", 16],
   ["DC:0D:30:14:2F:D1", 17],
   ["DC:0D:30:10:4E:F2", 0], // not installed
   ["DC:0D:30:10:4F:57", 1], // not installed
   ["DC:0D:30:10:4F:3D", 2], // not installed
-  ["DD:60:03:00:02:C0", 3], // not installed
+  ["DD:60:03:00:02:C0", 3], // not installed              //rssi at 1m = -59, 100 ms            (n=2.66 or n=2)? 
   ["DD:60:03:00:03:3C", 4], // not installed
   ["DD:60:03:00:00:4F", 5], // not installed
+
+  ["DC:0D:30:14:2F:CB", 7], // for testing, not installed (named: Beacon FSC)
+  ["DC:0D:30:14:2F:D7", 8]  // for testing, not installed (named: Beacon tes)
 ]);
 
 function useBLE(): BluetoothLowEnergyApi {
-  const [closestBeacon, setclosestBeacon] = useState<number>(-1);
+  const [closestBeacon, localClosestBeacon] = useState<number>(-1);
   const [render, setRender] = useState<boolean>(true); //manually rerenders app when closest beacon changes
 
   const requestPermissions = async (cb: VoidCallback) => {
@@ -122,16 +125,11 @@ function useBLE(): BluetoothLowEnergyApi {
 
           // Age out signals:
           // invalidate old rssi values once every other scan
-            // consider changing this to once every few scans or once every time period
+          // consider changing this to once every few scans or once every time period
           if (deleteOld){
             for(let i = 0; i < numberOfBeacons; i++){
-              if((currentTime - signalTimes[i]) > 3000){
+              if((currentTime - signalTimes[i]) > 3000){ //clear after 3 seconds (3000 ms)
                 beaconSignals[i] = -100;
-                // console.log(i);
-                // console.log({beaconSignals});
-                // console.log({signalTimes});
-                // console.log({currentTime});
-                // console.log("OLD DATA RESET");
                 signalTimes[i] = undefined as number; // setting as undefined prevents from continuously reseting signal when signal is lost
               }
             }  
@@ -173,17 +171,26 @@ function useBLE(): BluetoothLowEnergyApi {
           }
 
           // call findMode every second
-          if((currentTime - prevTime) > 1000){
+          if((currentTime - prevTime) > 1000){ // 1000 ms = 1 s
             console.log({recentClosest});
             closestBeaconFinal = findMode(recentClosest);
-            setclosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
-            setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            localClosestBeacon(closestBeaconFinal); // sets closest beacon in the useBLE file
+
+            if(getClosestBeacon() != null && closestBeaconFinal == prevClosestBeacon){ //update closest beacon after multiple signals report it as the closest
+              setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+            }
+            else if (getClosestBeacon() != null && closestBeaconFinal != prevClosestBeacon){ //update prevClosestBeacon before changing the closest beacon
+              prevClosestBeacon = closestBeaconFinal;
+            }
+            else{ //update closest beacon if there is no closest beacon set
+              setClosestBeacon(closestBeaconFinal); // sets the closest beacon in GlobalVariables.tsx
+              prevClosestBeacon = closestBeaconFinal;
+            }
             setRender(!render); //see line 62
             recentClosest = [];
             prevTime = currentTime;
+            console.log("closest beacon: " + getClosestBeacon());
           }
-
-          
         }
       },
     );
