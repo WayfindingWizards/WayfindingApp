@@ -1,0 +1,13 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="CompassButtonManager">
+			<method name="OnButtonPress"/>
+		</type>
+		<type fullname="FloorChangeButtonManager">
+			<method name="OnButtonPress"/>
+		</type>
+		<type fullname="FollowUserButtonManager">
+			<method name="OnButtonPress"/>
+		</type>
+	</assembly>
+</linker>
