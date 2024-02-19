@@ -23,7 +23,7 @@
     "react-native-cli": "^2.0.1",
     "react-native-device-info": "^10.6.0",
     "react-native-fs": "^2.20.0",
-    "react-native-permissions": "^3.8.0",
+    "react-native-permissions": "^3.10.1",
     "react-native-sensors": "^7.3.6",
     "react-navigation": "^4.4.4"
   },
