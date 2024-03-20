@@ -40,28 +40,28 @@
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>We require Bluetooth to contact wayfinding beacons</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>YOUR TEXT</string>
+	<string>We require Bluetooth to contact wayfinding beacons</string>
 	<!-- <key>NSCalendarsFullAccessUsageDescription</key> -->
 	<!-- <string>YOUR TEXT</string> -->
 	<!-- <key>NSCalendarsWriteOnlyAccessUsageDescription</key> -->
 	<!-- <string>YOUR TEXT</string> -->
-	<!-- <key>NSCameraUsageDescription</key> -->
-	<!-- <string>YOUR TEXT</string> -->
+	<key>NSCameraUsageDescription</key>
+	<string>YOUR TEXT</string>
 	<!-- <key>NSContactsUsageDescription</key> -->
 	<!-- <string>YOUR TEXT</string> -->
 	<!-- <key>NSFaceIDUsageDescription</key> -->
 	<!-- <string>YOUR TEXT</string> -->
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to detect nearby beacons.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to detect nearby beacons.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need your location to detect nearby beacons.</string>
-	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
-	<dict>
-		<key>Beacons</key>
-		<string>We need your location to detect nearby beacons.</string>
-	</dict>
+	<string>We need your location to detect nearby beacons</string>
+	<!-- <key>NSLocationAlwaysUsageDescription</key> -->
+	<!-- <string>We need your location to detect nearby beacons.</string> -->
+	<!-- <key>NSLocationAlwaysAndWhenInUseUsageDescription</key> -->
+	<!-- <string>We need your location to detect nearby beacons.</string> -->
+	<!-- <key>NSLocationTemporaryUsageDescriptionDictionary</key> -->
+	<!-- <dict> -->
+		<!-- <key>Beacons</key> -->
+		<!-- <string>We need your location to detect nearby beacons.</string> -->
+	<!-- </dict> -->
 	<key>NSMicrophoneUsageDescription</key>
 	<string>YOUR TEXT</string>
 	<key>NSMotionUsageDescription</key>

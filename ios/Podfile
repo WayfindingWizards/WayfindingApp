@@ -6,30 +6,30 @@ platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
 # ⬇️ uncomment wanted permissions
-setup_permissions([
-   'AppTrackingTransparency',
-   'Bluetooth',
-   'BluetoothAlways',
+# setup_permissions([
+  #  'AppTrackingTransparency',
+  #  'Bluetooth',
+  #  'BluetoothAlways',
   # 'Calendars',
   # 'CalendarsWriteOnly',
   # 'Camera',
   # 'Contacts',
   # 'FaceID',
-   'LocationAccuracy',
-   'LocationAlways',
-   'LocationWhenInUse',
-   'LocationTemporary',
+  #  'LocationAccuracy',
+  #  'LocationAlways',
+  #  'LocationWhenInUse',
+  #  'LocationTemporary',
   # 'MediaLibrary',
-   'Microphone',
-   'Motion',
+  #  'Microphone',
+  #  'Motion',
   # 'Notifications',
   # 'PhotoLibrary',
   # 'PhotoLibraryAddOnly',
   # 'Reminders',
   # 'Siri',
-   'SpeechRecognition',
+  #  'SpeechRecognition',
   # 'StoreKit',
-])
+# ])
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
 # because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
@@ -54,8 +54,6 @@ target 'AwesomeProject' do
   # Flags change depending on the env values.
   flags = get_default_flags()
 
-  pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
-
   use_react_native!(
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
@@ -71,6 +69,8 @@ target 'AwesomeProject' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
+
+  pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
 
   target 'AwesomeProjectTests' do
     inherit! :complete
