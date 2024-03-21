@@ -61,8 +61,10 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 ["DC:0D:30:14:2F:D7", 8],  // for testing, not installed (named: Beacon tes)
 
 // For iOS, use beacons' UUIDs
-["FDA50693A4E24FB1AFCFC6EB07647802", 7], // for testing, not installed (named: Beacon FSC)
-["FDA50693A4E24FB1AFCFC6EB07647801", 8] // for testing, not installed (named: Beacon tes)
+// ["FDA50693-A4E2-4FB1-AFCF-C6EB07647802", 7], // for testing, not installed (named: Beacon FSC)
+// ["FDA50693-A4E2-4FB1-AFCF-C6EB07647801", 8] // for testing, not installed (named: Beacon tes)
+["CEDC68DF-2F2E-106F-4F00-B8525FFF055C", 7], // for testing, not installed (named: Beacon FSC)
+["9E8B5B35-010C-11B6-CFA8-DFA2A24AB60D", 8] // for testing, not installed (named: Beacon tes)
 ]);
 
 
@@ -121,6 +123,7 @@ function useBLE(): BluetoothLowEnergyApi {
           // variables to declare each scan
           const deviceRssi = device.rssi!;
           const deviceID = device.id;
+          // console.log(device.id);
           let beaconNum: number;
           let currentTime = Date.now();
 
