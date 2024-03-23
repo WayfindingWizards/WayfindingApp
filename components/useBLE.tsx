@@ -33,6 +33,8 @@ let prevClosestBeacon: number;
 let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
 let closestBeaconFinal: number;
 
+let UUIDMap = new Map<string, number>([]);  // iOS uses UUIDs for beacons instead of MAC addresses
+
 let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
 ["DC:0D:30:14:30:26", 19],
 ["DC:0D:30:14:30:28", 21],
@@ -63,8 +65,9 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 // For iOS, use beacons' UUIDs
 // ["FDA50693-A4E2-4FB1-AFCF-C6EB07647802", 7], // for testing, not installed (named: Beacon FSC)
 // ["FDA50693-A4E2-4FB1-AFCF-C6EB07647801", 8] // for testing, not installed (named: Beacon tes)
-["CEDC68DF-2F2E-106F-4F00-B8525FFF055C", 7], // for testing, not installed (named: Beacon FSC)
-["9E8B5B35-010C-11B6-CFA8-DFA2A24AB60D", 8] // for testing, not installed (named: Beacon tes)
+
+// ["CEDC68DF-2F2E-106F-4F00-B8525FFF055C", 7], // for testing, not installed (named: Beacon FSC)
+// ["9E8B5B35-010C-11B6-CFA8-DFA2A24AB60D", 8] // for testing, not installed (named: Beacon tes)
 ]);
 
 
@@ -123,12 +126,24 @@ function useBLE(): BluetoothLowEnergyApi {
           // variables to declare each scan
           const deviceRssi = device.rssi!;
           const deviceID = device.id;
-          // console.log(device.id);
+          const deviceName = device.name;
+          // console.log(deviceName + " " + device.id);
           let beaconNum: number;
           let currentTime = Date.now();
 
+          // For iOS, each beacon's UUID is unique to each user's iOS device
+          const beaconNumber = Number(deviceName.slice(8, deviceName.length));  // Since each beacon's name is 'Beacon x', slice the number from the name
+          if (!UUIDMap.has(deviceID)) { // if UUID isnt in UUIDMap
+            UUIDMap.set(deviceID, beaconNumber);
+          }
+
           // Match deviceID to beacon and put signal in array
-          beaconNum = IDMap.get(deviceID)!;
+          if (Platform.OS === "android") {
+            beaconNum = IDMap.get(deviceID)!;
+          } else {  //  if iOS
+            beaconNum = UUIDMap.get(deviceID)!;
+          }
+          
           beaconSignals[beaconNum] = deviceRssi;
           signalTimes[beaconNum] = currentTime;
 
