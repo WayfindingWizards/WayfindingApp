@@ -38,7 +38,7 @@ let UUIDMap = new Map<string, number>([]);  // iOS uses UUIDs for beacons instea
 let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
 ["DC:0D:30:14:30:26", 19],
 ["DC:0D:30:14:30:28", 21],
-["DC:0D:30:14:2F:D6", 22],  // this beacon's name is also set to "Beacon 21" by mistake
+["DC:0D:30:14:2F:D6", 22],
 ["DC:0D:30:14:30:2F", 20],
 ["DC:0D:30:14:30:23", 6],
 ["DC:0D:30:14:2F:CF", 13], 
@@ -59,8 +59,8 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 ["DD:60:03:00:03:3C", 4], // not installed
 ["DD:60:03:00:00:4F", 5], // not installed
 
-["DC:0D:30:14:2F:CB", 7], // for testing, not installed (named: Beacon FSC)
-["DC:0D:30:14:2F:D7", 8],  // for testing, not installed (named: Beacon tes)
+["DC:0D:30:14:2F:CB", 7], // for testing, not installed (named: Beacon FSC) aka Beacon 31
+["DC:0D:30:14:2F:D7", 8],  // for testing, not installed (named: Beacon tes) aka Beacon 30
 
 // For iOS, use beacons' UUIDs
 // ["FDA50693-A4E2-4FB1-AFCF-C6EB07647802", 7], // for testing, not installed (named: Beacon FSC)
@@ -132,10 +132,13 @@ function useBLE(): BluetoothLowEnergyApi {
           let currentTime = Date.now();
 
           // For iOS, each beacon's UUID is unique to each user's iOS device
-          const beaconNumber = Number(deviceName.slice(8, deviceName.length));  // Since each beacon's name is 'Beacon x', slice the number from the name
+          const beaconNumber = Number(deviceName.slice(7, deviceName.length));  // Since each beacon's name is 'Beacon x', slice the number from the name
+          // var beaconNumber: number = +deviceName.slice(8, deviceName.length);
+          // console.log("Current Beacon Number: " + beaconNumber);
           if (!UUIDMap.has(deviceID)) { // if UUID isnt in UUIDMap
             UUIDMap.set(deviceID, beaconNumber);
           }
+          // console.log(UUIDMap);
 
           // Match deviceID to beacon and put signal in array
           if (Platform.OS === "android") {
