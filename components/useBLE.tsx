@@ -52,6 +52,15 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 ["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped in this file by the previous team. We think 14 is missing too.
 ["DC:0D:30:14:30:31", 16],
 ["DC:0D:30:14:2F:D1", 17],
+["DC:0D:30:16:76:00", 23],
+["DC:0D:30:16:76:02", 24],
+["DC:0D:30:16:75:FC", 25],
+["DC:0D:30:16:76:00", 26],
+["DC:0D:30:16:76:0B", 27],
+["DC:0D:30:16:76:0E", 28],
+["DC:0D:30:16:76:08", 29],
+["DC:0D:30:16:75:FD", 30],
+["DC:0D:30:16:76:03", 31],
 ["DC:0D:30:10:4E:F2", 0], // not installed
 ["DC:0D:30:10:4F:57", 1], // not installed
 ["DC:0D:30:10:4F:3D", 2], // not installed
