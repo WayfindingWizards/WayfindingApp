@@ -62,7 +62,8 @@ let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrat
 ["DC:0D:30:16:75:FD", 30],
 ["DC:0D:30:16:76:03", 31],
 ["DC:0D:30:16:75:FF", 32],
-["DC:0D:30:16:76:05", 33],
+["DC:0D:30:16:76:05", 33],  // Replaces Beacon 12
+["DC:0D:30:16:76:0D", 34],  // Replaces Beacon 14 (In Unity Code Too)
 ["DC:0D:30:10:4E:F2", 0], // not installed
 ["DC:0D:30:10:4F:57", 1], // not installed
 ["DC:0D:30:10:4F:3D", 2], // not installed
