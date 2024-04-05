@@ -6,7 +6,6 @@
 		<type fullname="FollowUserButtonManager" preserve="nothing"/>
 		<type fullname="MoveAlongLine" preserve="nothing"/>
 		<type fullname="NavMeshLine" preserve="nothing"/>
-		<type fullname="Readme" preserve="nothing"/>
 		<type fullname="TextFacingCamera" preserve="nothing"/>
 		<type fullname="TopDownCamera" preserve="nothing"/>
 	</assembly>
