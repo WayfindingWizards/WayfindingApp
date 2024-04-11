@@ -1,16 +1,15 @@
 // To run app:
 // connect device or start emulator
 // check device is connected by running: adb devices
-// in cmd navigate to project folder and run:
-//    if Android: npx react-native start
-//    if iOS: npm run ios
+// in cmd navigate to project folder and run: npx react-native start
 // in another cmd window navigate to project folder and run: npx react-native run-android
 
 /* eslint-disable no-bitwise */
 import {useState} from 'react';
 import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
-import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
+import {PERMISSIONS as PERMISSIONS_MULTIPLE, requestMultiple} from 'react-native-permissions';
+import {request, PERMISSIONS as PERMISSIONS_SINGLE, RESULTS} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
 import  {setClosestBeacon, getClosestBeacon, setBeaconArray}  from './GlobalVariables';
 
@@ -35,7 +34,55 @@ let prevClosestBeacon: number;
 let recentClosest: number[] = [];  // array that stores the beacons with the highest rssi after each scan
 let closestBeaconFinal: number;
 
-let IDMap = new Map<string, number>([]);  // iOS uses UUIDs for beacons instead of MAC addresses
+let UUIDMap = new Map<string, number>([]);  // iOS uses UUIDs for beacons instead of MAC addresses
+
+let IDMap = new Map<string, number>([  // this and numberOfBeacons can be migrated to a csv file
+["DC:0D:30:14:30:26", 19],
+["DC:0D:30:14:30:28", 21],
+["DC:0D:30:14:2F:D6", 22],
+["DC:0D:30:14:30:2F", 20],
+["DC:0D:30:14:30:23", 6],
+["DC:0D:30:14:2F:CF", 13], 
+["DC:0D:30:14:2F:F5", 12], // should have been outside of stairs G, but was missing
+["DC:0D:30:14:30:29", 11],
+["DC:0D:30:14:30:0D", 10],
+["DC:0D:30:14:2F:D0", 9],
+["DC:0D:30:14:2F:C9", 8],
+["DC:0D:30:14:30:27", 7],
+["DC:0D:30:14:2F:E8", 18],
+["DC:0D:30:14:2F:A7", 15], // the number 14 was skipped in this file by the previous team. We think 14 is missing too.
+["DC:0D:30:14:30:31", 16],
+["DC:0D:30:14:2F:D1", 17],
+["DC:0D:30:16:76:00", 23],  // Beacons 23-333: New beacons to be installed in floors 1 & 3 in TN to 
+["DC:0D:30:16:76:02", 24],  // copy 2nd floor beacon placement layout to those floors
+["DC:0D:30:16:75:FC", 25],
+["DC:0D:30:16:76:00", 26],
+["DC:0D:30:16:76:0B", 27],
+["DC:0D:30:16:76:0E", 28],
+["DC:0D:30:16:76:08", 29],
+["DC:0D:30:16:75:FD", 30],
+["DC:0D:30:16:76:03", 31],
+["DC:0D:30:16:75:FF", 32],
+["DC:0D:30:16:76:05", 33],  // Replaces Beacon 12
+["DC:0D:30:16:76:0D", 34],  // Replaces Beacon 14 (In Unity Code Too)
+["DC:0D:30:10:4E:F2", 0], // not installed
+["DC:0D:30:10:4F:57", 1], // not installed
+["DC:0D:30:10:4F:3D", 2], // not installed
+["DD:60:03:00:02:C0", 3], // not installed              //rssi at 1m = -59, 100 ms            (n=2.66 or n=2)? 
+["DD:60:03:00:03:3C", 4], // not installed
+["DD:60:03:00:00:4F", 5], // not installed
+
+["DC:0D:30:14:2F:CB", 7], // for testing, not installed (named: Beacon FSC) aka Beacon 31
+["DC:0D:30:14:2F:D7", 8],  // for testing, not installed (named: Beacon tes) aka Beacon 30
+
+// For iOS, use beacons' UUIDs
+// ["FDA50693-A4E2-4FB1-AFCF-C6EB07647802", 7], // for testing, not installed (named: Beacon FSC)
+// ["FDA50693-A4E2-4FB1-AFCF-C6EB07647801", 8] // for testing, not installed (named: Beacon tes)
+
+// ["CEDC68DF-2F2E-106F-4F00-B8525FFF055C", 7], // for testing, not installed (named: Beacon FSC)
+// ["9E8B5B35-010C-11B6-CFA8-DFA2A24AB60D", 8] // for testing, not installed (named: Beacon tes)
+]);
+
 
 function useBLE(): BluetoothLowEnergyApi {
   const [closestBeacon, localClosestBeacon] = useState<number>(-1);
@@ -59,9 +106,9 @@ function useBLE(): BluetoothLowEnergyApi {
         cb(granted === PermissionsAndroid.RESULTS.GRANTED);
       } else {
         const result = await requestMultiple([
-          PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
-          PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
-          PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+          PERMISSIONS_MULTIPLE.ANDROID.BLUETOOTH_SCAN,
+          PERMISSIONS_MULTIPLE.ANDROID.BLUETOOTH_CONNECT,
+          PERMISSIONS_MULTIPLE.ANDROID.ACCESS_FINE_LOCATION,
         ]);
 
         const isGranted =
@@ -75,7 +122,12 @@ function useBLE(): BluetoothLowEnergyApi {
         cb(isGranted);
       }
     } else {  // set to true if ios
-      cb(true);
+      const locationPermission = await request(PERMISSIONS_SINGLE.IOS.LOCATION_ALWAYS);
+      const bluetoothPermission = await request(PERMISSIONS_SINGLE.IOS.BLUETOOTH_PERIPHERAL);
+
+      const isLocationGranted = locationPermission === RESULTS.GRANTED;
+      const isBluetoothGranted = bluetoothPermission === RESULTS.GRANTED;
+      cb(isLocationGranted && isBluetoothGranted);
     }
   };
 
@@ -91,7 +143,7 @@ function useBLE(): BluetoothLowEnergyApi {
         if (device?.name?.includes('Beacon' || 'BCPro')) {  // General Identifiers = { BlueCharm:'BCPro', Feasy:'Beacon' }
           // variables to declare each scan
           const deviceRssi = device.rssi!;
-          const deviceID = device.id; // either MAC address if android, UUID if iOS
+          const deviceID = device.id;
           const deviceName = device.name;
           // console.log(deviceName + " " + device.id);
           let beaconNum: number;
@@ -99,14 +151,19 @@ function useBLE(): BluetoothLowEnergyApi {
 
           // For iOS, each beacon's UUID is unique to each user's iOS device
           const beaconNumber = Number(deviceName.slice(7, deviceName.length));  // Since each beacon's name is 'Beacon x', slice the number from the name
+          // var beaconNumber: number = +deviceName.slice(8, deviceName.length);
           // console.log("Current Beacon Number: " + beaconNumber);
-          if (!IDMap.has(deviceID)) { // if ID isnt in IDMap
-            IDMap.set(deviceID, beaconNumber);
+          if (!UUIDMap.has(deviceID)) { // if UUID isnt in UUIDMap
+            UUIDMap.set(deviceID, beaconNumber);
           }
-          console.log(IDMap);
+          // console.log(UUIDMap);
 
           // Match deviceID to beacon and put signal in array
-          beaconNum = IDMap.get(deviceID)!;
+          if (Platform.OS === "android") {
+            beaconNum = IDMap.get(deviceID)!;
+          } else {  //  if iOS
+            beaconNum = UUIDMap.get(deviceID)!;
+          }
           
           beaconSignals[beaconNum] = deviceRssi;
           signalTimes[beaconNum] = currentTime;
