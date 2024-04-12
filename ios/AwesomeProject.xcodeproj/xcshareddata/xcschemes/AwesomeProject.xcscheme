@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9D25AB9C213FB47800354C27"
                BuildableName = "UnityFramework.framework"
                BlueprintName = "UnityFramework"
-               ReferencedContainer = "container:../unity/builds/iOS/Unity-iPhone.xcodeproj">
+               ReferencedContainer = "container:../unity/builds/ios/Unity-iPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
