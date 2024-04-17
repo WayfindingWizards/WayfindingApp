@@ -139,12 +139,10 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 	- ```Pod install```
 
 10. Go to the WayfindingApp project directory, open a terminal, and run the command: 
-	- ```Npm install``` 
-	- You will need to sign the project using your Apple ID for it work on iOS devices: 
-	- *Note: in order to open the project in Xcode, open WayFindingApp > ios > AwesomeProject.xcworkspace 
-	In Xcode, under targets, select ‘AwesomeProject’ 
-	Navigate to the ‘Signing & Capabilities’ tab 
-	Under ‘Signing’ select the 'Team Identifier’ dropdown menu and click ‘Add an account’ 
+	- ```Npm install```
+	- In order to open the project in Xcode, open WayFindingApp > ios > AwesomeProject.xcworkspace  
+	- You will need to sign the project using your Apple ID for it work on iOS devices:
+ 		- In Xcode, under targets, select ‘AwesomeProject’, navigate to the ‘Signing & Capabilities’ tab. Under ‘Signing’ select the 'Team Identifier’ 			  dropdown menu and click ‘Add an account’.
 
 11. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
 - ```Npm run ios``` 
