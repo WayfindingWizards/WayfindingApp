@@ -2,16 +2,16 @@
 
 ## Overview
 
-Wayfinder is a mobile application to assist students, faculty, and visitors in navigating MNSU's campus through an indoor positioning system supported by BLE Beacons
+The Wayfinder App is a mobile application to assist students, faculty, and visitors in navigating MNSU's campus through an indoor positioning system supported by BLE Beacons
 
 ## Prerequisites 
 
 * Unity version 2021.3.22f1
 * React Native
-* Android Studio
-* Node
+* Android Studio or Xcode
+* Node.js
 
-## Installation
+## Android Installation
 
 1. Open the command line at the root of the project
 2. `npm -i`
@@ -110,11 +110,42 @@ Wayfinder is a mobile application to assist students, faculty, and visitors in n
 9. Then, `npx react-native start`
 10. Press `A` to launch on Android. 
 
-## Usage
+## iOS Installation
+1. Install Xcode from the App Store 
 
-1. Switch to the root of the project in a command prompt. Use something like:
-```cd C:\Users\<your username>\Documents\GitHub\WayfindingApp```
-2. While in this directory: `npx react-native start`
-3. Press `A` to launch on Android. 
+2. Clone the WayfindingApp and UnityModel repos into the directory of your choice: 
+	- https://github.com/WayfindingWizards/WayfindingApp.git 
+	- https://github.com/WayfindingWizards/UnityModel.git 
 
-If using a device emulator, start the emulator manually first.
+3. Install Homebrew by running this line in a terminal: 
+	- ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+
+4. Where it says, “Next Steps:”, copy, paste, and run those 2 lines in the same terminal 
+
+5. In the same terminal, install node and watchman by running these commands: 
+	- ```Brew install node```
+	- ```Brew install watchman```
+
+6. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
+
+7. Install CocoaPods on your computer by running these commands in the terminal: 
+	- ```Echo ‘eval $(/opt/homebrew/bin/brew shellenv)”’ >>/Users/”YOUR USER FOLDER”/.zprofile```
+	- *note: change “YOUR USER FOLDER” to your username, also note that this command won’t show anything in the terminal 
+	- Restart your terminal after the previous command before running the next 2 
+	- ```Eval “$(/opt/homebrew/bin/brew shellenv)”``` 
+	- ```Brew install cocoapods```
+
+9. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
+	- ```Pod install```
+
+10. Go to the WayfindingApp project directory, open a terminal, and run the command: 
+	- ```Npm install``` 
+	- You will need to sign the project using your Apple ID for it work on iOS devices: 
+	- *Note: in order to open the project in Xcode, open WayFindingApp > ios > AwesomeProject.xcworkspace 
+	In Xcode, under targets, select ‘AwesomeProject’ 
+	Navigate to the ‘Signing & Capabilities’ tab 
+	Under ‘Signing’ select the 'Team Identifier’ dropdown menu and click ‘Add an account’ 
+
+11. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
+- ```Npm run ios``` 
+
