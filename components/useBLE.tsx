@@ -10,7 +10,7 @@
 import {useState} from 'react';
 import {PermissionsAndroid, Platform} from 'react-native';
 import {BleManager, ScanMode} from 'react-native-ble-plx';
-import {PERMISSIONS, requestMultiple} from 'react-native-permissions';
+import {PERMISSIONS, requestMultiple, request} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
 import  {setClosestBeacon, getClosestBeacon, setBeaconArray}  from './GlobalVariables';
 
@@ -75,6 +75,9 @@ function useBLE(): BluetoothLowEnergyApi {
         cb(isGranted);
       }
     } else {  // set to true if ios
+      request(PERMISSIONS.IOS.CAMERA).then((result) => {
+        console.log(result)
+      });
       cb(true);
     }
   };
