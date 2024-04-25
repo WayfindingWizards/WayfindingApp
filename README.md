@@ -40,8 +40,8 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 9. Also inside WayfindingApp\android, find the settings.gradle inside the android folder, and replace the line `include ':app'` with: 
 	- `include ':app', ':react-native-unity-view', ':unityLibrary'`
 
-10. Go to WayfindingApp\unity\builds\android\unityLibrary\src\main and find the AndroidManifest.xml file and delete the code inside of the "<intent-filter>" and the <intent-filter>:
-	- </intent-filter> ... </intent-filter> 
+10. Go to WayfindingApp\unity\builds\android\unityLibrary\src\main and find the AndroidManifest.xml file and delete the code inside of the intent-filters:
+	- `</intent-filter> ... </intent-filter>`
 
 11. Go to WayfindingApp\unity\builds\android\unityLibrary and find build.gradle file, once there ensure that the following is present: 
 	- ndkVersion = "21.3.6528147" 
