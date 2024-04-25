@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Wayfinder App is a mobile application to assist students, faculty, and visitors in navigating MNSU's campus through an indoor positioning system supported by BLE Beacons
+The Wayfinding App is a mobile application to assist students, faculty, and visitors in navigating Minnesota State University's campus through an indoor positioning system supported by BLE Beacons.
 
 ## Prerequisites 
 
@@ -16,9 +16,9 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 	- https://github.com/WayfindingWizards/WayfindingApp.git 
 	- https://github.com/WayfindingWizards/UnityModel.git 
 
-2. open a command line at the root of the WayfindingApp folder
+2. Open a command line at the root of the WayfindingApp folder
 
-3. run the command `npm i` to see if npm is good and up to date: 
+3. Run the command `npm i` to see if npm is good and up to date: 
 	- result should be: ```found 0 vulnerabilities``` and will provide you a notice if there are updates to any npm packages. 
 
 4. Install React Native Unity with the following command:
