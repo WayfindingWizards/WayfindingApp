@@ -31,10 +31,10 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 
 7. open local.properties in your IDE of choice and add the following: 
 	- sdk.dir = *path to sdk* 
-	- On Windows, if you installed Android Studio the path to the SDK is usually C:\Users\<your username>\AppData\Local\Android\Sdk. Use double backslashes to 	  separate path components in the local.properties file, e.g. `sdk.dir = C:\\users\\student\\AppData\\Local\\Android\\Sdk` 
+	- On Windows, if you installed Android Studio the path to the SDK is usually C:\Users\<your username>\AppData\Local\Android\Sdk. Use double backslashes to 	  separate path components in the local.properties file, e.g. sdk.dir = C:\\users\\student\\AppData\\Local\\Android\\Sdk
 
 8. Still inside WayfindingApp\android, find the file called build.gradle inside the folder and make sure this line shows the correct ndk version(download from android studio):  
-	- ndkVersion = "21.3.6528147" 
+	- `ndkVersion = "21.3.6528147"`
 	- *To download the NDK, open Android Studio app. Open the ‘More Actions’ dropdown menu to select ‘SDK Manager’. In the ‘SDK Tools’ tab scroll down until 	  you see ‘NDK (side by side)’ then select the NDK version 21.3.6528147. Click apply in the bottom right corner click the Apply button and wait for the 	  ndk to download. 
 
 9. Also inside WayfindingApp\android, find the settings.gradle inside the android folder, and replace the line `include ':app'` with: 
@@ -44,14 +44,14 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 	- `</intent-filter> ... </intent-filter>`
 
 11. Go to WayfindingApp\unity\builds\android\unityLibrary and find build.gradle file, once there ensure that the following is present: 
-	- ndkVersion = "21.3.6528147" 
+	- `ndkVersion = "21.3.6528147"`
 
 12. Go to WayfindingApp\unity\builds\android\local.properties and make sure the path to the sdk and ndk lead to those installed by android studio: 
 	- sdk.dir = path to sdk
 	- ndk.dir = path to ndk
 	- On Windows, if you installed Android Studio the path to the SDK is usually C:\Users\<your username>\AppData\Local\Android\Sdk. Use double backslashes to 	  separate path components in the local.properties file, e.g. sdk.dir = C:\\users\\student\\AppData\\Local\\Android\\Sdk 
 	- On Windows, if you installed Android Studio the path to the NDK is usually C:\Users\<your username>\AppData\Local\Android\Sdk\ndk\ndk version. Use 
-	  double backslashes to separate path components in the local.properties file, e.g. ndk.dir = 	C:\\Users\\student\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147 
+	  double backslashes to separate path components in the local.properties file, e.g. ndk.dir = C:\\Users\\student\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147 
 
 13. Go to WayfindingApp\unity\builds\android\unityLibrary\symbols and unzip 'arm64-v8a', 'armeabi-v7a,x86', and 'x86_64' inside the symbols folder (These are a part of the Unity model and were too large for GitHub to accept normally)
 
@@ -91,31 +91,29 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 3. Install Homebrew by running this line in a terminal: 
 	- ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 
-4. Where it says, “Next Steps:”, copy, paste, and run those 2 lines in the same terminal 
-
-5. In the same terminal, install node and watchman by running these commands: 
+4. In the same terminal, install node and watchman by running these commands: 
 	- ```Brew install node```
 	- ```Brew install watchman```
 
-6. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
+5. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
 
-7. Install CocoaPods on your computer by running these commands in the terminal: 
+6. Install CocoaPods on your computer by running these commands in the terminal: 
 	- ```Echo ‘eval $(/opt/homebrew/bin/brew shellenv)”’ >>/Users/”YOUR USER FOLDER”/.zprofile```
 	- *note: change “YOUR USER FOLDER” to your username, also note that this command won’t show anything in the terminal 
 	- Restart your terminal after the previous command before running the next 2 
 	- ```Eval “$(/opt/homebrew/bin/brew shellenv)”``` 
 	- ```Brew install cocoapods```
 
-9. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
+7. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
 	- ```Pod install```
 
-10. Go to the WayfindingApp project directory, open a terminal, and run the command: 
+8. Go to the WayfindingApp project directory, open a terminal, and run the command: 
 	- ```Npm install```
 	- In order to open the project in Xcode, open WayFindingApp > ios > AwesomeProject.xcworkspace  
 	- You will need to sign the project using your Apple ID for it work on iOS devices:
  		- In Xcode, under targets, select ‘AwesomeProject’, navigate to the ‘Signing & Capabilities’ tab. Under ‘Signing’ select the 'Team Identifier’ 			  dropdown menu and click ‘Add an account’.
 
-11. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
+9. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
 - ```Npm run ios``` 
 
 ## After Making Changes to the iOS Unity Model
