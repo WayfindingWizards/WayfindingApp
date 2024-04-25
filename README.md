@@ -130,7 +130,7 @@ The Wayfinder App is a mobile application to assist students, faculty, and visit
 
 6. Go to WayfindingApp/unity/builds/ios and export 
 
-7. Open up awesomeproject.xcworkspace in Xcode and expand Unity-iPhone.xcproject
+7. Open up awesomeproject.xcworkspace in Xcode and expand the section 'Unity-iPhone'
 
 8. Click on the folder labled 'Data' and where it says 'Target Membership' on the right side of the screen, make sure 'UnityFramework' is checked.
 
