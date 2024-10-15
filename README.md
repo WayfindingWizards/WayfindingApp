@@ -106,6 +106,7 @@ The Wayfinding App is a mobile application to assist students, faculty, and visi
 
 7. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
 	- ```Pod install```
+ 	- *Note: If you run into a 'Invalid Podfile' error, try running ```npm audit fix``` before you run the command above 
 
 8. Go to the WayfindingApp project directory, open a terminal, and run the command: 
 	- ```Npm install```
