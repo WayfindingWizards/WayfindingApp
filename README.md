@@ -112,10 +112,10 @@ The Wayfinding App is a mobile application to assist students, faculty, and visi
 	- You will need to sign the project using your Apple ID for it work on iOS devices:
  		- In Xcode, under targets, select ‘AwesomeProject’, navigate to the ‘Signing & Capabilities’ tab. Under ‘Signing’ select the 'Team Identifier’ 			  dropdown menu and click ‘Add an account’.
 
-8. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
+8. In Xcode, navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
 
 9. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
-- ```npm run ios``` 
+	- ```npm run ios``` 
 
 ## After Making Changes to the iOS Unity Model
 1. Delete the previous build under WayfindingApp/unity/builds/ios
