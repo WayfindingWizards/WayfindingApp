@@ -95,24 +95,24 @@ The Wayfinding App is a mobile application to assist students, faculty, and visi
 	- ```brew install node```
 	- ```brew install watchman```
 
-5. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
-
-6. Install CocoaPods on your computer by running these commands in the terminal: 
+5. Install CocoaPods on your computer by running these commands in the terminal: 
 	- ```echo ‘eval $(/opt/homebrew/bin/brew shellenv)”’ >>/Users/”YOUR USER FOLDER”/.zprofile```
 	- *note: change “YOUR USER FOLDER” to your username, also note that this command won’t show anything in the terminal 
 	- Restart your terminal after the previous command before running the next 2 
 	- ```eval “$(/opt/homebrew/bin/brew shellenv)”``` 
 	- ```brew install cocoapods```
 
-7. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
+6. Install CocoaPods to the WayfindingApp’s iOS folder by running this command in a terminal inside the iOS folder: 
 	- ```pod install```
  	- *Note: If you run into a 'Invalid Podfile' error, try running ```npm audit fix``` before you run the command above 
 
-8. Go to the WayfindingApp project directory, open a terminal, and run the command: 
+7. Go to the WayfindingApp project directory, open a terminal, and run the command: 
 	- ```npm install```
 	- In order to open the project in Xcode, open WayFindingApp > ios > AwesomeProject.xcworkspace  
 	- You will need to sign the project using your Apple ID for it work on iOS devices:
  		- In Xcode, under targets, select ‘AwesomeProject’, navigate to the ‘Signing & Capabilities’ tab. Under ‘Signing’ select the 'Team Identifier’ 			  dropdown menu and click ‘Add an account’.
+
+8. Open Xcode and navigate to Xcode > Settings > Locations, and make sure the ‘Command Line Tools’ option has the latest version of Xcode selected 
 
 9. To run the app at any time, go to the WayfindingApp/iOS project directory, open a terminal, and run the command: 
 - ```npm run ios``` 
